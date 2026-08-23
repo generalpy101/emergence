@@ -88,6 +88,8 @@ def _build_context(run_id: str, *, mock_llm: bool, no_cache: bool) -> RunContext
             base_url=settings.llm_base_url,
             api_key=settings.llm_api_key,
             model=settings.llm_model,
+            timeout_s=settings.llm_timeout_s,
+            extra_body=settings.llm_extra_body,
         )
     )
     paths = RunPaths(root=RUNS_ROOT / run_id)

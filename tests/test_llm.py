@@ -65,6 +65,7 @@ def test_openai_compat_client_request_shape():
         base_url="http://localhost:11434/v1/",
         api_key="secret",
         model="llama3.1:8b",
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
         client=httpx.Client(transport=httpx.MockTransport(handler)),
     )
     response = client.complete("hello")
@@ -72,6 +73,7 @@ def test_openai_compat_client_request_shape():
     assert captured["url"] == "http://localhost:11434/v1/chat/completions"  # trailing / handled
     assert captured["body"]["model"] == "llama3.1:8b"
     assert captured["body"]["messages"] == [{"role": "user", "content": "hello"}]
+    assert captured["body"]["chat_template_kwargs"] == {"enable_thinking": False}
     assert captured["auth"] == "Bearer secret"
     assert response.text == '{"ok": true}'
     assert response.input_tokens == 10

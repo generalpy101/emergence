@@ -46,12 +46,14 @@ class OpenAiCompatClient:
         base_url: str,
         api_key: str,
         model: str,
-        timeout_s: float = 180.0,
+        timeout_s: float = 900.0,  # local big models generate for minutes
+        extra_body: dict | None = None,
         client: httpx.Client | None = None,
     ) -> None:
         self.model = model
         self._base = base_url.rstrip("/")
         self._api_key = api_key
+        self._extra_body = extra_body or {}
         self._client = client or httpx.Client(timeout=timeout_s)
 
     def complete(self, prompt: str) -> LlmResponse:
@@ -63,6 +65,10 @@ class OpenAiCompatClient:
                 "model": self.model,
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.2,
+                # Cap runaway generation; a full analysis needs ~1500 tokens.
+                # extra_body may override.
+                "max_tokens": 4096,
+                **self._extra_body,
             },
         )
         response.raise_for_status()
