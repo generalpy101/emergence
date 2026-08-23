@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets — never commit real keys
+.env
+
+# OS
+.DS_Store
+
+# NOTE: data/runs/ is intentionally NOT ignored.
+# Pipeline outputs (candidates, analyses, memos, raw evidence) are committed
+# so reviewers can inspect results without re-running the pipeline.
