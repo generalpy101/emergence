@@ -47,13 +47,20 @@ def _add_hn_thread(pack: EvidencePack, fetcher, now: datetime) -> None:
     if story is None:
         pack.missing.append(f"HN story unavailable: {hn.story_url}")
     else:
-        excerpt = html_to_text(story.get("text") or story.get("title") or "")
+        # Structured stats go INTO the excerpt as a facts line: the model can
+        # only make verbatim-quote claims about text it can see, and traction
+        # claims are exactly these numbers.
+        facts = (
+            f"points={story.get('score')} comments={story.get('descendants')} "
+            f"author={story.get('by')}"
+        )
+        body = html_to_text(story.get("text") or story.get("title") or "")
         pack.items.append(
             EvidenceItem(
                 kind=EvidenceKind.HN_STORY,
                 url=hn.story_url,
                 fetched_at=now,
-                excerpt=excerpt[:COMMENT_CAP],
+                excerpt=f"{facts}\n{body}"[:COMMENT_CAP],
                 meta={"points": story.get("score"), "author": story.get("by")},
             )
         )
@@ -75,12 +82,14 @@ def _add_hn_thread(pack: EvidencePack, fetcher, now: datetime) -> None:
         if user is None:
             pack.missing.append(f"HN profile unavailable for '{hn.author}'")
         else:
+            facts = f"karma={user.get('karma')} account_created={user.get('created')}"
+            body = html_to_text(user.get("about") or "")
             pack.items.append(
                 EvidenceItem(
                     kind=EvidenceKind.HN_USER,
                     url=HN_USER_PAGE.format(username=hn.author),
                     fetched_at=now,
-                    excerpt=html_to_text(user.get("about") or "", cap=COMMENT_CAP),
+                    excerpt=f"{facts}\n{body}"[:COMMENT_CAP],
                     meta={"karma": user.get("karma"), "created": user.get("created")},
                 )
             )
@@ -185,12 +194,16 @@ def _add_github_repo(
             pack.missing.append(f"README undecodable for '{org}/{repo}'")
     else:
         pack.missing.append(f"README unavailable for '{org}/{repo}'")
+    facts = (
+        f"stars={repo_data.get('stargazers_count')} "
+        f"language={repo_data.get('language')} pushed_at={repo_data.get('pushed_at')}"
+    )
     pack.items.append(
         EvidenceItem(
             kind=EvidenceKind.GITHUB_REPO,
             url=f"https://github.com/{org}/{repo}",
             fetched_at=now,
-            excerpt=excerpt,
+            excerpt=f"{facts}\n{excerpt}"[:EXCERPT_CAP],
             meta={
                 "description": repo_data.get("description"),
                 "stars": repo_data.get("stargazers_count"),

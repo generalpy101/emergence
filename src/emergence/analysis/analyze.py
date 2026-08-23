@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import time
 from pathlib import Path
 
@@ -54,7 +55,10 @@ def _parse_analysis(text: str, slug: str) -> tuple[Analysis | None, str | None]:
 
 
 def _normalize(text: str) -> str:
-    return " ".join(text.split()).casefold()
+    """Word-sequence comparison: case-insensitive, whitespace-collapsed, and
+    punctuation-stripped — a verbatim quote stays verbatim even when the
+    evidence wraps it in Markdown list markers."""
+    return " ".join(re.sub(r"[^a-z0-9\s]", " ", text.casefold()).split())
 
 
 def validate_claims(analysis: Analysis, pack: EvidencePack) -> list[str]:

@@ -200,6 +200,14 @@ def test_validate_claims_unit():
     assert errors and "not verbatim" in errors[0]
 
 
+def test_quote_matching_ignores_markdown_punctuation():
+    from emergence.analysis.analyze import _normalize
+
+    excerpt = "Prerequisites:\n- one agent CLI\n- Node 20+"
+    quote = "one agent CLI"  # model reasonably omits the bullet marker
+    assert _normalize(quote) in _normalize(excerpt)
+
+
 def _ok_analysis():
     client = MockLlm()
     pack = make_pack()

@@ -55,5 +55,6 @@ def test_github_website_uses_api_not_html():
 
     repo = next(i for i in pack.items if i.kind == EvidenceKind.GITHUB_REPO)
     assert "Open-source AI agent wiki" in repo.excerpt  # README decoded
+    assert "stars=1800" in repo.excerpt  # facts line: numbers must be quotable
     assert repo.meta["stars"] == 1800
     assert repo.meta["description"] == "A Karpathy-style LLM wiki"

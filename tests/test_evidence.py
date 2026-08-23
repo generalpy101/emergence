@@ -100,6 +100,10 @@ def test_full_pack_collects_all_evidence_kinds():
     user = next(i for i in pack.items if i.kind == EvidenceKind.HN_USER)
     assert user.meta["karma"] == 1234
     assert user.url.endswith("user?id=janedoe")
+    assert "karma=1234" in user.excerpt  # facts line: numbers must be quotable
+
+    story = next(i for i in pack.items if i.kind == EvidenceKind.HN_STORY)
+    assert "points=120" in story.excerpt
 
     comment = next(i for i in pack.items if i.kind == EvidenceKind.HN_COMMENT)
     assert "<b>" not in comment.excerpt  # comment HTML stripped
