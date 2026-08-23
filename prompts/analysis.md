@@ -1,4 +1,6 @@
-<!-- prompt-version: 1 -->
+<!-- prompt-version: 2 -->
+<!-- v2: rationales may cite evidence by [index] (matches the memo appendix);
+     claims must be observable facts, not restatements of score/thesis. -->
 <!-- Rendered with Jinja2 by emergence.analysis.analyze. Changes to this file
      are prompt iterations — review them in git diff. -->
 
@@ -42,14 +44,18 @@ evidence supports, and you say so when evidence is missing.
    evidence is thin, the subscore goes down and the rationale says why — never
    invent facts to fill gaps.
 2. Every claim MUST carry a `source_url` copied verbatim from the evidence
-   URLs above. If no evidence supports a statement, it is not a claim — it is
-   a guess, and it does not belong in the output.
-3. `risks` are reasoned inference (they need no source, but must follow from
+   URLs above, and must be an observable fact found in that evidence — not a
+   restatement of the score, the thesis, or the category. If no evidence
+   supports a statement, it is not a claim — it is a guess, and it does not
+   belong in the output.
+3. In `rationale` text you may cite evidence items by their index, e.g. [2] —
+   the reader sees the same numbered list.
+4. `risks` are reasoned inference (they need no source, but must follow from
    the evidence, not from generic startup pessimism). 2–4 items.
-4. `change_my_mind`: the 2–3 concrete, checkable things that would most change
+5. `change_my_mind`: the 2–3 concrete, checkable things that would most change
    the eventual call (e.g. "a named design partner", "founder's prior exit
    confirmed").
-5. Output ONLY the JSON object below. No prose, no markdown fences.
+6. Output ONLY the JSON object below. No prose, no markdown fences.
 
 ## Output JSON schema
 
