@@ -64,6 +64,9 @@ def test_analyze_happy_path_with_mock(tmp_path):
     # provenance artifacts written
     assert "mock" in log.read_text()
     assert (tmp_path / "prompts" / "acme-io.md").exists()
+    # raw model responses are captured per attempt for post-mortems
+    responses = tmp_path / "llm-responses"
+    assert (responses / "acme-io.attempt1.txt").exists()
 
 
 class FlakyThenGood:

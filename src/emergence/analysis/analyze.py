@@ -98,6 +98,15 @@ def analyze_candidate(
         prompts_out_dir.mkdir(parents=True, exist_ok=True)
         (prompts_out_dir / f"{slug}.md").write_text(prompt)
 
+    responses_dir = None
+    if prompts_out_dir is not None:
+        responses_dir = prompts_out_dir.parent / "llm-responses"
+        responses_dir.mkdir(parents=True, exist_ok=True)
+
+    def _dump(attempt: int, text: str) -> None:
+        if responses_dir is not None:
+            (responses_dir / f"{slug}.attempt{attempt}.txt").write_text(text)
+
     started = time.monotonic()
     try:
         response = client.complete(prompt)
@@ -111,6 +120,7 @@ def analyze_candidate(
         _log_call(log_path, candidate=slug, model=client.model, ok=False, error=str(exc))
         return _degraded(pack, meta, f"LLM endpoint error: {exc}")
 
+    _dump(1, response.text)
     analysis, error = _parse_analysis(response.text, slug)
     repaired = False
     if analysis is None:
@@ -119,6 +129,7 @@ def analyze_candidate(
             "Return ONLY the corrected JSON object, nothing else."
         )
         response = client.complete(repair_prompt)
+        _dump(2, response.text)
         analysis, error = _parse_analysis(response.text, slug)
         repaired = True
 
