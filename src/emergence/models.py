@@ -77,11 +77,15 @@ class EvidencePack(BaseModel):
 class Claim(BaseModel):
     """A claim must point at a numbered evidence item and carry a verbatim
     quote from it. Both are validated in code (analyze.validate_claims) —
-    the model proposes, code disposes."""
+    the model proposes, code disposes.
+
+    evidence_idx 0 is the escape hatch for claims about ABSENT evidence
+    ("no team page is linked"): the quote is then validated verbatim
+    against the pack's `missing` list instead of an excerpt."""
 
     text: str
-    evidence_idx: int = Field(ge=1)  # 1-based index into EvidencePack.items
-    quote: str  # verbatim span copied from that item's excerpt
+    evidence_idx: int = Field(ge=0)  # 1-based index into items; 0 = missing list
+    quote: str  # verbatim span copied from that item's excerpt (or missing entry)
 
 
 class Section(BaseModel):

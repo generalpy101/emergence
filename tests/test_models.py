@@ -39,7 +39,7 @@ def test_claim_requires_evidence_ref_and_quote():
     with pytest.raises(ValidationError):
         Claim(text="founders ex-Stripe")  # no evidence_idx / quote
     with pytest.raises(ValidationError):
-        Claim(text="x", evidence_idx=0, quote="y")  # idx is 1-based
+        Claim(text="x", evidence_idx=-1, quote="y")  # 0 = missing-list escape hatch
 
 
 def test_candidate_json_roundtrip():

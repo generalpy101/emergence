@@ -68,10 +68,19 @@ def validate_claims(analysis: Analysis, pack: EvidencePack) -> list[str]:
     actually read it."""
     errors = []
     n_items = len(pack.items)
+    missing_corpus = "\n".join(pack.missing)
     for dim in ("team", "product", "market", "traction", "thesis_fit"):
         section = getattr(analysis, dim)
         for claim in section.claims:
             label = f"{dim} claim '{claim.text[:60]}'"
+            if claim.evidence_idx == 0:
+                # Absence claim: the quote must match a recorded gap verbatim.
+                if _normalize(claim.quote) not in _normalize(missing_corpus):
+                    errors.append(
+                        f"{label}: cites [0] (missing evidence) but the quote "
+                        "matches no recorded gap"
+                    )
+                continue
             if claim.evidence_idx > n_items:
                 errors.append(
                     f"{label}: cites evidence [{claim.evidence_idx}] "

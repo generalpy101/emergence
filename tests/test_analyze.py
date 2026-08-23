@@ -208,6 +208,22 @@ def test_quote_matching_ignores_markdown_punctuation():
     assert _normalize(quote) in _normalize(excerpt)
 
 
+def test_absence_claims_cite_missing_list_via_idx_zero():
+    from emergence.analysis.analyze import validate_claims
+
+    pack = make_pack()
+    pack.missing.append("no about/team page linked from homepage")
+
+    analysis, _ = _ok_analysis()
+    analysis.team.claims[0].evidence_idx = 0
+    analysis.team.claims[0].quote = "no about/team page linked from homepage"
+    assert validate_claims(analysis, pack) == []
+
+    analysis.team.claims[0].quote = "no github org found"  # not in missing
+    errors = validate_claims(analysis, pack)
+    assert errors and "missing evidence" in errors[0]
+
+
 def _ok_analysis():
     client = MockLlm()
     pack = make_pack()

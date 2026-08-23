@@ -54,6 +54,9 @@ evidence supports, and you say so when evidence is missing.
    rejected. A claim must be an observable fact in that evidence — never a
    restatement of the score, the thesis, or the category. If no evidence
    supports a statement, it is a guess and does not belong in the output.
+   Exception: for a claim that something is ABSENT (e.g. "no team page is
+   linked"), use `evidence_idx` 0 and quote the matching line from the
+   Missing-evidence list above, verbatim.
 3. In `rationale` text you may cite evidence items by their index, e.g. [2] —
    the reader sees the same numbered list.
 4. `risks` are reasoned inference (they need no source, but must follow from
