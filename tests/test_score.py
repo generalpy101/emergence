@@ -117,3 +117,17 @@ def test_degraded_analysis_is_gated():
     score = compute_score(make_analysis((5, 5, 5, 5, 5), degraded=True), make_pack())
     assert score.call == Call.PASS
     assert "analysis_degraded" in score.gates_triggered
+
+
+def test_github_repo_counts_as_product_evidence():
+    # OSS-first candidates have no web_page; the repo must satisfy dead_site.
+    pack = make_pack(with_web_page=False)
+    pack.items.append(
+        EvidenceItem(
+            kind=EvidenceKind.GITHUB_REPO,
+            url="https://github.com/acme/ledger-bot",
+            fetched_at=datetime(2026, 8, 23, tzinfo=UTC),
+        )
+    )
+    gates = evaluate_gates(make_analysis((5, 5, 5, 5, 5)), pack)
+    assert "dead_site" not in gates

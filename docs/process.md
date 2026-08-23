@@ -35,6 +35,35 @@
 - **Git identity:** repo-local `Prakash Yogi <yogipra2003@gmail.com>` (personal
   account), set explicitly so the company identity never touches this repo.
 
+### 2026-08-23 — Implementation (milestones 4–8)
+
+- **Built by the assistant, per the plan:** stage contracts, HN sourcing,
+  evidence packs, LLM client + prompt, scoring/gates, memo rendering, CLI.
+  58 tests, all fixture-based (no live network).
+- **Things that failed on the first pass (kept because a clean log is a fake
+  log):**
+  1. *Typer `--version` needed an eager callback* — group callbacks don't
+     process options before a subcommand exists. Two failed attempts, then
+     the standard eager-option pattern.
+  2. *Thin-content threshold* (200 chars) flagged a valid minimal page as
+     "JS-only shell" in tests → lowered to 100 and enriched the fixture.
+  3. *Auth header lived on the internally-created HTTP client* — a test
+     injecting its own client exposed that auth would silently vanish. Moved
+     to per-request headers. This one was a real design fix, not a typo.
+  4. *A test's arithmetic was wrong* (subscores summed to 72 = "Take a
+     meeting", test expected "Watch") — the memo renderer was right, the
+     test was wrong. Recorded because it's the honest direction of error.
+- **Live smoke test found a real gap:** top-engagement HN candidates whose
+  "website" is a GitHub repo. Became `docs/decisions/0001` (repo/README via
+  API instead of HTML). Writing the ADR then caught a second bug: the
+  `dead_site` gate only counted web pages, which would have auto-Passed
+  exactly the OSS-first candidates the thesis likes. Fixed in the same pass.
+- **Deliberate honesty mechanics the assistant built in** (worth knowing they
+  were designed, not emergent): claim-level `source_url` is schema-required;
+  candidate identity is stamped by code (`candidate_slug` overwritten, the
+  model can't forge it); degraded analyses force a Pass and print so on the
+  memo; `pack.missing` renders as a "could not verify" list on every memo.
+
 ## Reflections
 
 ### What I actually did vs. what the AI did

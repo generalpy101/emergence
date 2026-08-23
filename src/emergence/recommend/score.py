@@ -45,7 +45,10 @@ def evaluate_gates(analysis: Analysis, pack: EvidencePack) -> list[str]:
     gates = []
     if analysis.degraded:
         gates.append("analysis_degraded")
-    if not any(item.kind == EvidenceKind.WEB_PAGE for item in pack.items):
+    # "dead site" means no product presence at all: neither a fetchable site
+    # nor (for OSS-first candidates) a GitHub repo. See docs/decisions/0001.
+    product_evidence = {EvidenceKind.WEB_PAGE, EvidenceKind.GITHUB_REPO}
+    if not any(item.kind in product_evidence for item in pack.items):
         gates.append("dead_site")
     if analysis.category in EXCLUDED_CATEGORIES:
         gates.append("excluded_category")
