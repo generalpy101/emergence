@@ -5,8 +5,9 @@ from datetime import UTC, datetime
 
 from conftest import FakeFetcher
 
-from emergence.analysis.evidence import build_pack, parse_github_url
+from emergence.analysis.evidence import build_pack
 from emergence.models import Candidate, EvidenceKind, SourceKind
+from emergence.sourcing.parse import parse_github_url
 
 README_MD = "# Wuphf\nOpen-source AI agent wiki your team maintains.\n"
 REPO = {

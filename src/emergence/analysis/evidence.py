@@ -10,11 +10,11 @@ from __future__ import annotations
 
 import base64
 from datetime import UTC, datetime
-from urllib.parse import urlsplit
 
 from emergence.analysis.extract import github_org, html_to_text, interesting_pages
 from emergence.models import Candidate, EvidenceItem, EvidenceKind, EvidencePack
 from emergence.sourcing.hn import get_item, get_top_comments, get_user
+from emergence.sourcing.parse import parse_github_url
 
 EXCERPT_CAP = 8000
 COMMENT_CAP = 2000
@@ -27,14 +27,6 @@ GITHUB_REPO_API = "https://api.github.com/repos/{org}/{repo}"
 GITHUB_README_API = "https://api.github.com/repos/{org}/{repo}/readme"
 HN_USER_PAGE = "https://news.ycombinator.com/user?id={username}"
 HN_COMMENT_PAGE = "https://news.ycombinator.com/item?id={item_id}"
-
-
-def parse_github_url(url: str) -> tuple[str, str | None] | None:
-    """'https://github.com/org/repo' -> ('org', 'repo'); None if not GitHub."""
-    parts = [p for p in urlsplit(url).path.strip("/").split("/") if p]
-    if "github.com" not in urlsplit(url).netloc.lower() or not parts:
-        return None
-    return parts[0], (parts[1] if len(parts) > 1 else None)
 
 
 def build_pack(candidate: Candidate, fetcher) -> EvidencePack:

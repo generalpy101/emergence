@@ -10,7 +10,12 @@ from datetime import UTC, datetime, timedelta
 
 from emergence.models import Candidate, HnSignals, SourceKind
 from emergence.sourcing.hn import HN_ITEM_PAGE, search_stories
-from emergence.sourcing.parse import normalize_domain, slugify, split_title
+from emergence.sourcing.parse import (
+    normalize_domain,
+    parse_github_url,
+    slugify,
+    split_title,
+)
 
 
 def source_candidates(
@@ -43,6 +48,11 @@ def source_candidates(
             continue
         seen_domains.add(domain)
         name, one_liner = parsed
+        if not one_liner and (github := parse_github_url(hit.url)) and github[1]:
+            # OSS-first launch with a prose title ("Show HN: A Karpathy-style
+            # wiki your agents maintain"): the repo name is the name, and the
+            # title body is the one-liner.
+            name, one_liner = github[1], name
         candidates.append(
             Candidate(
                 slug=slugify(domain),

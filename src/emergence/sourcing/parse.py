@@ -45,3 +45,13 @@ def slugify(text: str) -> str:
     """Stable, filesystem-safe slug: 'Acme Agents!' -> 'acme-agents'."""
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return slug or "unknown"
+
+
+def parse_github_url(url: str) -> tuple[str, str | None] | None:
+    """'https://github.com/org/repo' -> ('org', 'repo'); None if not GitHub."""
+    if "github.com" not in urlsplit(url).netloc.lower():
+        return None
+    parts = [p for p in urlsplit(url).path.strip("/").split("/") if p]
+    if not parts:
+        return None
+    return parts[0], (parts[1] if len(parts) > 1 else None)

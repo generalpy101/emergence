@@ -54,6 +54,29 @@ def test_api_failure_returns_empty_not_crash():
     assert source_candidates(FakeFetcher(), query="x", now=NOW) == []
 
 
+def test_oss_first_title_uses_repo_name():
+    # "Show HN: <prose>" with a github.com URL and no name separator:
+    # repo becomes the name, prose becomes the one-liner.
+    payload = {
+        "hits": [
+            {
+                "objectID": "500",
+                "title": "Show HN: A Karpathy-style LLM wiki your agents maintain",
+                "url": "https://github.com/nex-crm/wuphf",
+                "points": 260,
+                "num_comments": 114,
+                "created_at_i": 1780000000,
+                "author": "najmuzzaman",
+            }
+        ]
+    }
+    candidates = source_candidates(
+        FakeFetcher(json_routes={"hn.algolia.com": payload}), query="wiki", now=NOW
+    )
+    assert candidates[0].name == "wuphf"
+    assert candidates[0].one_liner == "A Karpathy-style LLM wiki your agents maintain"
+
+
 def test_candidates_from_urls_dedups_and_normalizes():
     candidates = candidates_from_urls(
         ["https://acme.io", "https://www.acme.io/team", "", "dispatchly.com"], now=NOW
