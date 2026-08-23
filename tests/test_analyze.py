@@ -137,6 +137,51 @@ def test_prompt_contains_thesis_evidence_and_missing(tmp_path):
     assert analysis.degraded is False
 
 
+def test_repair_transport_failure_is_degraded_not_crash():
+    import httpx
+
+    class BrokenThenDown:
+        model = "flaky-down"
+
+        def __init__(self):
+            self.calls = 0
+
+        def complete(self, prompt: str) -> LlmResponse:
+            self.calls += 1
+            if self.calls == 1:
+                return LlmResponse(text="not json", model=self.model, latency_ms=1)
+            raise httpx.ReadTimeout("timed out")
+
+    analysis = analyze_candidate(
+        make_pack(),
+        BrokenThenDown(),
+        template=load_template(),
+        template_path=TEMPLATE_PATH,
+        thesis_text=THESIS.read_text(),
+    )
+    assert analysis.degraded is True
+    assert "repair call failed" in analysis.team.rationale
+
+
+def test_malformed_endpoint_payload_is_degraded_not_crash():
+    import httpx
+
+    class GarbageEndpoint:
+        model = "garbage"
+
+        def complete(self, prompt: str) -> LlmResponse:
+            raise httpx.HTTPError("malformed chat-completions payload: 'choices'")
+
+    analysis = analyze_candidate(
+        make_pack(),
+        GarbageEndpoint(),
+        template=load_template(),
+        template_path=TEMPLATE_PATH,
+        thesis_text=THESIS.read_text(),
+    )
+    assert analysis.degraded is True
+
+
 def test_endpoint_error_is_degraded_not_fatal():
     import httpx
 

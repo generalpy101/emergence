@@ -128,7 +128,21 @@ def analyze_candidate(
             f"{prompt}\n\n---\nYour previous reply was invalid: {error}\n"
             "Return ONLY the corrected JSON object, nothing else."
         )
-        response = client.complete(repair_prompt)
+        try:
+            response = client.complete(repair_prompt)
+        except httpx.HTTPError as exc:
+            # The repair call failing (timeout, malformed payload) must land
+            # on the same degraded path as a bad first attempt.
+            meta = LlmMeta(
+                model=client.model,
+                prompt_file=template_path.name,
+                prompt_sha=template_sha,
+                latency_ms=int((time.monotonic() - started) * 1000),
+                repaired=True,
+            )
+            _log_call(log_path, candidate=slug, model=client.model, ok=False,
+                      error=f"repair: {exc}")
+            return _degraded(pack, meta, f"repair call failed: {exc}")
         _dump(2, response.text)
         analysis, error = _parse_analysis(response.text, slug)
         repaired = True

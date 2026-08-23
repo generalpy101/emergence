@@ -80,6 +80,22 @@ def test_openai_compat_client_request_shape():
     assert response.output_tokens == 4
 
 
+def test_client_raises_httpx_error_on_malformed_payload():
+    import pytest
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, json={"unexpected": "shape"})
+
+    client = OpenAiCompatClient(
+        base_url="http://x/v1",
+        api_key="k",
+        model="m",
+        client=httpx.Client(transport=httpx.MockTransport(handler)),
+    )
+    with pytest.raises(httpx.HTTPError, match="malformed chat-completions payload"):
+        client.complete("hello")
+
+
 def test_analysis_roundtrip_with_meta():
     analysis, _ = _parse_with_slug(MockLlm().complete("p"))
     dumped = analysis.model_dump_json()

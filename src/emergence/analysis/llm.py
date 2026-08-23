@@ -72,10 +72,18 @@ class OpenAiCompatClient:
             },
         )
         response.raise_for_status()
-        data = response.json()
-        usage = data.get("usage") or {}
+        try:
+            data = response.json()
+            usage = data.get("usage") or {}
+            text = data["choices"][0]["message"]["content"]
+            if not isinstance(text, str):
+                raise TypeError("message.content is not a string")
+        except (ValueError, KeyError, IndexError, TypeError) as exc:
+            # Malformed endpoint payloads get the same honest degraded path
+            # as transport failures.
+            raise httpx.HTTPError(f"malformed chat-completions payload: {exc}") from exc
         return LlmResponse(
-            text=data["choices"][0]["message"]["content"],
+            text=text,
             model=self.model,
             latency_ms=int((time.monotonic() - started) * 1000),
             input_tokens=usage.get("prompt_tokens"),
