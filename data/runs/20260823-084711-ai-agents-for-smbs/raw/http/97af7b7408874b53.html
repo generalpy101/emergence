@@ -1,0 +1,80 @@
+# MakePortals
+
+> Deploy any project as a shareable link. Not localhost: a real cloud VM anyone can open.
+
+## Deploy This Project
+
+Paste this into your coding agent (Claude Code, Codex, Cursor, VS Code, Gemini):
+
+```
+Run `npx makeportals deploy` to deploy this project with MakePortals.
+```
+
+That's it. The CLI handles auth, packaging, upload, and returns a shareable link.
+
+## What happens when you run it
+
+1. First time: opens browser for Google sign-in (~10 seconds, cached after)
+2. Zips your project (excludes .git, node_modules, .env)
+3. Uploads to a cloud VM, auto-detects framework (Node, Python, Vite, Next.js, static HTML)
+4. If .env vars are needed, opens a secure browser form (secrets never pass through the agent)
+5. Returns a shareable link: each visitor gets their own isolated session
+
+## GitHub repos
+
+Tell your agent:
+
+```
+Run `npx makeportals deploy` and import https://github.com/owner/repo
+```
+
+## What Portal gives you (no code changes needed)
+
+- **AI assistant**: answers viewer questions, collects feedback, interviews users
+- **Rate limiting**: cap API calls per session (e.g. limit /api/chat to 5 calls/min)
+- **Session recordings**: see what viewers clicked, where they got stuck, what they asked
+- **Isolated sessions**: each viewer gets their own sandboxed instance
+- **Guardrails**: block buttons, restrict URLs, prevent abuse
+
+These are Portal features configured at deploy time, not code you add to your app.
+
+## Connect MakePortals permanently (optional)
+
+After connecting, you can just say "Deploy this with MakePortals" and the agent will know what to do.
+
+**Claude Code:**
+```
+claude mcp add makeportals -- npx -y makeportals mcp
+```
+
+**Codex:**
+```
+codex mcp add makeportals -- npx -y makeportals mcp
+```
+
+**Cursor:** Add to `~/.cursor/mcp.json`:
+```json
+{"mcpServers":{"portal":{"command":"npx","args":["-y","makeportals","mcp"]}}}
+```
+
+**VS Code:** Add to `.vscode/mcp.json`:
+```json
+{"servers":{"portal":{"command":"npx","args":["-y","makeportals","mcp"]}}}
+```
+
+**Or use hosted HTTP MCP (no local install):**
+```
+claude mcp add makeportals --transport http https://mcp.makeportals.com/mcp
+```
+
+## Pricing
+
+Free plan: 2 Portals, 10 sessions/month. Builder ($20/mo): 10 Portals, 50 sessions.
+
+## Docs
+
+- [Getting Started](https://www.makeportals.com/docs/introduction)
+- [Portal for Developers/Coding Agents](https://www.makeportals.com/docs/introduction#portal-developers)
+- [Portal for GTM](https://www.makeportals.com/docs/introduction#portal-gtm)
+- [Portal for Developers/Coding Agents (MCP reference)](https://www.makeportals.com/docs/mcp)
+- [Pricing](https://www.makeportals.com/pricing)

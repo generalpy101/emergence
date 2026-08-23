@@ -1,0 +1,108 @@
+{
+  "candidate": {
+    "slug": "x402-org",
+    "name": "X402",
+    "website": "https://www.x402.org/",
+    "one_liner": "an open standard for internet native payments",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 43908129,
+      "story_url": "https://news.ycombinator.com/item?id=43908129",
+      "points": 16,
+      "num_comments": 6,
+      "posted_at": "2025-05-06T18:24:51Z",
+      "author": "__erik"
+    },
+    "founder_hint": "__erik",
+    "discovered_at": "2026-08-23T08:47:11.106490Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=43908129",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "Hi HN – excited to announce x402, initially developed by Coinbase (YC 12)\nx402 lets any HTTP API charge per request without issuing API keys or storing credit cards. Buyers (humans or AI agents) keep funds in their own wallet and dynamically discover compatible endpoints, call them as usual, and automatically pay a microtransaction in USDC or other tokens to settle.\n90 second demo:\nhttps://www.youtube.com/watch?v=PV-L2AfLhJg\nProblem: Every time we want to use a new API we have to: find the service online create a developer account, copy a secret key into env vars, pre-fund or hand over a credit card\nThis flow blocks agents even more. They can’t solve CAPTCHAs or enter credit cards. It also hurts sellers: fraud, chargebacks, onboarding friction, and marketing to humans are huge pain points.\nWhy buyers care Zero setup – Hit a new endpoint immediately. Runtime discovery – Because every x402 service exists in a common registry, an agent can search, compare, and invoke in one loop. Self-assembling agents become practical. Easily create proxy servers – Want an endpoint that isn’t supported? You can use our proxy server template to spin up an x402-compatible instance yourself using traditional API keys, and monetize it for others wanting access.\nWhy sellers care Reach incremental demand – Long-tail bots, side projects, one-off scripts, all of which too small for an account/signup flow, can now pay you. Micropayments without fraud – All payments settle onchain, nothing for stolen credit cards or chargebacks to reverse. Embedded distribution – instead of marketing to humans, create a compelling service meeting demand for agents and watch the requests roll in.\nHow we got here Last year we launched AgentKit (wallets for AI agents). Tens of thousands of agents now hold onchain balances, but they can’t pay for most web services. We revived the long-unused HTTP 402 (“Payment Required”) status code and wrote a spec to make it real. Marc Andresseen calls the lack of native value tr",
+      "meta": {
+        "points": 16,
+        "author": "__erik"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=43912749",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "So it's an \"open standard\" and you can use any chain that meets Coinbase's \"acceptance criteria\". So under this guise, their whole goal is to make themselves centralizing force.",
+      "meta": {
+        "author": "ruiseal"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=43910470",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "Congrats Erik. We are launching something that support x402 soon. DM'ed you on LinkedIn",
+      "meta": {
+        "author": "xinbenlv"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=43914504",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "this looks great, gonna look into writing something to use with fastapi",
+      "meta": {
+        "author": "ricochet11"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=43909067",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "standard X.402 (ISO/IEC 10021-2) does already exist",
+      "meta": {
+        "author": "pestatije"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=43908344",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "Time to kill the API key.",
+      "meta": {
+        "author": "danxkim"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=__erik",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "Head of Eng, Coinbase Developer Platform",
+      "meta": {
+        "karma": 157,
+        "created": 1462910554
+      }
+    },
+    {
+      "kind": "web_page",
+      "url": "https://www.x402.org/",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "x402\nSkip to main content\nSearch\nClose Search\nsearch\nMenu\nAbout\nAbout x402\nMembers\nContact\nCommunity\nGet Involved\nMeeting Calendar\nWorking Groups\nResources\nBlog\nAnnouncements\nDocs\nGet Started\nReports\nJoin x402\ngithub\nslack\nsearch\nx402\nx402 is an open, neutral standard for internet-native payments. It absolves the Internet’s original sin by natively making payments possible between clients and servers, creating win-win economies that empower agentic payments at scale. x402 exists to build a more free and fair internet.\nRead x402 Foundation Announcement\nLast 30 Days\n75.41M\nTransactions\n$24.24M\nVolume\n94.06K\nBuyers\n22K\nSellers\n→ Accept payments with a single line of code\napp.use(paymentMiddleware({ \"GET /weather\": { accepts: [...], // As many networks / schemes as you want to support description: \"Weather data\", // What your endpoint does }, }));\nThat’s it. Add one line of code to require payment for each incoming request. If a request arrives without payment, the server responds with HTTP 402, prompting the client to pay and retry.\nMEET OUR MEMBERS\nTRUSTED BY\nABOUT x402\nPayments on the internet are fundamentally flawed.\nFilling out a form is a human behavior that doesn’t match the programmatic nature of the internet. It’s time for an open, internet-native form of payments. Payments that are amazing for humans and AI agents.\nHTTP-Native\nIt’s built-in to the internet.\nx402 is built-in to existing HTTP requests, with no additional communication required.\nIt’s how the internet should be: open, free, and effortless.\nZero protocol fees\nx402 is free for the customer and the merchant—just pay nominal payment network fees\nZero wait\nMoney moves at the speed of the internet\nZero friction\nNo accounts or personal information needed\nZero centralization\nAnyone on the internet can build on or extend x402\nZero restrictions\nx402 is a neutral standard, not tied to any specific network\nTHE NEW WAY\nWe need a new way to transfer value on the internet…\nThe old way of doing payments is barely working for a human world, let alone an agentic future. x402 does in moments what existing systems can’t do at all.\nThe old way\n1. Create account with new API provider\nTime consuming setup\n2. Add payment method to API provider\nKYC required, delaying access and requiring approval\n3 Buy credits or subscription\nPrepaid commitment → overpay or run out of funds\n4 Manage API key\nSecurity risk → must store and rotate keys\n5 Make payment\nSlow transactions, chargebacks, fees\nWith x402\n1. AI agent sends HTTP request and receives 402: Payment Required\nNo account setup, instant onboarding\n2. AI agent pays instantly with stablecoins\nNo signups or approvals required\n3. API access granted\nNo API key management and related security risks\n…so it’s time to start building something better\nJoin a global community of thousands of builders contributing to an open codebase, faster financial system, and freer internet.\nLearn how to get started\nFAQs\nWhat is x402 used for?\nx402 enables instant, low-cost payments for digital services. It’s designed for API monetization, agentic commerce, paywalled content, and any scenario where traditional payment methods are too slow or expensive.\nIs x402 production ready?\nYes, x402 is production-ready and has processed millions of transactions. The protocol is open-source and has been audited for security.\nHow do I integrate x402?\nIntegration is simple – add a single line of middleware to your server. Check our\ndocumentation\nfor detailed guides and examples in multiple programming languages.\nWhat blockchains does x402 support?\nx402 is blockchain-agnostic and supports all EVM-compatible chains, Solana, and more. Stablecoin payments are the primary use case. x402 is also extensible to traditional payment methods.\nCopyright © x402 a Series of LF Projects, LLC For web site terms of use, trademark policy and other project policies please see\nhttps://lfprojects.org\n.\nCookie Settings\nClose Menu\nAbout\nAbout x402\nMembers\nContact\nCommunity\nGet Involved\nMeeting Calendar\nWorking Groups\nResources\nBlog\nAnnouncements\nDocs\nGet Started\nReports\nJoin x402\ngithub\nslack",
+      "meta": {}
+    },
+    {
+      "kind": "github_org",
+      "url": "https://github.com/x402-foundation",
+      "fetched_at": "2026-08-23T09:03:08.733816Z",
+      "excerpt": "x402 | stars=6535 | lang=TypeScript | pushed=2026-08-21T17:37:40Z\nwg-tax | stars=1 | lang=None | pushed=2026-08-19T21:34:35Z\nwg-identity | stars=0 | lang=None | pushed=2026-08-17T18:06:24Z\ntsc | stars=3 | lang=None | pushed=2026-07-27T16:47:23Z",
+      "meta": {
+        "org": "x402-foundation",
+        "public_repos": 4,
+        "created_at": "2026-04-01T03:36:43Z",
+        "description": ""
+      }
+    }
+  ],
+  "missing": [
+    "no about/team page linked from homepage"
+  ]
+}

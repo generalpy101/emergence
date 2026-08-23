@@ -1,0 +1,45 @@
+{
+  "candidate": {
+    "slug": "lamflo-xyz",
+    "name": "LaminarFlow",
+    "website": "https://www.lamflo.xyz",
+    "one_liner": "AI-native, open-source finance platform for startups",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 44144524,
+      "story_url": "https://news.ycombinator.com/item?id=44144524",
+      "points": 7,
+      "num_comments": 0,
+      "posted_at": "2025-05-31T14:31:43Z",
+      "author": "ydew"
+    },
+    "founder_hint": "ydew",
+    "discovered_at": "2026-08-23T08:47:11.106490Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=44144524",
+      "fetched_at": "2026-08-23T09:18:01.557653Z",
+      "excerpt": "I'm Yash, and I'm building LaminarFlow — an AI-native, open-source platform to help startups, founders, SMBs, manage their fincial ops more efficiently.\nIt brings together financial insights, banking, invoicing, payment tracking, time tracking, and banking-style reconciliation — all powered by an AI agent that automates the boring stuff.\nWe’re building this as an open startup, sharing everything publicly, and keeping it fully open-source (MIT).\nWould love your feedback and thoughts!",
+      "meta": {
+        "points": 7,
+        "author": "ydew"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=ydew",
+      "fetched_at": "2026-08-23T09:18:01.557653Z",
+      "excerpt": "Founder of LaminarFlow(lamflo.xyz)",
+      "meta": {
+        "karma": 2,
+        "created": 1747757913
+      }
+    }
+  ],
+  "missing": [
+    "no comments on the HN thread",
+    "website unreachable: https://www.lamflo.xyz"
+  ]
+}

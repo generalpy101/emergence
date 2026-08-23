@@ -1,0 +1,14 @@
+{"candidate": "github-com", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 3686, "output_tokens": 1289, "latency_ms": 80509, "repaired": false, "ok": true}
+{"candidate": "sprocket-demo-spikonado-com", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 2930, "output_tokens": 1106, "latency_ms": 72005, "repaired": false, "ok": true}
+{"candidate": "voker-ai", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 3397, "output_tokens": 1229, "latency_ms": 97419, "repaired": false, "ok": true}
+{"candidate": "blitzgraph-com", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 3221, "output_tokens": 1076, "latency_ms": 88055, "repaired": false, "ok": true}
+{"candidate": "savvyiq-ai", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 3790, "output_tokens": 1282, "latency_ms": 111577, "repaired": false, "ok": true}
+{"candidate": "ama2-me", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 2867, "output_tokens": 1018, "latency_ms": 97547, "repaired": false, "ok": true}
+{"candidate": "mcp360-ai", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 2769, "output_tokens": 1101, "latency_ms": 93832, "repaired": false, "ok": true}
+{"candidate": "makeportals-com", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 2833, "output_tokens": 1142, "latency_ms": 107820, "repaired": false, "ok": true}
+{"candidate": "chat-agentmail-to", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 2900, "output_tokens": 1260, "latency_ms": 133444, "repaired": false, "ok": true}
+{"candidate": "x402-org", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 3257, "output_tokens": 1013, "latency_ms": 128358, "repaired": false, "ok": true}
+{"candidate": "chromewebstore-google-com", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 2980, "output_tokens": 1260, "latency_ms": 162812, "repaired": false, "ok": true}
+{"candidate": "lamflo-xyz", "model": "gemma3:12b", "ok": false, "error": "timed out"}
+{"candidate": "chat-agentmail-to", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 4202, "output_tokens": 1197, "latency_ms": 122097, "repaired": false, "ok": true}
+{"candidate": "lamflo-xyz", "model": "gemma3:12b", "prompt_sha": "1b33ec024eb6", "input_tokens": 1969, "output_tokens": 1042, "latency_ms": 111782, "repaired": false, "ok": true}

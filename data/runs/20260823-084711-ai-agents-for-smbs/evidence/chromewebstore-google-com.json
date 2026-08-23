@@ -1,0 +1,79 @@
+{
+  "candidate": {
+    "slug": "chromewebstore-google-com",
+    "name": "rtrvr.ai",
+    "website": "https://chromewebstore.google.com/detail/rtrvrai/jldogdgepmcedfdhgnmclgemehfhpomg",
+    "one_liner": "AI Web Agent for Automating Workflows and Data Extraction",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 42496918,
+      "story_url": "https://news.ycombinator.com/item?id=42496918",
+      "points": 7,
+      "num_comments": 4,
+      "posted_at": "2024-12-23T19:22:24Z",
+      "author": "arjunchint"
+    },
+    "founder_hint": "arjunchint",
+    "discovered_at": "2026-08-23T08:47:11.106490Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=42496918",
+      "fetched_at": "2026-08-23T09:05:23.759202Z",
+      "excerpt": "Hey HN,\nI'm excited to share rtrvr.ai, a Chrome extension that brings the power of AI agents to your everyday web browsing. It's designed to automate complex web tasks, extract structured data from any website, and integrate with your favorite tools as you browse using AI Function Calling [ie: “Send this page summary as Slack message”].\nThe core idea is to let anyone, even non-developers, leverage the power of web automation and data extraction using natural language. Imagine being able to:\nAutomate lead generation: Extract hundreds of LinkedIn profiles to Google Sheets, complete with AI-generated, personalized intro emails.\nProcess PDFs in bulk: Pull data like revenue, expenses, and totals from hundreds of local or online PDFs directly into your spreadsheets.\nNavigate and extract from paginated lists: Tell rtrvr.ai, \"For each YC Partner, go to their LinkedIn profile and retrieve their name, headline, job, and college,\" and it'll do it.\nAutomate workflows across multiple tabs: For example, fill out job applications on Careers tab using information from the LinkedIn tab.\nFunction Calling: Integrate with APIs like Snowflake and Slack directly from your prompts using simple @ notation or letting the AI infer what tool to use with natural language.\nGraphBot: Generate charts and visualizations from website data with natural language commands.\nRecordings: Ground the agent with site interactions recordings to ensure accurate and repeatable task execution.\nSheet Context: Use Google Sheets data as context for your web tasks.\nScheduling: Run automations on a schedule in the background.\nSheets Workflow: You can feed a Google Sheet with a column of URLs (like LinkedIn profiles), and it will open each url as a tab, extract data, and even generate content (like intro emails) back into the sheet. It can handle multi-step workflows with prior output dependencies, effectively representing a DAG.\nI see rtrvr.ai as a step towards a more intelligent and interactive web. I believe this ",
+      "meta": {
+        "points": 7,
+        "author": "arjunchint"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=42498482",
+      "fetched_at": "2026-08-23T09:05:23.759202Z",
+      "excerpt": "This looks really interesting and functional - your intro video has me thinking of all sorts of use cases.\nItwould be good to know what powers it - I couldn't work that out from the page at\nhttps://www.rtrvr.ai/docs\n. Is it based on an OpenAI LLM for example, or something bespoke?",
+      "meta": {
+        "author": "speerer"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=42505275",
+      "fetched_at": "2026-08-23T09:05:23.759202Z",
+      "excerpt": "This is really neat product!! I just used it to create a airtable entries on strictlyVC newsletter I receive.tye function calling is really great!",
+      "meta": {
+        "author": "quarkcarbon"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=42528238",
+      "fetched_at": "2026-08-23T09:05:23.759202Z",
+      "excerpt": "looks sick!",
+      "meta": {
+        "author": "skilbjo"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=arjunchint",
+      "fetched_at": "2026-08-23T09:05:23.759202Z",
+      "excerpt": "Founder at rtrvr.ai, the SOTA AI Web Agent",
+      "meta": {
+        "karma": 145,
+        "created": 1734585804
+      }
+    },
+    {
+      "kind": "web_page",
+      "url": "https://chromewebstore.google.com/detail/rtrvrai/jldogdgepmcedfdhgnmclgemehfhpomg",
+      "fetched_at": "2026-08-23T09:05:23.759202Z",
+      "excerpt": "Retriever AI: Browser Agent - Chrome Web Store\nSkip to main content\nChrome Web Store\nMy extensions & themes\nAppearance\nDeveloper Dashboard\nGive feedback\nSign in\nDiscover\nExtensions\nThemes\nRetriever AI: Browser Agent\nThe publisher has a good record with no history of violations.\nLearn more.\nrtrvr.ai\nFollows recommended practices for Chrome extensions.\nLearn more.\nFeatured\n4.0\n(\n58 ratings\n)\nRatings are updated daily and may not reflect the most recent reviews.\nShare\nExtension\nWorkflow & Planning\n10,000 users\nAdd to Chrome\nOverview\nDescribe the outcome. Retriever works across the sites you use and brings back the finished result.\nRetriever AI: Browser Agent to Automate Web Workflows Turn your browser into a self-driving assistant. 🦮 Retriever helps you complete repetitive web tasks from a simple prompt, including data scraping, form filling, research, monitoring, and multi-step workflows across websites. Instead of clicking through pages, copying information, and rebuilding scripts for every task, tell Retriever what you want done. Retriever can inspect the page, plan the workflow, act in your browser, use your logged-in session, call connected tools, and return structured results. 🆓 FREE with ads or your own LLM API key. 250 starter credits, no credit card required. ━━━━━━━━━━━━━━━━━━━━━━ 🚀 1. Code-powered browser workflows Retriever can write and execute code to complete complex browser tasks. This makes it useful for workflows that require logic, loops, data cleanup, page interaction, and structured output. It can combine browser actions with tool calls, process information from the current page, and produce clean results. Example prompts: • “Collect product details from these pages and save the results to a Sheet.” • “Go through this directory and extract company names, websites, and locations.” • “Research these competitors and summarize pricing, positioning, and recent updates.” ━━━━━━━━━━━━━━━━━━━━━━ 🕸️ 2. Collect structured data from websites Use Retriever to gather information from pages, dashboards, directories, marketplaces, lists, and authenticated tools. Retriever can help with: • Tables and directories • Product listings • Company pages • Job boards • Research sources • Logged-in dashboards • Paginated or dynamic pages • Exports to Sheets, CSV, or JSON Because Retriever works in your browser, it can use the pages and sessions you already have open. ━━━━━━━━━━━━━━━━━━━━━━ ✨ 3. Enrich lists with live web context Start with a list of people, companies, jobs, products, or accounts. Retriever can enrich with pre-indexed datasets of profiles, contact details, companies, posts, and job listings. Use it to add: • Profile links • Company websites • Roles, titles, email • Company summaries • Notes for outreach • Job or product details • CRM-ready fields Retriever can also call connected dataset tools, including supported marketplace datasets, to enrich information on the fly while using context from your current browser session. Example prompts: • “Enrich this attendee list with current role, company, profile link, and a short outreach note.” • “Find company websites for these leads and add a one-line summary for each.” • “Turn this raw list into a CRM-ready spreadsheet.” ━━━━━━━━━━━━━━━━━━━━━━ ⚙️ 4. Automate repetitive browser work Retriever can operate your browser like an assistant for everyday web tasks. Use it for: • Filling forms • Updating records • Applying to jobs • Collecting research • Moving data between tools • Uploading files • Checking websites • Organizing information • Completing repeated workflows Example prompts: • “Apply to these jobs using my resume and track the status.” • “Update these CRM records with the latest company information.” • “Fill out this form using the data from my spreadsheet.” ━━━━━━━━━━━━━━━━━━━━━━ 📡 5. Trigger workflows remotely Retriever workflows can be started from more than just the extension popup. Trigger saved workflows from: • WhatsApp • MCP clients • CLI • API • curl commands • Schedules • Cloud dashboard shortcuts Run a workflow from your phone, terminal, or another AI tool, then check the result later. Example prompts: • “Schedule this competitor pricing check every morning.” • “Run my saved CRM cleanup workflow.” • “Trigger this browser task from an API call.” ━━━━━━━━━━━━━━━━━━━━━━ 🎓 6. Teach once, reuse later Show Retriever a workflow once and save it as a reusable shortcut or subroutine. Useful for repeated actions such as: • Updating a record • Sending a message • Filling the same form • Running a site-specific process • Repeating a browser workflow After saving it, you can run the workflow again from the extension, cloud dashboard, remote triggers, or scheduled automations. ━━━━━━━━━━━━━━━━━━━━━━ 🧠 7. Knowledge base and research memory Retriever can help organize browser research into reusable context. Use it to: • Index open tabs • Save research sources • Summarize pages • Query saved information • Reference prior research during workflows This helps Retriever make better decisions when completing multi-step tasks. ━━━━━━━━━━━━━━━━━━━━━━ 💸 8. Flexible pricing Retriever gives you flexible ways to power your browser workflows. • Bring your own API key for supported model providers • Use local or self-hosted compatible models • Paid plans start at $9.99/month • Higher plans support larger workflows, cloud runs, API usage, and team features Already have your own model access? Connect it to Retriever. Want more control? Use your own key or local model. Need more convenience and scale? Upgrade when your workflows grow. ━━━━━━━━━━━━━━━━━━━━━━ 🔑 9. Why Retriever is different Retriever is built for real browser work. It can: • Read page context • Act inside your browser • Write and execute code • Use connected tools • Work with logged-in sessions • Save reusable workflows • Run on a schedule • Export structured results • Start from remote triggers Retriever is a browser assistant for turning repetitive web tasks into repeatable workflows. ━━━━━━━━━━━━━━━━━━━━━━ 🎯 10. Who uses Retriever? 📈 Sales and GTM teams Research accounts, enrich lists, prepare outreach, and update CRMs. 🛍️ E-commerce operators Monitor pricing, inventory, reviews, and marketplace data. 🧑‍💻 Developers Connect browser workflows to scripts, APIs, MCP clients, and internal tools. 🔬 Researchers Collect sources, summarize pages, and structure information. 🎓 Job seekers and students Research opportunities, fill forms, organize notes, and complete web tasks faster. ⚙️ Operators and founders Automate the repetitive browser work that slows down the day. ━━━━━━━━━━━━━━━━━━━━━━ 🦮 Prompt your browser. Retriever brings back the result. Install Retriever AI and turn Chrome into a browser assistant for data collection, enrichment, automation, research, and remote workflows. Our discord: https://rtrvr.ai/discord Support: support@rtrvr.ai\n4.0 out of 5\n58 ratings\nLearn more about results and reviews.\nSee all reviews\nDetails\nVersion\n36.5.0\nUpdated\nAugust 22, 2026\nFeatures\nOffers in-app purchases\nFlag concern\nSize\n3.01MiB\nLanguages\nEnglish\nDeveloper\nrtrvr.ai\n260 Clara Street Apt 6 San Francisco, CA 94107 US\nWebsite\nEmail\nchrome-web-store-devs@rtrvr.ai\nPhone\n+1 469-525-5785\nTrader\nThis developer has identified itself as a trader per the definition from the European Union and committed to only offer products or services that comply with EU laws.\nD-U-N-S\nD-U-N-S (Data Universal Numbering System) is a globally recognized system developed by Dun & Bradstreet (D&B) that assigns a unique nine-digit identification number to businesses.\nLearn more\n119443345\nPrivacy\nManage extensions and learn how they're being used in your organization\nTry Chrome Enterprise Core\nRetriever AI: Browser Agent has disclosed the following information regarding the collection and usage of your data. More detailed information can be found in the developer's\nprivacy policy\n.\nRetriever AI: Browser Agent handles the following:\nPersonally identifiable information\nLocation\nWeb history",
+      "meta": {}
+    }
+  ],
+  "missing": [
+    "no about/team page linked from homepage",
+    "no GitHub org linked from homepage"
+  ]
+}
