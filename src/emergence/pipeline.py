@@ -8,6 +8,7 @@ flows in memory between stages here either, so `emergence run
 
 from __future__ import annotations
 
+import hashlib
 import json
 from collections.abc import Callable
 from dataclasses import dataclass
@@ -158,8 +159,11 @@ def stage_source(
     limit: int = 15,
     min_points: int = 5,
 ) -> list[Candidate]:
+    prior_slugs = None
+    if ctx.paths.candidates_file.exists():
+        prior_slugs = [c.slug for c in load_candidates(ctx.paths)]
     if urls is not None:
-        candidates = candidates_from_urls(urls)
+        candidates = candidates_from_urls(urls)[:limit]
         seed = {"kind": "urls", "value": urls}
     else:
         candidates = source_candidates(
@@ -167,6 +171,18 @@ def stage_source(
         )
         seed = {"kind": feed or "query", "value": query or feed}
     save_candidates(ctx.paths, candidates)
+    changed = prior_slugs is not None and prior_slugs != [c.slug for c in candidates]
+    if changed and ctx.paths.analyses_file.exists():
+        # Re-sourcing a changed set invalidates downstream analyses.
+        ctx.paths.analyses_file.unlink()
+        ctx.progress("[source] candidate set changed — cleared stale analyses")
+    if len(candidates) < 10:
+        warning = (
+            f"only {len(candidates)} candidates sourced (assignment expects "
+            "10-20); consider a broader query, --min-points, or --urls"
+        )
+        ctx.progress(f"[source] WARNING: {warning}")
+        _write_meta(ctx.paths, sourcing_warning=warning)
     _write_meta(
         ctx.paths,
         run_id=ctx.paths.root.name,
@@ -183,20 +199,35 @@ def stage_analyze(ctx: RunContext, *, limit: int | None = None) -> list[Analysis
     candidates = load_candidates(ctx.paths)
     if limit is not None:
         candidates = candidates[:limit]
-    # Resume-friendly: candidates with an existing non-degraded analysis are
-    # kept as-is, so re-running the stage only redoes failures and gaps.
-    # (To force re-analysis, delete analyses.jsonl or use a fresh run id.)
+    # Resume-friendly, but not stale-friendly: an existing analysis is only
+    # reused when it is non-degraded AND was produced by the same model,
+    # prompt, and thesis (hashes recorded in LlmMeta). Any drift re-analyzes.
+    current_prompt_sha = hashlib.sha1(
+        ctx.analysis_template_path.read_bytes()
+    ).hexdigest()[:12]
+    current_thesis_sha = hashlib.sha1(ctx.thesis_text.encode()).hexdigest()[:12]
     existing: dict[str, Analysis] = {}
     if ctx.paths.analyses_file.exists():
         existing = {a.candidate_slug: a for a in load_analyses(ctx.paths)}
     analyses: list[Analysis] = []
     for i, candidate in enumerate(candidates, start=1):
         prior = existing.get(candidate.slug)
-        if prior is not None and not prior.degraded:
+        fresh = (
+            prior is not None
+            and not prior.degraded
+            and prior.llm_meta is not None
+            and prior.llm_meta.model == ctx.llm.model
+            and prior.llm_meta.prompt_sha == current_prompt_sha
+            and prior.llm_meta.thesis_sha == current_thesis_sha
+        )
+        if fresh:
             ctx.progress(f"[analyze] ({i}/{len(candidates)}) {candidate.name} — kept")
             analyses.append(prior)
             continue
-        ctx.progress(f"[analyze] ({i}/{len(candidates)}) {candidate.name}")
+        note = ""
+        if prior is not None and not prior.degraded:
+            note = " — re-analyzing (model/prompt/thesis changed)"
+        ctx.progress(f"[analyze] ({i}/{len(candidates)}) {candidate.name}{note}")
         pack = build_pack(candidate, ctx.fetcher)
         save_pack(ctx.paths, pack)
         analysis = analyze_candidate(

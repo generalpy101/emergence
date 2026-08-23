@@ -104,11 +104,14 @@ class Category(str, Enum):
 
 
 class LlmMeta(BaseModel):
-    """Provenance for the LLM call that produced an analysis."""
+    """Provenance for the LLM call that produced an analysis. The three
+    hashes/ids are what stage_analyze's resume checks: an analysis is only
+    reused while model, prompt, and thesis all match what produced it."""
 
     model: str
     prompt_file: str
     prompt_sha: str
+    thesis_sha: str = ""
     input_tokens: int | None = None
     output_tokens: int | None = None
     latency_ms: int = 0

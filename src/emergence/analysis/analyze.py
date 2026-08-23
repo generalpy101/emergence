@@ -123,6 +123,7 @@ def analyze_candidate(
     slug = pack.candidate.slug
     prompt = render_prompt(template, pack=pack, thesis_text=thesis_text)
     template_sha = hashlib.sha1(template_path.read_bytes()).hexdigest()[:12]
+    thesis_sha = hashlib.sha1(thesis_text.encode()).hexdigest()[:12]
 
     if prompts_out_dir is not None:
         prompts_out_dir.mkdir(parents=True, exist_ok=True)
@@ -145,6 +146,7 @@ def analyze_candidate(
             model=client.model,
             prompt_file=template_path.name,
             prompt_sha=template_sha,
+            thesis_sha=thesis_sha,
             latency_ms=int((time.monotonic() - started) * 1000),
         )
         _log_call(log_path, candidate=slug, model=client.model, ok=False, error=str(exc))
@@ -171,6 +173,7 @@ def analyze_candidate(
                 model=client.model,
                 prompt_file=template_path.name,
                 prompt_sha=template_sha,
+                thesis_sha=thesis_sha,
                 latency_ms=int((time.monotonic() - started) * 1000),
                 repaired=True,
             )
@@ -189,6 +192,7 @@ def analyze_candidate(
         model=response.model,
         prompt_file=template_path.name,
         prompt_sha=template_sha,
+        thesis_sha=thesis_sha,
         input_tokens=response.input_tokens,
         output_tokens=response.output_tokens,
         latency_ms=response.latency_ms,
@@ -199,6 +203,7 @@ def analyze_candidate(
         candidate=slug,
         model=response.model,
         prompt_sha=template_sha,
+            thesis_sha=thesis_sha,
         input_tokens=response.input_tokens,
         output_tokens=response.output_tokens,
         latency_ms=response.latency_ms,

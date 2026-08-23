@@ -136,6 +136,41 @@ def test_analyze_resumes_and_skips_healthy_analyses(tmp_path):
     assert second[1].degraded is False  # re-attempted, mock succeeded
 
 
+def test_analyze_reanalyzes_when_thesis_changes(tmp_path):
+    import hashlib
+
+    ctx = make_context(tmp_path, make_fetcher())
+    stage_source(ctx, query="AI agents", limit=1)
+    first = stage_analyze(ctx)
+    assert first[0].llm_meta.thesis_sha  # recorded
+
+    ctx2 = make_context(tmp_path, make_fetcher())
+    ctx2.thesis_text = "A completely different thesis."
+    second = stage_analyze(ctx2)
+    expected = hashlib.sha1(b"A completely different thesis.").hexdigest()[:12]
+    assert second[0].llm_meta.thesis_sha == expected  # re-analyzed, not kept
+
+
+def test_resourcing_changed_candidates_clears_analyses(tmp_path):
+    ctx = make_context(tmp_path, make_fetcher())
+    stage_source(ctx, query="AI agents", limit=1)
+    stage_analyze(ctx)
+    assert ctx.paths.analyses_file.exists()
+    stage_source(ctx, urls=["https://totally-different.io"])
+    assert not ctx.paths.analyses_file.exists()
+
+
+def test_url_mode_respects_limit_and_shortfall_warns(tmp_path):
+    ctx = make_context(tmp_path, make_fetcher())
+    urls = [f"https://co{i}.example.com" for i in range(6)]
+    stage_source(ctx, urls=urls, limit=3)
+    assert len(load_candidates(ctx.paths)) == 3
+    import json
+
+    meta = json.loads(ctx.paths.meta_file.read_text())
+    assert "sourcing_warning" in meta  # 3 < 10 -> loud warning recorded
+
+
 def test_cli_arg_validation():
     from typer.testing import CliRunner
 
