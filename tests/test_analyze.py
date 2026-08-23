@@ -182,6 +182,72 @@ def test_malformed_endpoint_payload_is_degraded_not_crash():
     assert analysis.degraded is True
 
 
+def test_validate_claims_unit():
+    from emergence.analysis.analyze import validate_claims
+
+    pack = make_pack()  # one web_page item: excerpt about Acme/ex-Stripe
+    good, _ = _ok_analysis()
+    assert validate_claims(good, pack) == []
+
+    bad_idx, _ = _ok_analysis()
+    bad_idx.team.claims[0].evidence_idx = 99
+    errors = validate_claims(bad_idx, pack)
+    assert errors and "only 1 evidence items" in errors[0]
+
+    bad_quote, _ = _ok_analysis()
+    bad_quote.team.claims[0].quote = "these words appear nowhere"
+    errors = validate_claims(bad_quote, pack)
+    assert errors and "not verbatim" in errors[0]
+
+
+def _ok_analysis():
+    client = MockLlm()
+    pack = make_pack()
+    analysis = analyze_candidate(
+        pack,
+        client,
+        template=load_template(),
+        template_path=TEMPLATE_PATH,
+        thesis_text=THESIS.read_text(),
+    )
+    return analysis, pack
+
+
+class BadClaimsThenGood:
+    """First reply: schema-valid but cites a nonexistent evidence item."""
+
+    model = "bad-claims"
+
+    def __init__(self):
+        self.calls = 0
+
+    def complete(self, prompt: str) -> LlmResponse:
+        import json
+
+        self.calls += 1
+        if self.calls > 1:
+            return MockLlm().complete(prompt)
+        payload = json.loads(MockLlm().complete(prompt).text)
+        payload["team"]["claims"] = [
+            {"text": "fabricated", "evidence_idx": 99, "quote": "nothing"}
+        ]
+        return LlmResponse(text=json.dumps(payload), model=self.model, latency_ms=1)
+
+
+def test_ungrounded_claims_trigger_repair():
+    client = BadClaimsThenGood()
+    analysis = analyze_candidate(
+        make_pack(),
+        client,
+        template=load_template(),
+        template_path=TEMPLATE_PATH,
+        thesis_text=THESIS.read_text(),
+    )
+    assert client.calls == 2  # first attempt rejected by code validation
+    assert analysis.degraded is False
+    assert analysis.llm_meta.repaired is True
+
+
 def test_endpoint_error_is_degraded_not_fatal():
     import httpx
 

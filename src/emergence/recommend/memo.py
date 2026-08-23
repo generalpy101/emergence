@@ -41,15 +41,31 @@ def render_memo(
     score: ScoreBreakdown,
     run_id: str,
 ) -> str:
-    sections = [
-        {
-            "label": _SECTION_LABELS[dim],
-            "weight": weight,
-            "section": getattr(analysis, dim),
-            "points": score.dimension_points[dim],
-        }
-        for dim, weight in WEIGHTS.items()
-    ]
+    sections = []
+    for dim, weight in WEIGHTS.items():
+        section = getattr(analysis, dim)
+        claims = [
+            {
+                "text": claim.text,
+                "quote": claim.quote,
+                "idx": claim.evidence_idx,
+                # Resolve the index to the source URL for the reader. Indexing
+                # was validated at analysis time; stay defensive at render.
+                "url": pack.items[claim.evidence_idx - 1].url
+                if 1 <= claim.evidence_idx <= len(pack.items)
+                else "",
+            }
+            for claim in section.claims
+        ]
+        sections.append(
+            {
+                "label": _SECTION_LABELS[dim],
+                "weight": weight,
+                "section": section,
+                "claims": claims,
+                "points": score.dimension_points[dim],
+            }
+        )
     meta = analysis.llm_meta
     return template.render(
         candidate=candidate,

@@ -1,0 +1,86 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer tool/infrastructure layer for AI agents, not a direct workflow automation solution for SMBs.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable with a public profile listing prior projects and a '2X founder' claim [7]. However, the specific technical depth and prior shipping history are not fully verifiable in the provided evidence, and the GitHub org API lookup failed [8].",
+    "claims": [
+      {
+        "text": "The founder's HN profile lists 'Computer Use | Built agent-desktop, cracked-agent, PILOT | 2X founder | lahfir.com'.",
+        "source_url": "https://news.ycombinator.com/user?id=lahfir"
+      },
+      {
+        "text": "The founder states they have been building computer-use tools for a while.",
+        "source_url": "https://news.ycombinator.com/item?id=47982708"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product is a working, differentiated CLI that uses OS accessibility trees instead of screenshots, addressing a known inefficiency in current agent tools [1]. It is a real product with a clear technical wedge, though it is a component rather than a full workflow solution.",
+    "claims": [
+      {
+        "text": "The tool is a cross-platform CLI for structured desktop automation through the accessibility tree, built in Rust.",
+        "source_url": "https://news.ycombinator.com/item?id=47982708"
+      },
+      {
+        "text": "The product exposes 53 commands with JSON output, allowing LLMs to inspect and operate native apps without screenshots.",
+        "source_url": "https://news.ycombinator.com/item?id=47982708"
+      },
+      {
+        "text": "The README describes the product as a native desktop automation CLI designed for AI agents, using OS accessibility trees.",
+        "source_url": "https://github.com/lahfir/agent-desktop"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The market is the broader AI agent ecosystem, which is large but not specifically an SMB segment with a painful, budgeted manual workflow. The 'why-now' is the shift from pixel-based to structured automation, but the buyer is a developer, not an SMB owner.",
+    "claims": [
+      {
+        "text": "The founder notes that most computer-use agents rely on screenshots, which are slow, expensive, and fragile.",
+        "source_url": "https://news.ycombinator.com/item?id=47982708"
+      },
+      {
+        "text": "A commenter notes that the tool is interesting because the language environment is abstracted away through a CLI.",
+        "source_url": "https://news.ycombinator.com/item?id=47983951"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 4,
+    "rationale": "The project launched recently (May 2026) with strong initial signal: 99 points and 44 comments on HN, and 122 GitHub stars mentioned by the founder [1]. This meets the bar for strong third-party signal within the 6-month window.",
+    "claims": [
+      {
+        "text": "The HN launch post received 99 points and 44 comments.",
+        "source_url": "https://news.ycombinator.com/item?id=47982708"
+      },
+      {
+        "text": "The founder states the project had 122 Stars on GitHub at the time of the HN post.",
+        "source_url": "https://news.ycombinator.com/item?id=47982708"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 2,
+    "rationale": "The product is a developer tool for AI agents, not a direct automation of manual workflows for SMBs. It is adjacent to the thesis (B2B software) but misses the core 'SMB back-office' and 'bottom-up pull from SMB owners' criteria. It is a building block, not the final workflow solution.",
+    "claims": [
+      {
+        "text": "The product is a CLI for AI agents to operate native apps, not a direct workflow automation tool for SMBs.",
+        "source_url": "https://github.com/lahfir/agent-desktop"
+      }
+    ]
+  },
+  "risks": [
+    "The product is a component/infrastructure layer, not a full workflow solution, making it difficult to attribute revenue or retention to the thesis of SMB workflow automation.",
+    "The market is crowded with similar 'computer use' tools, and the founder acknowledges others are building in the same direction [5].",
+    "The cross-platform claim is contested by commenters who note it is currently macOS-only [2][3], which limits the addressable market for a 'cross-platform' tool."
+  ],
+  "change_my_mind": [
+    "Evidence that the tool is being adopted by a specific SMB-focused AI agent startup to automate a concrete back-office workflow (e.g., invoicing, scheduling).",
+    "Confirmation that the tool is fully functional on Windows and Linux, not just macOS, as claimed in the HN post but contradicted by the README graphic [2].",
+    "A named design partner or customer who is an SMB owner using the tool to automate a manual process, rather than a developer building an agent."
+  ]
+}

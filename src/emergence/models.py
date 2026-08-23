@@ -75,10 +75,13 @@ class EvidencePack(BaseModel):
 
 
 class Claim(BaseModel):
-    """A claim is only allowed to exist with a source URL attached."""
+    """A claim must point at a numbered evidence item and carry a verbatim
+    quote from it. Both are validated in code (analyze.validate_claims) —
+    the model proposes, code disposes."""
 
     text: str
-    source_url: str
+    evidence_idx: int = Field(ge=1)  # 1-based index into EvidencePack.items
+    quote: str  # verbatim span copied from that item's excerpt
 
 
 class Section(BaseModel):

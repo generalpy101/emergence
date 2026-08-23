@@ -1,6 +1,8 @@
-<!-- prompt-version: 2 -->
-<!-- v2: rationales may cite evidence by [index] (matches the memo appendix);
-     claims must be observable facts, not restatements of score/thesis. -->
+<!-- prompt-version: 3 -->
+<!-- v3: claims cite evidence by INDEX with a VERBATIM QUOTE, both validated
+     in code (v2 trusted a URL string); thesis gates and traction anchors must
+     be applied literally (v2 let a crypto payments protocol through as
+     b2b_smb — see docs/process.md). -->
 <!-- Rendered with Jinja2 by emergence.analysis.analyze. Changes to this file
      are prompt iterations — review them in git diff. -->
 
@@ -40,14 +42,18 @@ evidence supports, and you say so when evidence is missing.
 
 ## Rules
 
-1. Score each dimension 0–5 using ONLY the anchors in the thesis above. When
-   evidence is thin, the subscore goes down and the rationale says why — never
-   invent facts to fill gaps.
-2. Every claim MUST carry a `source_url` copied verbatim from the evidence
-   URLs above, and must be an observable fact found in that evidence — not a
+1. Score each dimension 0–5 using ONLY the anchors in the thesis above, and
+   apply them literally. Examples: a launch older than ~18 months with no
+   newer signal is traction ≤ 2 no matter how good it was; a product whose
+   payments settle in crypto/tokens is category `crypto` even if it sells to
+   businesses. When in doubt between an in-thesis and an excluded category,
+   choose the excluded one and explain.
+2. Every claim MUST carry `evidence_idx` (the [n] number of the evidence item
+   that supports it) and `quote` (a short span copied VERBATIM from that
+   item's excerpt). Both are machine-checked; wrong or paraphrased quotes are
+   rejected. A claim must be an observable fact in that evidence — never a
    restatement of the score, the thesis, or the category. If no evidence
-   supports a statement, it is not a claim — it is a guess, and it does not
-   belong in the output.
+   supports a statement, it is a guess and does not belong in the output.
 3. In `rationale` text you may cite evidence items by their index, e.g. [2] —
    the reader sees the same numbered list.
 4. `risks` are reasoned inference (they need no source, but must follow from
@@ -64,11 +70,11 @@ evidence supports, and you say so when evidence is missing.
   "category_reason": "one sentence",
   "has_identifiable_product": true,
   "team_identifiable": true,
-  "team":       {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "source_url": "..."}]},
-  "product":    {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "source_url": "..."}]},
-  "market":     {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "source_url": "..."}]},
-  "traction":   {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "source_url": "..."}]},
-  "thesis_fit": {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "source_url": "..."}]},
+  "team":       {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "evidence_idx": 1, "quote": "verbatim span"}]},
+  "product":    {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "evidence_idx": 1, "quote": "verbatim span"}]},
+  "market":     {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "evidence_idx": 1, "quote": "verbatim span"}]},
+  "traction":   {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "evidence_idx": 1, "quote": "verbatim span"}]},
+  "thesis_fit": {"subscore": 0, "rationale": "...", "claims": [{"text": "...", "evidence_idx": 1, "quote": "verbatim span"}]},
   "risks": ["...", "..."],
   "change_my_mind": ["...", "..."]
 }

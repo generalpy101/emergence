@@ -53,6 +53,36 @@ def _parse_analysis(text: str, slug: str) -> tuple[Analysis | None, str | None]:
         return None, str(exc)
 
 
+def _normalize(text: str) -> str:
+    return " ".join(text.split()).casefold()
+
+
+def validate_claims(analysis: Analysis, pack: EvidencePack) -> list[str]:
+    """Code-side grounding check: every claim must cite an evidence item that
+    exists, and its quote must appear verbatim in that item's excerpt. A URL
+    on a claim only proved a page exists; a verbatim quote proves the model
+    actually read it."""
+    errors = []
+    n_items = len(pack.items)
+    for dim in ("team", "product", "market", "traction", "thesis_fit"):
+        section = getattr(analysis, dim)
+        for claim in section.claims:
+            label = f"{dim} claim '{claim.text[:60]}'"
+            if claim.evidence_idx > n_items:
+                errors.append(
+                    f"{label}: cites evidence [{claim.evidence_idx}] "
+                    f"but only {n_items} evidence items exist"
+                )
+                continue
+            excerpt = pack.items[claim.evidence_idx - 1].excerpt
+            if _normalize(claim.quote) not in _normalize(excerpt):
+                errors.append(
+                    f"{label}: quote is not verbatim in evidence "
+                    f"[{claim.evidence_idx}]"
+                )
+    return errors
+
+
 def _degraded(pack: EvidencePack, meta: LlmMeta | None, reason: str) -> Analysis:
     empty = Section(subscore=0, rationale=f"analysis unavailable: {reason}")
     return Analysis(
@@ -122,6 +152,10 @@ def analyze_candidate(
 
     _dump(1, response.text)
     analysis, error = _parse_analysis(response.text, slug)
+    if analysis is not None:
+        claim_errors = validate_claims(analysis, pack)
+        if claim_errors:
+            analysis, error = None, "; ".join(claim_errors)
     repaired = False
     if analysis is None:
         repair_prompt = (
@@ -145,6 +179,10 @@ def analyze_candidate(
             return _degraded(pack, meta, f"repair call failed: {exc}")
         _dump(2, response.text)
         analysis, error = _parse_analysis(response.text, slug)
+        if analysis is not None:
+            claim_errors = validate_claims(analysis, pack)
+            if claim_errors:
+                analysis, error = None, "; ".join(claim_errors)
         repaired = True
 
     meta = LlmMeta(

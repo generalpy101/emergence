@@ -35,9 +35,11 @@ def test_section_subscore_bounds():
         Section(subscore=-1, rationale="negative")
 
 
-def test_claim_requires_source_url():
+def test_claim_requires_evidence_ref_and_quote():
     with pytest.raises(ValidationError):
-        Claim(text="founders ex-Stripe")  # no source_url
+        Claim(text="founders ex-Stripe")  # no evidence_idx / quote
+    with pytest.raises(ValidationError):
+        Claim(text="x", evidence_idx=0, quote="y")  # idx is 1-based
 
 
 def test_candidate_json_roundtrip():
@@ -64,14 +66,14 @@ def test_analysis_shape_roundtrip():
         traction=Section(
             subscore=5,
             rationale="front page",
-            claims=[Claim(text="120 points", source_url="https://news.ycombinator.com/item?id=1")],
+            claims=[Claim(text="120 points", evidence_idx=1, quote="120 points")],
         ),
         thesis_fit=Section(subscore=4, rationale="squarely SMB"),
         risks=["single founder"],
         change_my_mind=["named design partner"],
     )
     restored = Analysis.model_validate_json(analysis.model_dump_json())
-    assert restored.traction.claims[0].source_url.endswith("id=1")
+    assert restored.traction.claims[0].evidence_idx == 1
     assert restored.degraded is False
 
 

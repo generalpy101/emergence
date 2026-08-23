@@ -23,9 +23,9 @@
 ## {{ row.label }} — {{ row.section.subscore }}/5
 
 {{ row.section.rationale }}
-{% if row.section.claims %}
-{% for claim in row.section.claims -%}
-- {{ claim.text }} ([source]({{ claim.source_url }}))
+{% if row.claims %}
+{% for claim in row.claims -%}
+- {{ claim.text }} — “{{ claim.quote }}” ([{{ claim.idx }}]({{ claim.url }}))
 {% endfor %}
 {% endif %}
 {% endfor -%}

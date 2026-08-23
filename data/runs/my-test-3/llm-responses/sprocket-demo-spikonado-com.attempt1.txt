@@ -1,0 +1,94 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a general-purpose AI agent for hardware and software development, targeting developers rather than a specific SMB back-office workflow.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 1,
+    "rationale": "The founder is identified as a 16-year-old [1], which makes a 'technical founder with directly relevant domain or startup experience' (Anchor 5) impossible. While the team is identifiable (Aarav/amronos) [1][6], the lack of prior shipping evidence or professional track record places this at the low end of the rubric, as the anchor for 3 requires a 'plausible background' and 'limited public track record' which is absent here.",
+    "claims": [
+      {
+        "text": "The founder states they are 16 years old.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      },
+      {
+        "text": "The founder's HN username is 'amronos'.",
+        "source_url": "https://news.ycombinator.com/user?id=amronos"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "There is a working product with a demo site [7] and specific features like schematic generation and BOM creation [1]. However, the positioning is broad ('beats every other agent') and the claim that it can 'buy anything from any website' [1] suggests a wrapper around existing payment infrastructure (Prava) [3] rather than deep workflow automation. It is a real product but with fuzzy positioning in a crowded space.",
+    "claims": [
+      {
+        "text": "The product is described as an open-source AI agent for hardware and software development.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      },
+      {
+        "text": "The product claims to be able to buy items from websites autonomously.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      },
+      {
+        "text": "A comment notes the use of Prava for agentic payments.",
+        "source_url": "https://news.ycombinator.com/item?id=49147337"
+      },
+      {
+        "text": "The product website is currently accessible and links to a GitHub repository.",
+        "source_url": "https://sprocket-demo.spikonado.com"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The thesis targets SMB back-office workflows (1-500 employees). This product targets developers and hardware designers, which is a different segment. Furthermore, the market for 'AI coding agents' is extremely crowded with incumbents like Codex, Cursor, and T3Code, which the founder explicitly compares against [1]. This fails the 'visible whitespace' and 'SMB segment' anchors.",
+    "claims": [
+      {
+        "text": "The founder compares the product's quality to Codex, Cursor, and T3Code.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      },
+      {
+        "text": "The product is positioned for hardware and software development.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The launch on HN received 124 points and 15 comments [1], indicating recent and modest engagement. However, the demo site was reported down shortly after launch [4], and the founder admitted submitting early before the video was ready [1]. This suggests a recent launch with some signal but operational fragility.",
+    "claims": [
+      {
+        "text": "The HN story received 124 points and 15 comments.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      },
+      {
+        "text": "A user reported the site was down.",
+        "source_url": "https://news.ycombinator.com/item?id=49146779"
+      },
+      {
+        "text": "The founder stated the demo video might not load initially.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 1,
+    "rationale": "The thesis requires B2B software for SMB back-office workflows. This is a developer tool for hardware/software creation. It is outside the thesis (wrong segment, wrong workflow type) but not gated out by the hard gates (it is not consumer social, crypto, or a dead site).",
+    "claims": [
+      {
+        "text": "The product is an AI agent for hardware and software development.",
+        "source_url": "https://news.ycombinator.com/item?id=49145934"
+      }
+    ]
+  },
+  "risks": [
+    "The founder is a minor (16 years old), which creates significant legal and operational risks regarding contract signing, IP ownership, and liability that are difficult to underwrite at a seed stage.",
+    "The product competes directly with well-funded incumbents (Cursor, Codex) in a hyper-competitive space, making it difficult to achieve the 'bottom-up pull' required for retention without massive differentiation.",
+    "The claim of autonomous purchasing from any website suggests a high risk of security vulnerabilities and potential for misuse, which could lead to rapid shutdown or legal issues."
+  ],
+  "change_my_mind": [
+    "Evidence that the product has been adopted by a named SMB hardware manufacturer for their internal design workflow, rather than just individual developers.",
+    "Confirmation that the 'autonomous purchasing' feature is limited to specific, vetted B2B suppliers with proper enterprise controls, rather than open-ended web browsing.",
+    "A co-founder or technical advisor with a verifiable track record in hardware supply chain or enterprise software to mitigate the solo-minor-founder risk."
+  ]
+}

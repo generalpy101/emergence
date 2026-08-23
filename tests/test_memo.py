@@ -47,7 +47,13 @@ def build_inputs():
                 kind=EvidenceKind.WEB_PAGE,
                 url="https://acme.io",
                 fetched_at=datetime(2026, 8, 23, tzinfo=UTC),
-            )
+            ),
+            EvidenceItem(
+                kind=EvidenceKind.WEB_PAGE,
+                url="https://acme.io/about",
+                fetched_at=datetime(2026, 8, 23, tzinfo=UTC),
+                excerpt="Founded by Jane Doe (ex-Stripe) and Matt Roe.",
+            ),
         ],
         missing=["no GitHub org linked from homepage"],
     )
@@ -61,7 +67,11 @@ def build_inputs():
             subscore=4,
             rationale="Technical founders, relevant history.",
             claims=[
-                Claim(text="Founder previously at Stripe", source_url="https://acme.io/about")
+                Claim(
+                    text="Founder previously at Stripe",
+                    evidence_idx=2,
+                    quote="ex-Stripe",
+                )
             ],
         ),
         product=Section(subscore=4, rationale="Clear workflow automation."),

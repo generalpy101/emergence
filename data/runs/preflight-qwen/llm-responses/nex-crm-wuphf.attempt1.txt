@@ -1,0 +1,90 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a local-first developer tool for AI agent memory and workflow automation, targeting technical users rather than a specific SMB vertical with a budgeted manual workflow.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable as Najmuzzaman, CEO of Nex.ai, and the team has shipped a prior product (clawgent) with some traction. However, the public track record is limited to a single repo with 27 stars and no evidence of exits or significant prior revenue.",
+    "claims": [
+      {
+        "text": "The founder is identified as Najmuzzaman, CEO & Founder @ Nex.ai, and is listed as a full-time WUPHFer.",
+        "source_url": "https://news.ycombinator.com/user?id=najmuzzaman"
+      },
+      {
+        "text": "The GitHub organization 'nex-crm' contains a repository named 'clawgent' with 27 stars and a recent push date of 2026-03-24.",
+        "source_url": "https://github.com/nex-crm"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "The product is a working, local-first tool that automates the creation of 'microapps' for manual workflows using a markdown/git substrate. It has a clear technical wedge (BM25/SQLite instead of vector DBs) but faces a crowded market of similar 'LLM wiki' tools and a fuzzy value proposition regarding who the end-user is.",
+    "claims": [
+      {
+        "text": "The product allows users to turn manual workflows into microapps across 1200+ integrations by describing the job in one sentence.",
+        "source_url": "https://github.com/nex-crm/wuphf"
+      },
+      {
+        "text": "The system uses a bleve (BM25) + SQLite index on top of markdown and git, with a benchmark of 85% recall@20 on 500 artifacts.",
+        "source_url": "https://news.ycombinator.com/item?id=47899844"
+      },
+      {
+        "text": "A commenter noted that this is the 'third llm wiki on front page in 24 hours' and expressed concern about effort duplication in the space.",
+        "source_url": "https://news.ycombinator.com/item?id=47901360"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 2,
+    "rationale": "The market for 'agent memory' is currently a developer tooling niche rather than a large, identifiable SMB segment with a painful, budgeted workflow. The 'why-now' is driven by the popularity of LLM agents, but the specific buyer (SMB owner vs. developer) is unclear, and the thesis requires a bottom-up SMB motion which is not evident here.",
+    "claims": [
+      {
+        "text": "The product is described as a 'wiki layer for AI agents' that runs locally in ~/.wuphf/wiki/.",
+        "source_url": "https://news.ycombinator.com/item?id=47899844"
+      },
+      {
+        "text": "The product requires the user to have an agent CLI (e.g., Claude Code, Codex CLI) signed in to run.",
+        "source_url": "https://github.com/nex-crm/wuphf"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 4,
+    "rationale": "The launch generated strong third-party signal with 260 points and 114 comments on Hacker News. The product is fresh (posted 2026-04-25) and has a visible community presence (Discord link), though specific customer names or retention metrics are not yet public.",
+    "claims": [
+      {
+        "text": "The Hacker News launch received 260 points and 114 comments on 2026-04-25.",
+        "source_url": "https://news.ycombinator.com/item?id=47899844"
+      },
+      {
+        "text": "The GitHub repository includes a badge linking to a Discord community for the product.",
+        "source_url": "https://github.com/nex-crm/wuphf"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 2,
+    "rationale": "While the product automates workflows, it is a horizontal developer tool for AI agents rather than a vertical-specific solution for a specific SMB buyer. The motion is bottom-up (developers installing a CLI), but the buyer is not clearly an SMB owner with a budgeted manual workflow, making it adjacent to the thesis rather than squarely in it.",
+    "claims": [
+      {
+        "text": "The product is installed via 'npx wuphf' or 'npm install -g wuphf', targeting users with command-line access.",
+        "source_url": "https://github.com/nex-crm/wuphf"
+      },
+      {
+        "text": "The product is described as a 'Karpathy-style LLM wiki your agents maintain', positioning it as a developer/agent infrastructure tool.",
+        "source_url": "https://github.com/nex-crm/wuphf"
+      }
+    ]
+  },
+  "risks": [
+    "The 'LLM wiki' or 'agent memory' space is extremely crowded, with multiple similar projects launching on the same day, leading to potential commoditization and difficulty in differentiation.",
+    "The product relies on a local-first, CLI-based installation, which may limit adoption to technical users and exclude the non-technical SMB owners who are the primary target of the investment thesis.",
+    "The value proposition of 'automating note-taking' or 'wiki maintenance' is questioned by users who argue that the cognitive work of shaping mental models cannot be automated, potentially limiting the product's perceived utility."
+  ],
+  "change_my_mind": [
+    "Evidence of a specific SMB vertical (e.g., legal, accounting) adopting the tool to automate a high-value, budgeted workflow rather than just general agent memory.",
+    "Confirmation that the 'clawgent' prior product had significant revenue or user retention, proving the team's ability to ship and retain users in a B2B context.",
+    "A named design partner or enterprise customer who is using WUPHF to replace a specific, expensive manual process."
+  ]
+}

@@ -100,14 +100,30 @@ class MockLlm:
     def complete(self, prompt: str) -> LlmResponse:
         digest = int(hashlib.sha1(prompt.encode()).hexdigest(), 16)
         subscores = [2 + (digest >> (3 * i)) % 4 for i in range(5)]  # 2..5
-        urls = re.findall(r"https?://[^\s)\]]+", prompt)
-        source = urls[0] if urls else "https://example.com"
+        # Parse the rendered evidence blocks back out of the prompt so mock
+        # claims pass the same code-side citation validation as a real model.
+        blocks = re.findall(
+            r"### \[(\d+)\] [a-z_]+ — \S+\n(.*?)(?=\n### \[|\n## |\Z)",
+            prompt,
+            re.DOTALL,
+        )
 
         def section(score: int, name: str) -> dict[str, Any]:
+            claims = []
+            if blocks:
+                idx, excerpt = blocks[0]
+                quote = " ".join(excerpt.split()[:8])
+                claims = [
+                    {
+                        "text": f"[mock] evidence observed for {name}",
+                        "evidence_idx": int(idx),
+                        "quote": quote,
+                    }
+                ]
             return {
                 "subscore": score,
                 "rationale": f"[mock] {name} assessed deterministically from prompt hash.",
-                "claims": [{"text": f"[mock] evidence observed for {name}", "source_url": source}],
+                "claims": claims,
             }
 
         payload = {
