@@ -23,6 +23,7 @@ STORY = {
     "title": "Show HN: Acme Agents – AI bookkeeping for dental clinics",
     "by": "janedoe",
     "kids": [501, 502],
+    "descendants": 64,
     "score": 120,
     "time": 1780000000,
     "type": "story",
@@ -100,10 +101,13 @@ def test_full_pack_collects_all_evidence_kinds():
     user = next(i for i in pack.items if i.kind == EvidenceKind.HN_USER)
     assert user.meta["karma"] == 1234
     assert user.url.endswith("user?id=janedoe")
-    assert "karma=1234" in user.excerpt  # facts line: numbers must be quotable
+    assert "karma 1234" in user.excerpt  # natural-language facts: quotable
 
     story = next(i for i in pack.items if i.kind == EvidenceKind.HN_STORY)
-    assert "points=120" in story.excerpt
+    assert "120 points" in story.excerpt
+    assert "64 comments" in story.excerpt
+    assert "posted 2026-05-28" in story.excerpt
+    assert "Show HN: Acme Agents" in story.excerpt  # title always included
 
     comment = next(i for i in pack.items if i.kind == EvidenceKind.HN_COMMENT)
     assert "<b>" not in comment.excerpt  # comment HTML stripped

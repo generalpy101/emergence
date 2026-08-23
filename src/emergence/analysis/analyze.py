@@ -21,6 +21,7 @@ from emergence.analysis.llm import LlmClient, extract_json
 from emergence.models import (
     Analysis,
     Category,
+    Claim,
     EvidencePack,
     LlmMeta,
     Section,
@@ -61,39 +62,51 @@ def _normalize(text: str) -> str:
     return " ".join(re.sub(r"[^a-z0-9\s]", " ", text.casefold()).split())
 
 
+def _claim_error(dim: str, claim: Claim, pack: EvidencePack) -> str | None:
+    """None if grounded; a human-readable error otherwise."""
+    label = f"{dim} claim '{claim.text[:60]}'"
+    if claim.evidence_idx == 0:
+        # Absence claim: the quote must match a recorded gap verbatim.
+        missing_corpus = "\n".join(pack.missing)
+        if _normalize(claim.quote) not in _normalize(missing_corpus):
+            return f"{label}: cites [0] (missing evidence) but the quote matches no recorded gap"
+        return None
+    n_items = len(pack.items)
+    if claim.evidence_idx > n_items:
+        return (
+            f"{label}: cites evidence [{claim.evidence_idx}] "
+            f"but only {n_items} evidence items exist"
+        )
+    excerpt = pack.items[claim.evidence_idx - 1].excerpt
+    if _normalize(claim.quote) not in _normalize(excerpt):
+        return f"{label}: quote is not verbatim in evidence [{claim.evidence_idx}]"
+    return None
+
+
 def validate_claims(analysis: Analysis, pack: EvidencePack) -> list[str]:
     """Code-side grounding check: every claim must cite an evidence item that
     exists, and its quote must appear verbatim in that item's excerpt. A URL
     on a claim only proved a page exists; a verbatim quote proves the model
     actually read it."""
     errors = []
-    n_items = len(pack.items)
-    missing_corpus = "\n".join(pack.missing)
+    for dim in ("team", "product", "market", "traction", "thesis_fit"):
+        for claim in getattr(analysis, dim).claims:
+            if error := _claim_error(dim, claim, pack):
+                errors.append(error)
+    return errors
+
+
+def _salvage(analysis: Analysis, pack: EvidencePack) -> int:
+    """Drop only the claims that failed grounding; keep the rest. Small models
+    often fabricate a minority of quotes — the honest fix is removal with
+    disclosure (llm_meta.dropped_claims), not torching the whole analysis."""
+    dropped = 0
     for dim in ("team", "product", "market", "traction", "thesis_fit"):
         section = getattr(analysis, dim)
-        for claim in section.claims:
-            label = f"{dim} claim '{claim.text[:60]}'"
-            if claim.evidence_idx == 0:
-                # Absence claim: the quote must match a recorded gap verbatim.
-                if _normalize(claim.quote) not in _normalize(missing_corpus):
-                    errors.append(
-                        f"{label}: cites [0] (missing evidence) but the quote "
-                        "matches no recorded gap"
-                    )
-                continue
-            if claim.evidence_idx > n_items:
-                errors.append(
-                    f"{label}: cites evidence [{claim.evidence_idx}] "
-                    f"but only {n_items} evidence items exist"
-                )
-                continue
-            excerpt = pack.items[claim.evidence_idx - 1].excerpt
-            if _normalize(claim.quote) not in _normalize(excerpt):
-                errors.append(
-                    f"{label}: quote is not verbatim in evidence "
-                    f"[{claim.evidence_idx}]"
-                )
-    return errors
+        kept = [c for c in section.claims if _claim_error(dim, c, pack) is None]
+        dropped += len(section.claims) - len(kept)
+        section.claims = kept
+    return dropped
 
 
 def _degraded(pack: EvidencePack, meta: LlmMeta | None, reason: str) -> Analysis:
@@ -157,6 +170,7 @@ def analyze_candidate(
     error: str | None = "no attempt made"
     last_response = None
     last_exc: str | None = None
+    salvageable: Analysis | None = None  # schema-valid but claim-grounding failures
     attempt = 0
     while attempt < MAX_ATTEMPTS and analysis is None:
         attempt += 1
@@ -180,6 +194,7 @@ def analyze_candidate(
         if analysis is not None:
             claim_errors = validate_claims(analysis, pack)
             if claim_errors:
+                salvageable = analysis
                 analysis, error = None, "; ".join(claim_errors)
         _log_call(
             log_path,
@@ -193,6 +208,13 @@ def analyze_candidate(
             ok=analysis is not None,
         )
 
+    dropped_claims = 0
+    if analysis is None and salvageable is not None:
+        # Never returned to the model? Keep the analysis but strip every
+        # claim that failed grounding — removal is disclosed on the memo.
+        dropped_claims = _salvage(salvageable, pack)
+        analysis = salvageable
+
     repaired = attempt > 1
     meta = LlmMeta(
         model=last_response.model if last_response else client.model,
@@ -203,6 +225,7 @@ def analyze_candidate(
         output_tokens=last_response.output_tokens if last_response else None,
         latency_ms=last_response.latency_ms if last_response else 0,
         repaired=repaired,
+        dropped_claims=dropped_claims,
     )
     if analysis is None:
         if last_response is None:

@@ -50,4 +50,4 @@
 {% endfor %}
 {% endif %}
 ---
-*Model: {{ meta.model }} · prompt: {{ meta.prompt_file }}#{{ meta.prompt_sha }}{% if meta.repaired %} · repaired{% endif %} · degraded: {{ analysis.degraded }} · run: {{ run_id }}*
+*Model: {{ meta.model }} · prompt: {{ meta.prompt_file }}#{{ meta.prompt_sha }}{% if meta.repaired %} · repaired{% endif %}{% if meta.dropped_claims %} · {{ meta.dropped_claims }} claim(s) failed grounding and were removed{% endif %} · degraded: {{ analysis.degraded }} · run: {{ run_id }}*

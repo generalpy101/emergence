@@ -47,20 +47,23 @@ def _add_hn_thread(pack: EvidencePack, fetcher, now: datetime) -> None:
     if story is None:
         pack.missing.append(f"HN story unavailable: {hn.story_url}")
     else:
-        # Structured stats go INTO the excerpt as a facts line: the model can
-        # only make verbatim-quote claims about text it can see, and traction
-        # claims are exactly these numbers.
+        # Structured stats go INTO the excerpt as a natural-language facts
+        # line ("260 points, 114 comments, posted ...") — models quote in
+        # word order, so the facts are written the way they will be cited.
+        # The title is always included (it is the richest claim source).
+        posted = datetime.fromtimestamp(story.get("time", 0), UTC).date().isoformat()
         facts = (
-            f"points={story.get('score')} comments={story.get('descendants')} "
-            f"author={story.get('by')}"
+            f"HN launch: {story.get('score')} points, {story.get('descendants')} "
+            f"comments, posted {posted} by {story.get('by')}."
         )
-        body = html_to_text(story.get("text") or story.get("title") or "")
+        title = story.get("title") or ""
+        body = html_to_text(story.get("text") or "")
         pack.items.append(
             EvidenceItem(
                 kind=EvidenceKind.HN_STORY,
                 url=hn.story_url,
                 fetched_at=now,
-                excerpt=f"{facts}\n{body}"[:COMMENT_CAP],
+                excerpt=f"{facts}\n{title}\n{body}"[:COMMENT_CAP],
                 meta={"points": story.get("score"), "author": story.get("by")},
             )
         )
@@ -82,7 +85,8 @@ def _add_hn_thread(pack: EvidencePack, fetcher, now: datetime) -> None:
         if user is None:
             pack.missing.append(f"HN profile unavailable for '{hn.author}'")
         else:
-            facts = f"karma={user.get('karma')} account_created={user.get('created')}"
+            created = datetime.fromtimestamp(user.get("created", 0), UTC).date()
+            facts = f"HN user {hn.author}: karma {user.get('karma')}, account created {created}."
             body = html_to_text(user.get("about") or "")
             pack.items.append(
                 EvidenceItem(
@@ -195,8 +199,8 @@ def _add_github_repo(
     else:
         pack.missing.append(f"README unavailable for '{org}/{repo}'")
     facts = (
-        f"stars={repo_data.get('stargazers_count')} "
-        f"language={repo_data.get('language')} pushed_at={repo_data.get('pushed_at')}"
+        f"GitHub repo {org}/{repo}: {repo_data.get('stargazers_count')} stars, "
+        f"language {repo_data.get('language')}, last push {repo_data.get('pushed_at')}."
     )
     pack.items.append(
         EvidenceItem(

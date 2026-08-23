@@ -273,6 +273,45 @@ def test_ungrounded_claims_trigger_repair():
     assert analysis.llm_meta.repaired is True
 
 
+class FabricatesOneClaim:
+    """Schema-valid every time, but one fabricated quote per response."""
+
+    model = "fabricator"
+
+    def complete(self, prompt: str) -> LlmResponse:
+        import json
+
+        payload = json.loads(MockLlm().complete(prompt).text)
+        payload["team"]["claims"].append(
+            {"text": "invented fact", "evidence_idx": 1, "quote": "not in evidence"}
+        )
+        payload["traction"]["claims"].append(
+            {"text": "also invented", "evidence_idx": 1, "quote": "nope nope nope"}
+        )
+        return LlmResponse(text=json.dumps(payload), model=self.model, latency_ms=1)
+
+
+def test_salvage_strips_ungrounded_claims_and_discloses():
+    analysis = analyze_candidate(
+        make_pack(),
+        FabricatesOneClaim(),
+        template=load_template(),
+        template_path=TEMPLATE_PATH,
+        thesis_text=THESIS.read_text(),
+    )
+    assert analysis.degraded is False  # salvaged, not torched
+    assert analysis.llm_meta.dropped_claims == 2
+    assert all(
+        "invented" not in claim.text and "also invented" not in claim.text
+        for section in (
+            analysis.team, analysis.product, analysis.market,
+            analysis.traction, analysis.thesis_fit,
+        )
+        for claim in section.claims
+    )
+    assert analysis.team.claims  # the grounded claim survived
+
+
 def test_endpoint_error_is_degraded_not_fatal():
     import httpx
 

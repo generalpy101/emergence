@@ -120,6 +120,7 @@ class LlmMeta(BaseModel):
     output_tokens: int | None = None
     latency_ms: int = 0
     repaired: bool = False  # True if the first response failed validation
+    dropped_claims: int = 0  # claims removed by salvage after failing grounding
 
 
 class Analysis(BaseModel):
