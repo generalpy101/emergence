@@ -114,7 +114,7 @@ def test_double_failure_yields_degraded_placeholder(tmp_path):
     )
     assert analysis.degraded is True
     assert analysis.team.subscore == 0
-    assert "invalid output after repair" in analysis.team.rationale
+    assert "invalid output after 3 attempts" in analysis.team.rationale
     # degraded analyses are still logged honestly
     assert '"ok": false' in log.read_text()
 
@@ -152,15 +152,16 @@ def test_repair_transport_failure_is_degraded_not_crash():
                 return LlmResponse(text="not json", model=self.model, latency_ms=1)
             raise httpx.ReadTimeout("timed out")
 
+    client = BrokenThenDown()
     analysis = analyze_candidate(
         make_pack(),
-        BrokenThenDown(),
+        client,
         template=load_template(),
         template_path=TEMPLATE_PATH,
         thesis_text=THESIS.read_text(),
     )
     assert analysis.degraded is True
-    assert "repair call failed" in analysis.team.rationale
+    assert client.calls == 3  # transport failures also take the retry loop
 
 
 def test_malformed_endpoint_payload_is_degraded_not_crash():

@@ -11,7 +11,6 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-import time
 from pathlib import Path
 
 import httpx
@@ -28,6 +27,7 @@ from emergence.models import (
 )
 
 PROMPT_EVIDENCE_CAP = 2000  # chars per evidence item in the prompt
+MAX_ATTEMPTS = 3  # 1 initial + up to 2 repairs with the validation error fed back
 
 
 def render_prompt(template: Template, *, pack: EvidencePack, thesis_text: str) -> str:
@@ -151,79 +151,64 @@ def analyze_candidate(
         if responses_dir is not None:
             (responses_dir / f"{slug}.attempt{attempt}.txt").write_text(text)
 
-    started = time.monotonic()
-    try:
-        response = client.complete(prompt)
-    except httpx.HTTPError as exc:
-        meta = LlmMeta(
-            model=client.model,
-            prompt_file=template_path.name,
-            prompt_sha=template_sha,
-            thesis_sha=thesis_sha,
-            latency_ms=int((time.monotonic() - started) * 1000),
-        )
-        _log_call(log_path, candidate=slug, model=client.model, ok=False, error=str(exc))
-        return _degraded(pack, meta, f"LLM endpoint error: {exc}")
-
-    _dump(1, response.text)
-    analysis, error = _parse_analysis(response.text, slug)
-    if analysis is not None:
-        claim_errors = validate_claims(analysis, pack)
-        if claim_errors:
-            analysis, error = None, "; ".join(claim_errors)
-    repaired = False
-    if analysis is None:
-        repair_prompt = (
-            f"{prompt}\n\n---\nYour previous reply was invalid: {error}\n"
-            "Return ONLY the corrected JSON object, nothing else."
-        )
-        try:
-            response = client.complete(repair_prompt)
-        except httpx.HTTPError as exc:
-            # The repair call failing (timeout, malformed payload) must land
-            # on the same degraded path as a bad first attempt.
-            meta = LlmMeta(
-                model=client.model,
-                prompt_file=template_path.name,
-                prompt_sha=template_sha,
-                thesis_sha=thesis_sha,
-                latency_ms=int((time.monotonic() - started) * 1000),
-                repaired=True,
+    # Feedback loop: small local models often need the validation error handed
+    # back once or twice (bad JSON, then ungrounded quotes, then good).
+    analysis: Analysis | None = None
+    error: str | None = "no attempt made"
+    last_response = None
+    last_exc: str | None = None
+    attempt = 0
+    while attempt < MAX_ATTEMPTS and analysis is None:
+        attempt += 1
+        current_prompt = prompt
+        if attempt > 1:
+            current_prompt = (
+                f"{prompt}\n\n---\nYour previous reply was invalid: {error}\n"
+                "Return ONLY the corrected JSON object, nothing else."
             )
+        try:
+            response = client.complete(current_prompt)
+        except httpx.HTTPError as exc:
+            # Transport failures and malformed payloads take the same loop.
+            last_exc = str(exc)
             _log_call(log_path, candidate=slug, model=client.model, ok=False,
-                      error=f"repair: {exc}")
-            return _degraded(pack, meta, f"repair call failed: {exc}")
-        _dump(2, response.text)
+                      error=str(exc), attempt=attempt)
+            continue
+        last_response = response
+        _dump(attempt, response.text)
         analysis, error = _parse_analysis(response.text, slug)
         if analysis is not None:
             claim_errors = validate_claims(analysis, pack)
             if claim_errors:
                 analysis, error = None, "; ".join(claim_errors)
-        repaired = True
+        _log_call(
+            log_path,
+            candidate=slug,
+            model=response.model,
+            prompt_sha=template_sha,
+            input_tokens=response.input_tokens,
+            output_tokens=response.output_tokens,
+            latency_ms=response.latency_ms,
+            attempt=attempt,
+            ok=analysis is not None,
+        )
 
+    repaired = attempt > 1
     meta = LlmMeta(
-        model=response.model,
+        model=last_response.model if last_response else client.model,
         prompt_file=template_path.name,
         prompt_sha=template_sha,
         thesis_sha=thesis_sha,
-        input_tokens=response.input_tokens,
-        output_tokens=response.output_tokens,
-        latency_ms=response.latency_ms,
+        input_tokens=last_response.input_tokens if last_response else None,
+        output_tokens=last_response.output_tokens if last_response else None,
+        latency_ms=last_response.latency_ms if last_response else 0,
         repaired=repaired,
-    )
-    _log_call(
-        log_path,
-        candidate=slug,
-        model=response.model,
-        prompt_sha=template_sha,
-            thesis_sha=thesis_sha,
-        input_tokens=response.input_tokens,
-        output_tokens=response.output_tokens,
-        latency_ms=response.latency_ms,
-        repaired=repaired,
-        ok=analysis is not None,
     )
     if analysis is None:
-        return _degraded(pack, meta, f"invalid output after repair: {error}")
+        if last_response is None:
+            reason = f"LLM endpoint error: {last_exc}"
+        else:
+            reason = f"invalid output after {attempt} attempts: {error}"
+        return _degraded(pack, meta, reason)
     analysis.llm_meta = meta
     return analysis
