@@ -8,7 +8,9 @@ recorded in `pack.missing` — an honest gap beats a silent one.
 
 from __future__ import annotations
 
+import base64
 from datetime import UTC, datetime
+from urllib.parse import urlsplit
 
 from emergence.analysis.extract import github_org, html_to_text, interesting_pages
 from emergence.models import Candidate, EvidenceItem, EvidenceKind, EvidencePack
@@ -21,8 +23,18 @@ MAX_COMMENTS = 5
 
 GITHUB_ORG_API = "https://api.github.com/orgs/{org}"
 GITHUB_REPOS_API = "https://api.github.com/orgs/{org}/repos?sort=pushed&per_page=5"
+GITHUB_REPO_API = "https://api.github.com/repos/{org}/{repo}"
+GITHUB_README_API = "https://api.github.com/repos/{org}/{repo}/readme"
 HN_USER_PAGE = "https://news.ycombinator.com/user?id={username}"
 HN_COMMENT_PAGE = "https://news.ycombinator.com/item?id={item_id}"
+
+
+def parse_github_url(url: str) -> tuple[str, str | None] | None:
+    """'https://github.com/org/repo' -> ('org', 'repo'); None if not GitHub."""
+    parts = [p for p in urlsplit(url).path.strip("/").split("/") if p]
+    if "github.com" not in urlsplit(url).netloc.lower() or not parts:
+        return None
+    return parts[0], (parts[1] if len(parts) > 1 else None)
 
 
 def build_pack(candidate: Candidate, fetcher) -> EvidencePack:
@@ -83,6 +95,15 @@ def _add_hn_thread(pack: EvidencePack, fetcher, now: datetime) -> None:
 
 def _add_website(pack: EvidencePack, fetcher, now: datetime) -> None:
     url = pack.candidate.website
+    github = parse_github_url(url)
+    if github is not None:
+        # OSS-first candidate: the repo IS the site. GitHub's HTML is nav
+        # noise, so go straight to the API (repo meta + README, then org).
+        org, repo = github
+        if repo:
+            _add_github_repo(pack, fetcher, org, repo, now)
+        _add_github(pack, fetcher, org, now)
+        return
     html = fetcher.get_text(url)
     if html is None:
         pack.missing.append(f"website unreachable: {url}")
@@ -116,6 +137,41 @@ def _add_website(pack: EvidencePack, fetcher, now: datetime) -> None:
         pack.missing.append("no GitHub org linked from homepage")
     else:
         _add_github(pack, fetcher, org, now)
+
+
+def _add_github_repo(
+    pack: EvidencePack, fetcher, org: str, repo: str, now: datetime
+) -> None:
+    repo_data = fetcher.get_json(GITHUB_REPO_API.format(org=org, repo=repo))
+    if not isinstance(repo_data, dict) or "full_name" not in repo_data:
+        pack.missing.append(f"GitHub repo '{org}/{repo}' not found via API")
+        return
+    excerpt = ""
+    readme = fetcher.get_json(GITHUB_README_API.format(org=org, repo=repo))
+    if isinstance(readme, dict) and readme.get("content"):
+        try:
+            excerpt = base64.b64decode(readme["content"]).decode(errors="replace")[
+                :EXCERPT_CAP
+            ]
+        except ValueError:
+            pack.missing.append(f"README undecodable for '{org}/{repo}'")
+    else:
+        pack.missing.append(f"README unavailable for '{org}/{repo}'")
+    pack.items.append(
+        EvidenceItem(
+            kind=EvidenceKind.GITHUB_REPO,
+            url=f"https://github.com/{org}/{repo}",
+            fetched_at=now,
+            excerpt=excerpt,
+            meta={
+                "description": repo_data.get("description"),
+                "stars": repo_data.get("stargazers_count"),
+                "language": repo_data.get("language"),
+                "pushed_at": repo_data.get("pushed_at"),
+                "open_issues": repo_data.get("open_issues_count"),
+            },
+        )
+    )
 
 
 def _add_github(pack: EvidencePack, fetcher, org: str, now: datetime) -> None:

@@ -51,6 +51,7 @@ class EvidenceKind(str, Enum):
     HN_USER = "hn_user"
     WEB_PAGE = "web_page"
     GITHUB_ORG = "github_org"
+    GITHUB_REPO = "github_repo"
 
 
 class EvidenceItem(BaseModel):
