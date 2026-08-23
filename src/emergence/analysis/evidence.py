@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import base64
 from datetime import UTC, datetime
+from urllib.parse import urlsplit
 
 from emergence.analysis.extract import github_org, html_to_text, interesting_pages
 from emergence.models import Candidate, EvidenceItem, EvidenceKind, EvidencePack
@@ -85,6 +86,39 @@ def _add_hn_thread(pack: EvidencePack, fetcher, now: datetime) -> None:
             )
 
 
+def _root_domain_url(url: str) -> str | None:
+    """'https://chat.acme.io/path' -> 'https://acme.io'; None when already at
+    the root. Naive about public suffixes (x.co.uk -> co.uk) — acceptable:
+    this is a fallback fetch, and a wrong guess just 404s into `missing`."""
+    parts = urlsplit(url)
+    labels = parts.netloc.split(".")
+    if len(labels) <= 2:
+        return None
+    return f"{parts.scheme or 'https'}://{'.'.join(labels[-2:])}"
+
+
+def _fetch_landing(
+    pack: EvidencePack, fetcher, url: str
+) -> tuple[str, str] | None:
+    """Fetch the launch URL; if it fails or is a JS shell, fall back once to
+    the root domain (launches often point at app.* subdomains). Returns
+    (final_url, raw_html) or None."""
+    html = fetcher.get_text(url)
+    if html is not None and len(html_to_text(html)) >= 100:
+        return url, html
+    root = _root_domain_url(url)
+    if root is not None:
+        root_html = fetcher.get_text(root)
+        if root_html is not None and len(html_to_text(root_html)) >= 100:
+            pack.missing.append(f"launch URL unusable ({url}); fell back to {root}")
+            return root, root_html
+    if html is None:
+        pack.missing.append(f"website unreachable: {url}")
+    else:
+        pack.missing.append("homepage content too thin to analyze (possibly JS-rendered)")
+    return None
+
+
 def _add_website(pack: EvidencePack, fetcher, now: datetime) -> None:
     url = pack.candidate.website
     github = parse_github_url(url)
@@ -96,15 +130,17 @@ def _add_website(pack: EvidencePack, fetcher, now: datetime) -> None:
             _add_github_repo(pack, fetcher, org, repo, now)
         _add_github(pack, fetcher, org, now)
         return
-    html = fetcher.get_text(url)
-    if html is None:
-        pack.missing.append(f"website unreachable: {url}")
+    landing = _fetch_landing(pack, fetcher, url)
+    if landing is None:
         return
-    text = html_to_text(html, cap=EXCERPT_CAP)
-    if len(text) < 100:  # a JS-only shell extracts almost nothing
-        pack.missing.append("homepage content too thin to analyze (possibly JS-rendered)")
+    url, html = landing
     pack.items.append(
-        EvidenceItem(kind=EvidenceKind.WEB_PAGE, url=url, fetched_at=now, excerpt=text)
+        EvidenceItem(
+            kind=EvidenceKind.WEB_PAGE,
+            url=url,
+            fetched_at=now,
+            excerpt=html_to_text(html, cap=EXCERPT_CAP),
+        )
     )
 
     pages = interesting_pages(html, url, limit=MAX_EXTRA_PAGES)

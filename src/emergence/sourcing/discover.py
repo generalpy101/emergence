@@ -80,19 +80,20 @@ def _collect(
             continue
         if hit.points < min_points:
             continue
-        domain = normalize_domain(hit.url)
-        if not domain or domain in seen_domains:
+        key = _dedup_key(hit.url)
+        if not key or key in seen_domains:
             continue
-        seen_domains.add(domain)
+        seen_domains.add(key)
+        github = parse_github_url(hit.url)
         name, one_liner = parsed
-        if not one_liner and (github := parse_github_url(hit.url)) and github[1]:
+        if not one_liner and github and github[1]:
             # OSS-first launch with a prose title ("Show HN: A Karpathy-style
             # wiki your agents maintain"): the repo name is the name, and the
             # title body is the one-liner.
             name, one_liner = github[1], name
         candidates.append(
             Candidate(
-                slug=slugify(domain),
+                slug=slugify(key),
                 name=name,
                 website=hit.url,
                 one_liner=one_liner,
@@ -112,6 +113,16 @@ def _collect(
     return candidates
 
 
+def _dedup_key(url: str) -> str:
+    """Dedup key: normalized domain, or org/repo for GitHub URLs — every
+    repo shares the github.com domain, so domain alone would collapse all
+    OSS-first candidates into one."""
+    domain = normalize_domain(url)
+    if domain == "github.com" and (github := parse_github_url(url)):
+        return "-".join(p for p in github if p)
+    return domain
+
+
 def candidates_from_urls(
     urls: list[str], *, now: datetime | None = None
 ) -> list[Candidate]:
@@ -122,14 +133,14 @@ def candidates_from_urls(
         url = url.strip()
         if not url:
             continue
-        domain = normalize_domain(url)
-        if not domain or domain in seen:
+        key = _dedup_key(url)
+        if not key or key in seen:
             continue
-        seen.add(domain)
+        seen.add(key)
         candidates.append(
             Candidate(
-                slug=slugify(domain),
-                name=domain,
+                slug=slugify(key),
+                name=key,
                 website=url,
                 source_kind=SourceKind.MANUAL_URL,
                 discovered_at=now,

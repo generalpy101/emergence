@@ -131,6 +131,35 @@ def test_no_widening_for_feed_mode():
     assert len(candidates) == 1
 
 
+def test_two_github_candidates_do_not_collide():
+    payload = {
+        "hits": [
+            {
+                "objectID": "500",
+                "title": "Show HN: Tool One – a thing",
+                "url": "https://github.com/org-one/tool",
+                "points": 50,
+                "num_comments": 5,
+                "created_at_i": 1780000000,
+                "author": "a",
+            },
+            {
+                "objectID": "501",
+                "title": "Show HN: Tool Two – another thing",
+                "url": "https://github.com/org-two/tool",
+                "points": 40,
+                "num_comments": 4,
+                "created_at_i": 1780000000,
+                "author": "b",
+            },
+        ]
+    }
+    candidates = source_candidates(
+        FakeFetcher(json_routes={"hn.algolia.com": payload}), query="tool", now=NOW
+    )
+    assert [c.slug for c in candidates] == ["org-one-tool", "org-two-tool"]
+
+
 def test_candidates_from_urls_dedups_and_normalizes():
     candidates = candidates_from_urls(
         ["https://acme.io", "https://www.acme.io/team", "", "dispatchly.com"], now=NOW

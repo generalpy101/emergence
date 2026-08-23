@@ -183,8 +183,19 @@ def stage_analyze(ctx: RunContext, *, limit: int | None = None) -> list[Analysis
     candidates = load_candidates(ctx.paths)
     if limit is not None:
         candidates = candidates[:limit]
+    # Resume-friendly: candidates with an existing non-degraded analysis are
+    # kept as-is, so re-running the stage only redoes failures and gaps.
+    # (To force re-analysis, delete analyses.jsonl or use a fresh run id.)
+    existing: dict[str, Analysis] = {}
+    if ctx.paths.analyses_file.exists():
+        existing = {a.candidate_slug: a for a in load_analyses(ctx.paths)}
     analyses: list[Analysis] = []
     for i, candidate in enumerate(candidates, start=1):
+        prior = existing.get(candidate.slug)
+        if prior is not None and not prior.degraded:
+            ctx.progress(f"[analyze] ({i}/{len(candidates)}) {candidate.name} — kept")
+            analyses.append(prior)
+            continue
         ctx.progress(f"[analyze] ({i}/{len(candidates)}) {candidate.name}")
         pack = build_pack(candidate, ctx.fetcher)
         save_pack(ctx.paths, pack)

@@ -123,6 +123,25 @@ def test_excerpt_is_capped():
     assert len(homepage.excerpt) <= EXCERPT_CAP
 
 
+def test_root_domain_fallback_when_launch_url_dead():
+    candidate = make_candidate()
+    candidate.website = "https://chat.acmeagents.io/app"
+    fetcher = FakeFetcher(
+        json_routes={"item/401.json": STORY, "user/janedoe.json": USER},
+        text_routes={"https://acmeagents.io": HOMEPAGE},  # chat.* route absent -> None
+    )
+    pack = build_pack(candidate, fetcher)
+    web_pages = [i for i in pack.items if i.kind == EvidenceKind.WEB_PAGE]
+    assert web_pages and web_pages[0].url == "https://acmeagents.io"
+    assert any("fell back to https://acmeagents.io" in m for m in pack.missing)
+
+
+def test_no_fallback_when_already_at_root():
+    pack = build_pack(make_candidate(), FakeFetcher())
+    assert any("website unreachable" in m for m in pack.missing)
+    assert not any("fell back" in m for m in pack.missing)
+
+
 def test_manual_seed_has_no_hn_evidence():
     candidate = make_candidate()
     candidate.hn = None

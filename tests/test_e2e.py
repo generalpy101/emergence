@@ -117,6 +117,25 @@ def test_run_metadata_records_seed_and_model(tmp_path):
     assert meta["run_id"] == "run-1"
 
 
+def test_analyze_resumes_and_skips_healthy_analyses(tmp_path):
+    ctx = make_context(tmp_path, make_fetcher())
+    stage_source(ctx, query="AI agents", limit=2)
+    first = stage_analyze(ctx)
+    first[1].degraded = True  # simulate: second candidate failed last time
+    from emergence.pipeline import save_analyses
+
+    save_analyses(ctx.paths, first)
+
+    # Re-run with a fetcher that serves nothing: the healthy analysis is kept
+    # from the file untouched; only the degraded one is re-attempted (MockLlm
+    # succeeds, so the flag flips — proving the re-attempt happened).
+    ctx2 = make_context(tmp_path, FakeFetcher())
+    second = stage_analyze(ctx2)
+    assert second[0].candidate_slug == first[0].candidate_slug
+    assert second[0].llm_meta == first[0].llm_meta  # untouched, from disk
+    assert second[1].degraded is False  # re-attempted, mock succeeded
+
+
 def test_cli_arg_validation():
     from typer.testing import CliRunner
 
