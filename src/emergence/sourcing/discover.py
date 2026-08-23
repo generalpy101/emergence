@@ -29,7 +29,44 @@ def source_candidates(
     now: datetime | None = None,
 ) -> list[Candidate]:
     now = now or datetime.now(UTC)
-    since = now - timedelta(days=30 * months)
+    candidates = _collect(
+        fetcher,
+        query=query,
+        feed=feed,
+        limit=limit,
+        min_points=min_points,
+        since=now - timedelta(days=30 * months),
+        now=now,
+    )
+    if len(candidates) < min(limit, 10) and query:
+        # Niche queries underperform a fixed window; widen once rather than
+        # silently shipping too few candidates. Staleness is still priced by
+        # the traction rubric, and recency is visible on every memo.
+        wider = _collect(
+            fetcher,
+            query=query,
+            feed=feed,
+            limit=limit,
+            min_points=min_points,
+            since=now - timedelta(days=30 * months * 2),
+            now=now,
+        )
+        seen = {c.slug for c in candidates}
+        candidates.extend(c for c in wider if c.slug not in seen)
+        candidates = candidates[:limit]
+    return candidates
+
+
+def _collect(
+    fetcher,
+    *,
+    query: str,
+    feed: str | None,
+    limit: int,
+    min_points: int,
+    since: datetime,
+    now: datetime,
+) -> list[Candidate]:
     tag = feed or "story"
     hits = search_stories(fetcher, query=query, since=since, tag=tag)
 

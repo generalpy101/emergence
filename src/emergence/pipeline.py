@@ -156,12 +156,15 @@ def stage_source(
     urls: list[str] | None = None,
     feed: str | None = None,
     limit: int = 15,
+    min_points: int = 5,
 ) -> list[Candidate]:
     if urls is not None:
         candidates = candidates_from_urls(urls)
         seed = {"kind": "urls", "value": urls}
     else:
-        candidates = source_candidates(ctx.fetcher, query=query, feed=feed, limit=limit)
+        candidates = source_candidates(
+            ctx.fetcher, query=query, feed=feed, limit=limit, min_points=min_points
+        )
         seed = {"kind": feed or "query", "value": query or feed}
     save_candidates(ctx.paths, candidates)
     _write_meta(

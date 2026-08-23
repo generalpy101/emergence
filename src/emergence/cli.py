@@ -114,6 +114,7 @@ FeedOpt = Annotated[
     str | None, typer.Option(help="HN tag feed: 'show_hn' or 'launch_hn'.")
 ]
 LimitOpt = Annotated[int, typer.Option(help="Max candidates (10-20 recommended).")]
+MinPointsOpt = Annotated[int, typer.Option(help="Minimum HN points for a candidate.")]
 RunIdOpt = Annotated[str | None, typer.Option(help="Run id (default: timestamped).")]
 MockOpt = Annotated[
     bool, typer.Option("--mock-llm", help="Deterministic offline LLM (tests/dev).")
@@ -139,6 +140,7 @@ def source(
     urls: UrlsOpt = None,
     feed: FeedOpt = None,
     limit: LimitOpt = 15,
+    min_points: MinPointsOpt = 5,
     run_id: RunIdOpt = None,
     no_cache: NoCacheOpt = False,
 ) -> None:
@@ -146,7 +148,7 @@ def source(
     label = _seed_label(query, urls, feed)
     ctx = _build_context(_resolve_run_id(run_id, label, resume=False), mock_llm=True, no_cache=no_cache)
     url_list = urls.read_text().splitlines() if urls else None
-    stage_source(ctx, query=query or "", urls=url_list, feed=feed, limit=limit)
+    stage_source(ctx, query=query or "", urls=url_list, feed=feed, limit=limit, min_points=min_points)
 
 
 @app.command()
@@ -176,6 +178,7 @@ def run(
     urls: UrlsOpt = None,
     feed: FeedOpt = None,
     limit: LimitOpt = 15,
+    min_points: MinPointsOpt = 5,
     run_id: RunIdOpt = None,
     from_stage: Annotated[
         str, typer.Option(help="Resume at: source | analysis | recommend.")
@@ -194,7 +197,7 @@ def run(
 
     if from_stage == "source":
         url_list = urls.read_text().splitlines() if urls else None
-        stage_source(ctx, query=query or "", urls=url_list, feed=feed, limit=limit)
+        stage_source(ctx, query=query or "", urls=url_list, feed=feed, limit=limit, min_points=min_points)
     if from_stage in ("source", "analysis"):
         stage_analyze(ctx)
     stage_recommend(ctx)
