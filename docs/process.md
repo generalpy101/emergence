@@ -88,6 +88,29 @@
   Fixed by splitting the local commits before anything was pushed. Lesson
   recorded: stage by path, always.
 
+### 2026-08-23 — Switching local LLM servers (Ollama → oMLX)
+
+- Prakash moved to oMLX (`:6969`, key `root`) with Qwen3.8-27B-4bit. The
+  provider-agnostic client paid off: three env vars and it ran.
+- **Two real integration bugs surfaced and were fixed:**
+  1. The 180s client timeout was tuned for fast hosted models; a local 27B
+     generates for 5–8 min/candidate → wedged clients and a server-side
+     "request aborted" ghost. Now `LLM_TIMEOUT_S` (default 900s).
+  2. Qwen3 is a thinking model; hidden reasoning tokens made one request hit
+     the token cap mid-JSON. Fix: `LLM_EXTRA_BODY_JSON` (generic
+     server-specific request fields) carrying
+     `chat_template_kwargs.enable_thinking=false`, verified against oMLX.
+- **Observability gap found the hard way:** when a generation hit the token
+  cap, the run had no record of *what* the model emitted. Raw responses are
+  now dumped per attempt (`llm-responses/<slug>.attemptN.txt`).
+- **Model quality comparison (same candidate, wuphf):** gemma3:12b scored
+  thesis_fit 5/5 → "Take a meeting" (74); Qwen3-27B scored it 2/5 with a
+  sharper reason ("developer tool, not an SMB vertical") → "Watch". The 27B
+  read was the more disciplined application of the thesis. Tradeoff:
+  ~5.5 min vs ~1.5–2.5 min per analysis on this machine.
+- Preflight run dir (`data/runs/preflight-qwen`) left uncommitted — the
+  committed demo run remains the complete gemma3:12b one.
+
 ## Reflections
 
 ### What I actually did vs. what the AI did
