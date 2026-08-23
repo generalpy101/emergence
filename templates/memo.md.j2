@@ -1,0 +1,53 @@
+# {{ candidate.name }} — {{ score.call.value }} ({{ score.total }}/100)
+
+> {{ candidate.one_liner or "—" }}
+
+**Site:** {{ candidate.website }}{% if candidate.hn %} · **Launch:** [HN thread]({{ candidate.hn.story_url }}) ({{ candidate.hn.points }} pts, {{ candidate.hn.num_comments }} comments, {{ candidate.hn.posted_at.date() }}){% endif %} · **Category:** `{{ analysis.category.value }}`
+
+## Why this call
+{% for reason in score.call_reasons %}
+- {{ reason }}
+{%- endfor %}
+{% if analysis.degraded %}
+- **This analysis is DEGRADED** — the model output failed validation. Treat everything below as unverified.
+{%- endif %}
+
+| Dimension | Subscore | Points |
+|---|---|---|
+{% for row in sections -%}
+| {{ row.label }} | {{ row.section.subscore }}/5 | {{ row.points | round(1) }}/{{ row.weight }} |
+{% endfor -%}
+| **Total** | | **{{ score.total }}/100** |
+
+{% for row in sections -%}
+## {{ row.label }} — {{ row.section.subscore }}/5
+
+{{ row.section.rationale }}
+{% if row.section.claims %}
+{% for claim in row.section.claims -%}
+- {{ claim.text }} ([source]({{ claim.source_url }}))
+{% endfor %}
+{% endif %}
+{% endfor -%}
+## Risks / open questions
+{% for risk in analysis.risks %}
+- {{ risk }}
+{%- endfor %}
+
+## What would change my mind
+{% for item in analysis.change_my_mind %}
+- {{ item }}
+{%- endfor %}
+
+## Evidence & sources
+{% for item in pack.items -%}
+- [{{ loop.index }}] `{{ item.kind.value }}` — {{ item.url }}
+{% endfor %}
+{% if pack.missing %}
+**Could not verify:**
+{% for gap in pack.missing -%}
+- {{ gap }}
+{% endfor %}
+{% endif %}
+---
+*Model: {{ meta.model }} · prompt: {{ meta.prompt_file }}#{{ meta.prompt_sha }}{% if meta.repaired %} · repaired{% endif %} · degraded: {{ analysis.degraded }} · run: {{ run_id }}*

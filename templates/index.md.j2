@@ -1,0 +1,11 @@
+# Run {{ run_id }} — {{ rows | length }} candidates
+
+- Seed: `{{ seed }}`
+- Model: `{{ model }}`
+- Generated: {{ generated_at }}
+
+| Startup | Score | Call | One-liner | Memo |
+|---|---|---|---|---|
+{% for row in rows -%}
+| {{ row.name }} | {{ row.total }} | {{ row.call }} | {{ row.one_liner or "—" }} | [memo]({{ row.memo_file }}) |
+{% endfor %}
