@@ -59,6 +59,39 @@ def evaluate_gates(analysis: Analysis, pack: EvidencePack) -> list[str]:
     return gates
 
 
+_DIM_LABELS = {
+    "team": "team",
+    "product": "product",
+    "market": "market",
+    "traction": "traction",
+    "thesis_fit": "thesis fit",
+}
+
+
+def _dimension_commentary(analysis: Analysis) -> list[str]:
+    """Partner-readable why: which dimensions carried or sank the score, and
+    the sharpest open risk. Deterministic from subscores — no extra LLM call."""
+    subscores = {dim: getattr(analysis, dim).subscore for dim in WEIGHTS}
+    reasons = []
+    strong = [d for d, s in subscores.items() if s >= 4]
+    weak = [d for d, s in subscores.items() if s <= 2]
+    if strong:
+        reasons.append(
+            "Strengths: "
+            + ", ".join(f"{_DIM_LABELS[d]} {subscores[d]}/5" for d in strong)
+            + "."
+        )
+    if weak:
+        reasons.append(
+            "Concerns: "
+            + ", ".join(f"{_DIM_LABELS[d]} {subscores[d]}/5" for d in weak)
+            + "."
+        )
+    if analysis.risks:
+        reasons.append(f"Sharpest risk: {analysis.risks[0]}")
+    return reasons
+
+
 def compute_score(analysis: Analysis, pack: EvidencePack) -> ScoreBreakdown:
     dimension_points = {
         dim: weight * getattr(analysis, dim).subscore / 5
@@ -80,6 +113,7 @@ def compute_score(analysis: Analysis, pack: EvidencePack) -> ScoreBreakdown:
     else:
         call = Call.PASS
         reasons = [f"Score {total} below {WATCH_THRESHOLD}."]
+    reasons.extend(_dimension_commentary(analysis))
     return ScoreBreakdown(
         candidate_slug=analysis.candidate_slug,
         dimension_points=dimension_points,

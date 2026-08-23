@@ -119,6 +119,15 @@ def test_degraded_analysis_is_gated():
     assert "analysis_degraded" in score.gates_triggered
 
 
+def test_call_reasons_include_dimension_commentary():
+    analysis = make_analysis((4, 4, 3, 2, 5))
+    analysis.risks = ["Churn risk in SMB segment"]
+    reasons = compute_score(analysis, make_pack()).call_reasons
+    assert any("Strengths: team 4/5, product 4/5, thesis fit 5/5" in r for r in reasons)
+    assert any("Concerns: traction 2/5" in r for r in reasons)
+    assert any("Sharpest risk: Churn risk" in r for r in reasons)
+
+
 def test_github_repo_counts_as_product_evidence():
     # OSS-first candidates have no web_page; the repo must satisfy dead_site.
     pack = make_pack(with_web_page=False)
