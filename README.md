@@ -37,7 +37,7 @@ failed/degraded analysis) force a Pass.
 ## Testing
 
 ```bash
-uv run pytest              # 57 tests, fixtures only — no live network
+uv run pytest              # 65 tests, fixtures only — no live network
 uv run ruff check src tests
 uv run emergence run --query "test" --mock-llm   # offline end-to-end
 ```

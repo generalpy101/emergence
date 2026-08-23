@@ -64,6 +64,30 @@
   model can't forge it); degraded analyses force a Pass and print so on the
   memo; `pack.missing` renders as a "could not verify" list on every memo.
 
+### 2026-08-23 — Demo run (model: gemma3:12b, local Ollama)
+
+- **Warmup run first** (`--limit 1`) before committing to ~20 minutes of LLM
+  calls. It surfaced two prompt-level quirks → `prompts/analysis.md` v2
+  (evidence-index citations blessed deliberately; meta-claims banned) and an
+  OSS-first naming fix. Cheap warmups before expensive runs: worth it.
+- **First full run under-delivered candidates** (8 of the required 10–20) →
+  added the one-time window-widening fallback. Second run: 12.
+- **One LLM call timed out** (last candidate, local model under load). The
+  degraded path worked as designed: gate fired, memo says Pass honestly.
+  A resume-friendly `stage_analyze` (keep healthy analyses, redo failures)
+  re-ran just that candidate instead of re-spending the whole run.
+- **Output review caught three real bugs** (index enum labels, GitHub dedup
+  collision, app-subdomain dead sites). All fixed with regression tests, then
+  verified in the re-rendered outputs (AgentMail went Pass → Take a meeting
+  once its real site was actually read).
+- **Final distribution:** 6 Take a meeting / 4 Watch / 2 Pass. LaminarFlow's
+  Pass was independently verified (site genuinely dead via curl) — the gate
+  doing its job is the demo, not an embarrassment.
+- **Process mistake (second offense):** `git add -A` swept demo-run outputs
+  into a code-fix commit — same thing that happened with the planning docs.
+  Fixed by splitting the local commits before anything was pushed. Lesson
+  recorded: stage by path, always.
+
 ## Reflections
 
 ### What I actually did vs. what the AI did
