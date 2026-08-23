@@ -1,0 +1,85 @@
+{
+  "hits": [
+    {
+      "objectID": "401",
+      "title": "Show HN: Acme Agents – AI bookkeeping for dental clinics",
+      "url": "https://acmeagents.io",
+      "points": 120,
+      "num_comments": 64,
+      "created_at_i": 1780000000,
+      "author": "janedoe"
+    },
+    {
+      "objectID": "402",
+      "title": "Show HN: Dispatchly - AI dispatch for plumbing companies",
+      "url": "https://www.dispatchly.com/",
+      "points": 45,
+      "num_comments": 10,
+      "created_at_i": 1780000000,
+      "author": "plumberdev"
+    },
+    {
+      "objectID": "403",
+      "title": "Launch HN: Foo (YC W26) – AI agents for SMB payroll",
+      "url": "https://foo.example.com",
+      "points": 8,
+      "num_comments": 2,
+      "created_at_i": 1780000000,
+      "author": "ycombinator"
+    },
+    {
+      "objectID": "404",
+      "title": "Ask HN: What is the best book on venture capital?",
+      "url": null,
+      "points": 300,
+      "num_comments": 250,
+      "created_at_i": 1780000000,
+      "author": "curious"
+    },
+    {
+      "objectID": "405",
+      "title": "Show HN: Low Signal – a thing nobody noticed",
+      "url": "https://lowsignal.example.com",
+      "points": 2,
+      "num_comments": 0,
+      "created_at_i": 1780000000,
+      "author": "nobody"
+    },
+    {
+      "objectID": "406",
+      "title": "Show HN: Acme Agents – new pricing page",
+      "url": "http://acmeagents.io/pricing",
+      "points": 90,
+      "num_comments": 30,
+      "created_at_i": 1780000000,
+      "author": "janedoe"
+    },
+    {
+      "objectID": "407",
+      "title": "AI agents are coming for the back office",
+      "url": "https://blog.example.com/thinkpiece",
+      "points": 500,
+      "num_comments": 400,
+      "created_at_i": 1780000000,
+      "author": "blogger"
+    },
+    {
+      "objectID": "408",
+      "title": "Show HN:",
+      "url": "https://empty.example.com",
+      "points": 50,
+      "num_comments": 5,
+      "created_at_i": 1780000000,
+      "author": "broken"
+    },
+    {
+      "objectID": "409",
+      "title": "Show HN: Malformed",
+      "url": "https://malformed.example.com",
+      "points": null,
+      "num_comments": null,
+      "created_at_i": 1780000000,
+      "author": null
+    }
+  ]
+}
