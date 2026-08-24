@@ -1,0 +1,94 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While Sprocket automates workflows, its primary buyer appears to be AI agent developers, not SMBs, and there's no clear evidence of a non-developer SMB buyer.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is a young individual with a recent HN account, demonstrating some technical aptitude but limited startup experience. [6]",
+    "claims": [
+      {
+        "text": "The founder is a 16-year-old.",
+        "evidence_idx": 6,
+        "quote": "Hey HN, I am 16y/o"
+      },
+      {
+        "text": "The founder created their HN account recently.",
+        "evidence_idx": 6,
+        "quote": "account created 2025-06-09"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "Sprocket appears to automate hardware and software development workflows, but the description is high-level and lacks specifics on how it's differentiated. [1]",
+    "claims": [
+      {
+        "text": "Sprocket automates hardware and software development workflows.",
+        "evidence_idx": 1,
+        "quote": "It's an open-source AI agent that beats every other agent out there at both hardware and software."
+      },
+      {
+        "text": "Sprocket can create schematics in react.",
+        "evidence_idx": 1,
+        "quote": "Sprocket can make beautiful schematics in react"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The market is not clearly defined as an SMB segment. The description focuses on AI agent developers and lacks specifics on the target SMB size or industry. [0]",
+    "claims": [
+      {
+        "text": "The market is not clearly defined as an SMB segment.",
+        "evidence_idx": 0,
+        "quote": "no market segment is defined"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The HN launch shows some initial interest, but the demo site being down and the lack of a team page are concerning. [4, 5]",
+    "claims": [
+      {
+        "text": "The product has a recent HN launch.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-08-02"
+      },
+      {
+        "text": "The demo site is currently down.",
+        "evidence_idx": 4,
+        "quote": "The site is down..."
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "Sprocket automates workflows and is technically B2B, but its focus on AI agent development places it outside the core SMB automation thesis. [1]",
+    "claims": [
+      {
+        "text": "Sprocket automates workflows.",
+        "evidence_idx": 1,
+        "quote": "It's an open-source AI agent"
+      },
+      {
+        "text": "The product targets AI agent developers.",
+        "evidence_idx": 1,
+        "quote": "The agent harness's quality, performance, and UI rival that of Codex/Cursor/T3Code"
+      }
+    ]
+  },
+  "risks": [
+    "The founder's age raises concerns about their ability to execute and handle the complexities of running a business.",
+    "The lack of a clear SMB focus could lead to a lack of product-market fit and ultimately, failure.",
+    "The demo site being down suggests instability and potential technical challenges.",
+    "Reliance on a single founder introduces significant execution risk."
+  ],
+  "change_my_mind": [
+    "Evidence of a significant number of SMBs using Sprocket for a concrete workflow.",
+    "A detailed explanation of how Sprocket solves a specific, budgeted problem for SMBs.",
+    "A public team page with named individuals and verifiable experience."
+  ]
+}
+```

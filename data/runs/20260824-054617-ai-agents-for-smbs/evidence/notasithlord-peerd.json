@@ -1,0 +1,102 @@
+{
+  "candidate": {
+    "slug": "notasithlord-peerd",
+    "name": "peerd",
+    "website": "https://github.com/NotASithLord/peerd",
+    "one_liner": "AI agent harness that runs entirely in your browser",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 48646165,
+      "story_url": "https://news.ycombinator.com/item?id=48646165",
+      "points": 75,
+      "num_comments": 23,
+      "posted_at": "2026-06-23T15:05:00Z",
+      "author": "NotASithLord"
+    },
+    "founder_hint": "NotASithLord",
+    "discovered_at": "2026-08-24T05:46:17.273198Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=48646165",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "HN launch: 75 points, 23 comments, posted 2026-06-23 by NotASithLord.\nShow HN: peerd – AI agent harness that runs entirely in your browser\nHey HN.\nhttp://peerd.ai\nis an AI agent harness that lives entirely in your browser as a web extension. You don’t have to install a separate “AI browser”. You don’t have to bolt on or run some external process or manage a clunky mcp integration. It’s just a fully contained web extension, written in no build vanilla JS with minimal non-browser dependencies, using your own provider keys, and Apache 2.\nThis isn’t just a fun hack. While it has largely been a solo side project, I genuinely believe the browser and the web could be the most natural platform for AI agents to operate safely, autonomously, and most importantly without A2A middlemen (more on that in a sec). To demonstrate that point peerd doesn’t just drive browser automation. It spins up isolated sandboxes using tabs and worker instances to support various real workload types. Those include headless JS computational work, visual JS notebooks, personal client side apps, and real Linux VMs on top of wasm with full http networking.\nThe industry discourse over the last several months has been dominated by “which substrate is the best for ai agent sandboxes” with many competing answers focused on different models and use cases. Cloudflare is one of the most prominent examples, positioning its v8 isolate based workers as the best in class solution thanks to faster than container startup times and strong isolation guarantees. The v8 isolate is of course the product of chromium, which runs on billions of browsers around the world for free. The browser as a whole is perhaps the most battle tested sandbox system in the entire software industry. It’s been built on 3 decades of learning from hostile content, hostile code, and hostile users. Native and cloud agents are necessarily rebuilding all or most of this posture from scratch. peerd doesn’t. It leverages everything the browser has",
+      "meta": {
+        "points": 75,
+        "author": "NotASithLord"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48662624",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "Author here. Some other technical tidbits:\n- Fully typed checked with JSdoc, and Bun/TS for testing.\n- stdlib-js is injected into every js runner and notebook for better math capabilities than vanilla js, and also charts etc.\n- App dev tasks utilize mithril for making SPAs, a very small no-dependency framework that is very fit to purpose for the client side nature of peerd apps.\n- Currently on main, tabs are global objects each chat session can freely mutate, which is not great. The new in progress model has one \"resident\" agent own every tab. Only they have the exposed capability to mutate it, and everything between agents/sessions is message based. This has some cool properties: further isolation between contexts, mirroring the web runner subagent. Explicit ownership and scope is cleaner and better for parallel ops. Context and system prompts can be reduced and focused to the specific context the session is exposed to. The orchestrator doesn’t have any low level tab interactions available to it. The tab residents have\nonly\nthe tab interaction tools relevant to it, and the instructions specific to the tab type (js notebook, linux vm, app dev, etc). Over time model usage can be tuned and optimized for each specific context etc.",
+      "meta": {
+        "author": "NotASithLord"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48664711",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "Congratz on your project. Yet I feel that the browser extension part is doing damage to its discoverability hence democratization.\nYou might be interested in this browser-based agentic solution I'm currently building in the open:\nhttps://github.com/codename-co/devs",
+      "meta": {
+        "author": "arnley"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48663052",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "> The name is always lowercase: peerd.\nGotta love it when agent instructions get blurted out in user-facing documentation",
+      "meta": {
+        "author": "danielrmay"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48662996",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "That's cool. Sounds very impressive. What's the point of all this security though?\nYou don't want it to access your files, just give it its own Linux user. You don't even need a container.\nBetter yet, you can give it root on a $3 VPS (or $30 Thinkpad) and get a sysadmin for free :)\nAlthough, Cheerpx... that seems to imply your agent can play Java and Flash games. Alright, you might be on to something!",
+      "meta": {
+        "author": "andai"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48663119",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "> The bet is structural\nWhy has AI writing become so insufferable?\nThe project would be a lot more credible if the feature list wasn't so comically extensive and verbose [1]. Slop overload.\n[1]\nhttps://github.com/NotASithLord/peerd/blob/main/FEATURES.md",
+      "meta": {
+        "author": "ricardobeat"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=NotASithLord",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "HN user NotASithLord: karma 42, account created 2015-07-29.\n",
+      "meta": {
+        "karma": 42,
+        "created": 1438190417
+      }
+    },
+    {
+      "kind": "github_repo",
+      "url": "https://github.com/NotASithLord/peerd",
+      "fetched_at": "2026-08-24T06:35:03.484674Z",
+      "excerpt": "GitHub repo NotASithLord/peerd: 395 stars, language JavaScript, last push 2026-08-22T14:34:08Z.\n<p align=\"center\">\n  <br>\n  <img src=\"docs/store/assets/peerd-wordmark.svg\" alt=\"peerd\" width=\"240\" height=\"48\">\n  <br>\n  <br>\n</p>\n\n[![CI](https://github.com/NotASithLord/peerd/actions/workflows/package-and-release.yml/badge.svg)](https://github.com/NotASithLord/peerd/actions/workflows/package-and-release.yml)\n[![types: ts-check coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/tscheck.json)](packaging/check-tscheck.ts)\n[![Functional Tests](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/functional-tests.json)](tests)\n[![In-Browser Chrome](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/inbrowser-chrome.json)](scripts/cdp/run-inbrowser-tests.mjs)\n[![In-Browser Gecko](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/inbrowser-gecko.json)](scripts/firefox/run-runtime-tests.mjs)\n[![E2E side panel](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/e2e-chrome.json)](scripts/cdp/run-e2e-verify.mjs)\n[![Red Team](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/red-team.json)](docs/security/RED-TEAM-RESULTS.md)\n[![App source: no development build and unbundled](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/no-build.json)](CONTRIBUTING.md)\n[![Vendored code](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/vendor-integrity.json)](extension/vendor/vendor.lock.json)\n[![Actions pinned](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/NotASithLord/peerd/main/badges/actions-pinned.json)](packaging/check-action-pins.ts)\n[![License: Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)\n[![Manifest V3](https://img.shields.io/badge/Manifest%20V3-Chrome%20%26%20Firefox-informational.svg)](#install)\n[![Security policy](https://img.shields.io/badge/security-policy-blue.svg)](SECURITY.md)\n\n# The first web-native AI agent harness\n\npeerd is the first general-purpose agent runtime built directly on browser primitives: Workers, origins, sandboxing, OPFS, WASM/WASI, WebRTC, WebAuthn, and WebExtensions. It runs completely inside Chrome and Firefox, with your tabs, signed-in sessions, web apps, and local compute.\n\n**While agent platforms are trying to pull the browser into the harness. peerd pulls the harness into the browser.**\n\nFor actual inference you can choose a supported hosted model provider, a local model using localhost, or check out preliminary support for local WebGPU models (we're keeping an eye on WebNN as well).\n\nNo peerd account, hosted browser, or tool-server connection is required. Current\nbuilds send no product telemetry to peerd.\n\n[Install](#install) · [peerd.ai](https://peerd.ai) ·\n[Architecture](#architecture) · [Security](SECURITY.md)\n\n## Features\n\n- **Works in the browser you already use.** The agent can read and drive your\n  tabs, web apps, signed-in sessions, and page content.\n- **Builds reusable site clients.** The web actor can learn a site once and use\n  that client again on later tasks.\n- **Runs code inside browser boundaries.** Scripts, sealed JavaScript Notebooks,\n  compiled WASI tools, browser Apps, and Linux WebVMs give the agent local\n  compute without access to your host operating system.\n- **Delegates to separate actors.** Every page and compute environment gets its\n  own keyless actor with tools scoped to that environment.\n- **Keeps useful context.** Sessions, memory, skills, goals, review, and\n  checkpoints live in the extension.\n- **Uses the model you choose.** The live provider inventory is defined in\n  [`registry.js`](extension/peerd-provider/registry.js), including BYOK cloud\n  adapters and keyless local options.\n- **Connects browsers directly.** Preview builds add signed identity,\n  browser-to-browser discovery, dwapps, and agent-to-agent communication over\n  WebRTC; store packages prune it entirely.\n\n## Why the browser\n\nLocal agents can access your whole computer. Remote agents live in someone\nelse's. The browser is the alternative: local capability behind security\nboundaries hardened over three decades.\n\npeerd uses those boundaries. Page work goes to separate actors with only the\ntools for that tab or environment. Credentials, network rules, confirmations,\nand audit stay with the extension. Its defense-in-depth design assumes unsafe\ncontent will eventually get past a filter.\n\n## Browser support\n\npeerd supports Chromium and Firefox. Firefox runs actors in dedicated workers\nand uses visible Notebooks for JavaScript compute. Features that need Chrome's\noffscreen document host are removed from Firefox controls and model tools before\nuse. Firefox preview builds omit dweb until Firefox has a mesh host.\n\nApps and WebVMs run on Chrome. Apps have no ambient network access. Remote\nresources, fetches, WebRTC, forms, and external document navigation are blocked.\nExternal HTTP and HTTPS links require user confirmation.\n\nConcrete browser capability gaps, their upstream issues, and the tests required\nto remove each guard are tracked in\n[`docs/BROWSER-COMPATIBILITY.md`](docs/BROWSER-COMPATIBILITY.md).\n\nThe code is the source of truth for current behavior. Start with\n[`CLAUDE.md`](CLAUDE.md), then read the relevant module under `extension/`.\n\n## Security model\n\npeerd uses browser isolation, narrow tool exposure, service-worker policy gates,\nand explicit egress controls. The main agent delegates environment work to\nkeyless actors. On Chrome and Firefox, non-orchestrator agent loops run in\nseparate dedicated worker heaps. If the browser cannot prove that boundary,\nthe actor request does not run and performs no work on its target.\n\nNetwork behavior depends on the operation. Model calls, web reads, runtime asset\nloads, sandbox traffic, and preview dweb traffic use different scoped paths and\npolicies. See [`SECURITY.md`](SECURITY.md) and the\n[`threat model`](docs/security/THREAT-MODEL.md) for the current boundaries and\nknown limitations.\n\n## Install\n\n### Chrome from source\n\n1. Clone the repository.\n2. Open `chrome://extensions`.\n3. Enable Developer mode.\n4. Choose **Load unpacked** and select the `extension/` directory.\n\nReload the extension from `chrome://extensions` after source changes.\n\n### Firefox from source\n\nFirefox needs a Firefox-specific package. Do not load the checked-in Chrome\ndevelopment manifest. Use a Firefox version at or above the minimum declared in\nthe channel patch under `manifests/`. That floor tracks the document-bound\nscripting support used by browser tools.\n\n```sh\nbun run package -- --channel=preview --browser=firefox --no-sign\n```\n\nOpen `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on**,\nand select `artifacts/peerd-preview-firefox.xpi`. Temporary add-ons must be\nloaded again after Firefox restarts. Browser and channel transforms are defined\nby the packaging scripts.\n\n### Release packages\n\nSee [GitHub Releases](https://github.com/NotASithLord/peerd/releases) for current\nartifacts. Store and preview builds differ. Store builds omit the dweb. Preview\nbuilds include it and may enable additional automation features. The packaging\ncode is the authority for each browser and channel.\n\n## First run\n\n1. Open peerd from the browser toolbar.\n2. Create and unlock the local vault. Passphrase unlock is always available.\n   Passkey unlock depends on WebAuthn PRF support in the browser and device.\n3. Complete the short profile onboarding.\n4. Open Settings, then add a provider key or choose a supported local provider.\n5. Select a model and start a chat.\n\nOnly vault secrets and protected security records are covered by the vault\nencryption boundary. Other local e",
+      "meta": {
+        "description": "The first AI agent harness native to the browser. A browser extension that runs a full agent loop where you already work: it drives your tabs, spins up sandboxed compute (JS notebooks, WASM Linux VMs, client-side apps), and shares what it builds peer-to-peer. BYOK, no backend, no telemetry.",
+        "stars": 395,
+        "language": "JavaScript",
+        "pushed_at": "2026-08-22T14:34:08Z",
+        "open_issues": 24
+      }
+    }
+  ],
+  "missing": [
+    "GitHub org 'NotASithLord' not found via API"
+  ]
+}

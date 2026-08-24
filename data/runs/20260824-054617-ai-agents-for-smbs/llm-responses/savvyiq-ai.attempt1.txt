@@ -1,0 +1,98 @@
+```json
+{
+  "category": "b2b_smb",
+  "category_reason": "The startup automates a concrete, expensive, currently-manual workflow (corporate hierarchy mapping) for SMBs, aligning with the investment thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable via a HN user profile, but there's limited public information about their prior experience beyond building MDM and data enrichment systems. This falls into the 'plausible background, limited public track record' anchor.",
+    "claims": [
+      {
+        "text": "The founder is identifiable via a HN user profile.",
+        "evidence_idx": 5,
+        "quote": "HN user mfrye0: karma 464"
+      },
+      {
+        "text": "The founder has experience building MDM and data enrichment systems.",
+        "evidence_idx": 1,
+        "quote": "I've spent 10 years building MDM, data enrichment"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product is a working API that automates corporate hierarchy mapping, a specific workflow. It's differentiated by using AI agents and generating Mermaid diagrams, though the market for this functionality may be somewhat crowded.",
+    "claims": [
+      {
+        "text": "The product is a working API for corporate hierarchy mapping.",
+        "evidence_idx": 6,
+        "quote": "Corporate Hierarchy API – Map the corporate family tree"
+      },
+      {
+        "text": "The API uses AI agents to automate the process.",
+        "evidence_idx": 1,
+        "quote": "powered by direct integrations with government registrars and our web scraping infra"
+      },
+      {
+        "text": "The API generates Mermaid diagrams.",
+        "evidence_idx": 4,
+        "quote": "auto-generate Mermaid diagrams"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 4,
+    "rationale": "The problem of manual corporate hierarchy research is clearly articulated with specific examples of companies spending significant resources on it. This points to a real, budgeted workflow within SMBs, although the 'why now' is somewhat generic.",
+    "claims": [
+      {
+        "text": "Companies spend millions on manual research teams for compliance.",
+        "evidence_idx": 1,
+        "quote": "Companies spend millions on manual research teams"
+      },
+      {
+        "text": "A bankruptcy processor uses 30 people for manual research.",
+        "evidence_idx": 1,
+        "quote": "A bankruptcy processor we work with had 30 people"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The product has a recent HN launch with modest engagement (17 points, 10 comments). This indicates some initial interest but lacks strong third-party signal.",
+    "claims": [
+      {
+        "text": "The product launched on HN 6 months ago.",
+        "evidence_idx": 1,
+        "quote": "posted 2025-10-22"
+      },
+      {
+        "text": "The HN launch received 17 points and 10 comments.",
+        "evidence_idx": 1,
+        "quote": "17 points, 10 comments"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 5,
+    "rationale": "The startup squarely fits the investment thesis: B2B, SMB buyer, manual-workflow automation, and a bottom-up motion (through the API).",
+    "claims": [
+      {
+        "text": "The product automates a manual workflow for SMBs.",
+        "evidence_idx": 1,
+        "quote": "mapping the complete corporate ownership upwards"
+      }
+    ]
+  },
+  "risks": [
+    "The market for corporate hierarchy data may be more niche than initially perceived.",
+    "Retention data is currently unavailable, and churn could be a significant risk.",
+    "Reliance on web scraping and government registries introduces potential data quality and reliability issues."
+  ],
+  "change_my_mind": [
+    "Evidence of named SMB customers using the API.",
+    "Publicly available data on customer retention rates.",
+    "More detail on the founder's prior startup experience and exits."
+  ]
+}
+```

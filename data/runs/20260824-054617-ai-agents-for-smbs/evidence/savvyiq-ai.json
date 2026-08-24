@@ -1,0 +1,95 @@
+{
+  "candidate": {
+    "slug": "savvyiq-ai",
+    "name": "Corporate Hierarchy API",
+    "website": "https://savvyiq.ai/products/entity-hierarchy",
+    "one_liner": "Map the corporate family tree",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 45671087,
+      "story_url": "https://news.ycombinator.com/item?id=45671087",
+      "points": 17,
+      "num_comments": 10,
+      "posted_at": "2025-10-22T15:57:14Z",
+      "author": "mfrye0"
+    },
+    "founder_hint": "mfrye0",
+    "discovered_at": "2026-08-24T05:46:17.273198Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=45671087",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "HN launch: 17 points, 10 comments, posted 2025-10-22 by mfrye0.\nShow HN: Corporate Hierarchy API – Map the corporate family tree\nHey HN! I'm sharing our Corporate Hierarchy API that we just launched in beta. Its current focus is on mapping the complete corporate ownership upwards to the ultimate parent by doing deep research across the open web and global government registries.\nThe problem: Companies spend millions on manual research teams to answer compliance / risk questions like, \"does this business roll up to a state owned entity in China / Russia?\". A bankruptcy processor we work with had 30 people just manually researching data points like this. An ex-Shell trader told us Shell has 800 people + $100M/yr spent with Deloitte to conduct manual research to ensure international trade compliance.\nWhy existing solutions are lacking: The dirty secret is that legacy providers like Dun & Bradstreet, Orbis, and S&P run on armies of manual workers and are built on decades old technology. At query time, you’re typically tapping into a quarterly generated, static, expensive database.\nOur approach: We built this on top of our entity resolution engine - a deep research agent that anchors entities to our business graph, powered by direct integrations with government registrars and our web scraping infra. When you need hierarchy research, our AI agents spend on average 10-20 mins researching upward to identify the ultimate parent and build the complete ownership DAG with source citations. We auto-generate Mermaid diagrams so you can immediately render the results in your own app.\nTechnical backstory: I've spent 10 years building MDM, data enrichment, and entity resolution systems at B2B startups and enterprises, mostly in fintech. I actually built an in-house Clearbit replacement after they overcharged us and almost killed the startup I was at. The core challenge is always the same - taking messy business data and mapping it to web data and the actual legal entity. Most off the",
+      "meta": {
+        "points": 17,
+        "author": "mfrye0"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45727261",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "Thanks for mentioning this in a more recent comment. This might be very valuable for one of the projects that I am working on. Instant sign-up.\nHN posts are such hit and miss. Do not be discouraged, this looks great.\nAs an example of HN hit and miss, I just posted a link to a reddit post regarding Claude Code, that could collectively save HN users many millions of dollars in the next week, and it has three upvotes at time of writing:\nhttps://news.ycombinator.com/item?id=45723955",
+      "meta": {
+        "author": "consumer451"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45728479",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "Hey, this is very useful. I worked in a couple of large consulting firms and this type of entity search was a deal blocker in some cases because the research teams would be busy trying to find the ultimate identity of parent for conflict checks. As a result, sales teams were wasting times engaging customers they didn't need to, contracts were delayed as discovery took too long etc. Reputational/compliance risk is something we used to try to avoid.\nAlso commenting so I can come back.",
+      "meta": {
+        "author": "windex"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45673942",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "Since it's quiet here, figured I'd share what the API actually spits out. Here's MG Motor's ownership chain (this is just the Mermaid diagram field - we return a bunch of other stuff too):\ngraph TD e2[SAIC MOTOR UK HOLDING CO., LTD.]-->|2005-02-15|e1[MG MOTOR UK LTD] e1[MG MOTOR UK LTD]-->|2018|e7[MG Sales Centre Limited] e4[SAIC Motor Corporation Limited]-->e2[SAIC MOTOR UK HOLDING CO., LTD.] e4[SAIC Motor Corporation Limited]-->e3[SAIC MOTOR INTERNATIONAL UK LTD] e5[Shanghai Automotive Industry Corporation Group]-->|62.69%|e4[SAIC Motor Corporation Limited] e6[Shanghai State-owned Assets Supervision and Administration Commission Shanghai SASAC]-->e5[Shanghai Automotive Industry Corporation Group]\nYou can copy/paste that into any Mermaid renderer to see it visually. Pretty wild how a British car brand ends up tracing back to Shanghai's government.\nHappy to run lookups for other companies if anyone's curious what their ownership looks like!",
+      "meta": {
+        "author": "mfrye0"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=mfrye0",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "HN user mfrye0: karma 464, account created 2016-07-15.\nmichael [at] savvyiq [dot] ai",
+      "meta": {
+        "karma": 464,
+        "created": 1468609438
+      }
+    },
+    {
+      "kind": "web_page",
+      "url": "https://savvyiq.ai/products/entity-hierarchy",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "Corporate Hierarchy API | Trace Ultimate Ownership | SavvyIQ\nProducts\nCore data APIs\nEntity Resolution\nBusiness Intelligence\nDomain Intelligence\nSpecialty APIs\nEntity Hierarchy\nUse cases\nBy workflow & industry\nCustomer Onboarding\nPowering AI Agents\nFraud & KYB\nPayments\nInsurance\nRegulatory Compliance\nSales & Marketing\nSupply Chain\nESG & Compliance\nCybersecurity\nProcess Automation\nCompare\nSavvyIQ compared to\nDun & Bradstreet\nOpenCorporates\nMoody's\nDevelopers\nBuild\nDocumentation\nGuides, concepts, getting started\nAPI reference\nComplete API reference and endpoints\nGet free API keys\nStart building instantly\nPricing\nBlog\nSign in\nBook demo\nGet started free\nProducts\nEntity Resolution\nBusiness Intelligence\nDomain Intelligence\nEntity Hierarchy\nUse cases\nCustomer Onboarding\nPowering AI Agents\nFraud & KYB\nPayments\nInsurance\nRegulatory Compliance\nSales & Marketing\nSupply Chain\nESG & Compliance\nCybersecurity\nProcess Automation\nCompare\nDun & Bradstreet\nOpenCorporates\nMoody's\nDevelopers\nDocumentation\nAPI reference\nGet free API keys\nPricing\nBlog\nGet started free\nBook demo\nCorporate Hierarchy\nUncover corporate ownership. Automatically. At scale.\nAI researchers trace corporate ownership chains across government registries and web sources. No more manual research.\nGet free API keys\nView documentation\nPOST\n/v1/entity/{entity_id}/hierarchy\nRecord\nJSON\nMG MOTOR UK LTD\nultimate parent: Shanghai SASAC\ncompleted\nOwnership chain\nMG Motor UK Ltd\nowned by SAIC Motor International UK Ltd\nSAIC Motor International UK Ltd\nowned by SAIC Motor International Ltd, China\nSAIC Motor International Ltd\nowned by SAIC Motor Corporation Limited\nSAIC Motor Corporation Limited\n63.27% held by SAIC Group at 2024-12-31\nSAIC Group\nstate owned enterprise supervised by Shanghai SASAC\nSummary\nMG Motor UK Ltd sits three hops below SAIC Motor Corporation Limited, which SAIC Group holds 63.27% of as at 31 December 2024. SAIC Group is a state owned enterprise supervised by Shanghai SASAC.\nPOST\n/v1/entity/{entity_id}/hierarchy\n200 OK\napplication/json\n{\n\"entity_id\"\n:\n\"siq_303bOyvScnpCchGvOckDr\"\n,\n\"status\"\n:\n\"completed\"\n,\n\"data\"\n: {\n\"target_entity\"\n: {\n\"name\"\n:\n\"MG MOTOR UK LTD\"\n},\n\"ultimate_parent\"\n: {\n\"name\"\n:\n\"Shanghai State-owned Assets Supervision and Administration Commission (Shanghai SASAC)\"\n},\n\"summary_short\"\n:\n\"MG Motor UK Ltd sits three hops below SAIC Motor Corporation Limited, which SAIC Group holds 63.27% of as at 31 December 2024. SAIC Group is a state owned enterprise supervised by Shanghai SASAC.\"\n,\n\"ownership_chain\"\n: [\n{\n\"entity_id\"\n:\n\"e1\"\n,\n\"parent_id\"\n:\n\"e2\"\n,\n\"relationship_type\"\n:\n\"owns\"\n},\n{\n\"entity_id\"\n:\n\"e2\"\n,\n\"parent_id\"\n:\n\"e3\"\n,\n\"relationship_type\"\n:\n\"owns\"\n},\n{\n\"entity_id\"\n:\n\"e3\"\n,\n\"parent_id\"\n:\n\"e4\"\n,\n\"relationship_type\"\n:\n\"owns\"\n},\n{\n\"entity_id\"\n:\n\"e4\"\n,\n\"parent_id\"\n:\n\"e5\"\n,\n\"relationship_type\"\n:\n\"majority_owns\"\n,\n\"ownership_percentage\"\n:\n63.27\n,\n\"as_of\"\n:\n\"2024-12-31\"\n},\n{\n\"entity_id\"\n:\n\"e5\"\n,\n\"parent_id\"\n:\n\"e6\"\n,\n\"relationship_type\"\n:\n\"government_supervised\"\n}\n]\n}\n}\n// real response, trimmed ·\nfull schema\nHow it works\n01\nSubmit an entity\nGive us a company and our AI researchers start tracing its ownership chain.\n02\nAgents research live\nWe trace ownership across government registries and web sources in real time, with full transparency into every hop.\n03\nGet the full structure\nReceive the complete ownership structure of parents, subsidiaries, and ultimate owners, with 92% matching accuracy.\nLive research output\nReal ownership structures, traced by the API\nFour real structures our agents researched: state ownership, holding companies, a fresh merger, and a deep private-equity chain. Drag to pan, zoom to inspect.\nState ownership\nHolding company\nRecent merger\nPrivate equity\nMG Motor UK → Shanghai SASAC\n−\n100%\n+\nMG Motor UK Ltd sits three hops below SAIC Motor Corporation Limited through SAIC Motor International UK Ltd (formerly Nanjing Automobile Corporation (UK) Limited); SAIC Group holds 63.27% of it as at 31 December 2024 and is a state owned enterprise supervised by Shanghai SASAC.\nGoogle LLC → Alphabet Inc.\n−\n100%\n+\nGoogle LLC sits under XXVI Holdings Inc., the intermediate holding entity beneath Alphabet Inc., with international subsidiaries hanging off the operating company.\nTechTarget → Informa PLC (Dec 2024)\n−\n100%\n+\nInforma PLC beneficially owns 58.27% of TechTarget following a transaction that closed on 2 December 2024, held through Informa US Holdings Limited; TechTarget itself wholly owns BrightTALK, Industry Dive, NetLine, and the Canalys group.\nDemandforce → KKR & Co. (+ Temasek 20%)\n−\n100%\n+\nDemandforce sits under Internet Brands, held through a ten-entity KKR fund chain up to KKR & Co. Inc., with Temasek holding 20% of the aggregator alongside.\n// real research output, cached · companies and percentages as discovered\nWhy teams choose Entity Hierarchy\nReal-time deep research\nAgents research ownership live rather than reading from a stale, pre-computed dataset.\n92% matching accuracy\nThe same AI-agent resolution that powers our entity resolution, applied to ownership chains.\nComplete ownership structures\nMap parents, subsidiaries, and ultimate beneficial owners across jurisdictions.\nFull research transparency\nSee the sources and every hop behind each link, so you can trust and audit the structure.\nResolve your first entity in minutes\nSign up, get API keys instantly, and make your first call with $25 in free credit. One request returns a verified entity, drawn from 140+ official registries.\nGet started free\nView documentation\nPOST\n/v2/entity-resolution/async\n{\n\"request_id\"\n:\n\"reqa_2ZUKmavJxCx4GHMnpJsc9\"\n,\n\"status\"\n:\n\"COMPLETED\"\n,\n\"data\"\n: {\n\"status\"\n:\n\"matched\"\n,\n\"confidence\"\n:\n98\n,\n\"type\"\n:\n\"business\"\n,\n\"entity\"\n: {\n\"id\"\n:\n\"siq_2ZUKocPbFCPLClZ5XtHlJ\"\n,\n\"name\"\n:\n\"Apple\"\n,\n\"primary_legal_entity\"\n: {\n\"name\"\n:\n\"APPLE INC.\"\n,\n\"jurisdiction\"\n:\n\"California\"\n},\n\"website\"\n:\n\"apple.com\"\n}\n}\n}\nBusiness identity and intelligence infrastructure, delivered by API.\nProducts\nEntity Resolution\nBusiness Intelligence\nDomain Intelligence\nEntity Hierarchy\nUse cases\nCustomer Onboarding\nPowering AI Agents\nFraud & KYB\nPayments\nInsurance\nRegulatory Compliance\nSales & Marketing\nSupply Chain\nESG & Compliance\nCybersecurity\nProcess Automation\nCompare\nDun & Bradstreet\nOpenCorporates\nMoody's\nDevelopers\nDocumentation\nAPI reference\nGet free API keys\nCompany\nAbout us\nBlog\nPricing\nTerms\nPrivacy policy\n© 2026 SavvyIQ. All rights reserved.\nTerms\nPrivacy",
+      "meta": {}
+    },
+    {
+      "kind": "web_page",
+      "url": "https://savvyiq.ai/about",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": "About SavvyIQ | Business Data Infrastructure\nProducts\nCore data APIs\nEntity Resolution\nBusiness Intelligence\nDomain Intelligence\nSpecialty APIs\nEntity Hierarchy\nUse cases\nBy workflow & industry\nCustomer Onboarding\nPowering AI Agents\nFraud & KYB\nPayments\nInsurance\nRegulatory Compliance\nSales & Marketing\nSupply Chain\nESG & Compliance\nCybersecurity\nProcess Automation\nCompare\nSavvyIQ compared to\nDun & Bradstreet\nOpenCorporates\nMoody's\nDevelopers\nBuild\nDocumentation\nGuides, concepts, getting started\nAPI reference\nComplete API reference and endpoints\nGet free API keys\nStart building instantly\nPricing\nBlog\nSign in\nBook demo\nGet started free\nProducts\nEntity Resolution\nBusiness Intelligence\nDomain Intelligence\nEntity Hierarchy\nUse cases\nCustomer Onboarding\nPowering AI Agents\nFraud & KYB\nPayments\nInsurance\nRegulatory Compliance\nSales & Marketing\nSupply Chain\nESG & Compliance\nCybersecurity\nProcess Automation\nCompare\nDun & Bradstreet\nOpenCorporates\nMoody's\nDevelopers\nDocumentation\nAPI reference\nGet free API keys\nPricing\nBlog\nGet started free\nBook demo\nBusiness data infrastructure, without building it yourself\nSavvyIQ provides composable APIs for entity resolution, data enrichment, and canonical identity. We help teams solve their hardest business-data challenges across 265M+ entities and 140+ global registries, without building and maintaining complex systems internally.\nGet free API keys\nView documentation\nOur mission\nAccurate business data, ready for AI and critical decisions\nDecisions that move money and risk are only as good as the business data behind them. SavvyIQ builds the infrastructure that keeps that data accurate: usage-based APIs that resolve, enrich, and connect business identities.\n265M+\nVerified business entities\n140+\nGlobal registries and sources\n92%+\nMatch rate on the long tail\nWhat we do\nThree capabilities do the heavy lifting.\nEntity resolution\nResolve messy, partial business inputs into verified legal entities, including the small and obscure long tail with little or no web presence that traditional providers miss.\nData enrichment\nPass a resolved entity ID to pull NAICS and SIC codes, firmographics, and business tags, each returned with a confidence score you can act on.\nCanonical identity\nGet a stable entity ID you can reconcile across systems, so the same business stays the same business everywhere in your data.\nProven at scale\nHow teams put SavvyIQ to work\nLegal and regulatory filings\nParse large volumes of legal and regulatory filings to extract and understand business entities at scale, even when names are inconsistent or incomplete.\nFinancial transactions\nProcess transactions to get better fidelity on the businesses behind each payment, so risk, compliance, and reconciliation work from clean identity.\nProcurement and vendor data\nEnhance procurement environments to understand vendor relationships and surface the real entities buried in massive supplier datasets.\nSales and marketing data\nNormalize sales and marketing records to understand company relationships and hierarchies, and keep the same business resolved the same way everywhere.\nResolve your first entity in minutes\nSign up, get API keys instantly, and make your first call with $25 in free credit. One request returns a verified entity, drawn from 140+ official registries.\nGet started free\nView documentation\nPOST\n/v2/entity-resolution/async\n{\n\"request_id\"\n:\n\"reqa_2ZUKmavJxCx4GHMnpJsc9\"\n,\n\"status\"\n:\n\"COMPLETED\"\n,\n\"data\"\n: {\n\"status\"\n:\n\"matched\"\n,\n\"confidence\"\n:\n98\n,\n\"type\"\n:\n\"business\"\n,\n\"entity\"\n: {\n\"id\"\n:\n\"siq_2ZUKocPbFCPLClZ5XtHlJ\"\n,\n\"name\"\n:\n\"Apple\"\n,\n\"primary_legal_entity\"\n: {\n\"name\"\n:\n\"APPLE INC.\"\n,\n\"jurisdiction\"\n:\n\"California\"\n},\n\"website\"\n:\n\"apple.com\"\n}\n}\n}\nBusiness identity and intelligence infrastructure, delivered by API.\nProducts\nEntity Resolution\nBusiness Intelligence\nDomain Intelligence\nEntity Hierarchy\nUse cases\nCustomer Onboarding\nPowering AI Agents\nFraud & KYB\nPayments\nInsurance\nRegulatory Compliance\nSales & Marketing\nSupply Chain\nESG & Compliance\nCybersecurity\nProcess Automation\nCompare\nDun & Bradstreet\nOpenCorporates\nMoody's\nDevelopers\nDocumentation\nAPI reference\nGet free API keys\nCompany\nAbout us\nBlog\nPricing\nTerms\nPrivacy policy\n© 2026 SavvyIQ. All rights reserved.\nTerms\nPrivacy",
+      "meta": {}
+    },
+    {
+      "kind": "github_org",
+      "url": "https://github.com/SavvyIQ",
+      "fetched_at": "2026-08-24T06:46:01.300994Z",
+      "excerpt": ".github | stars=0 | lang=None | pushed=2025-08-08T22:11:22Z",
+      "meta": {
+        "org": "SavvyIQ",
+        "public_repos": 1,
+        "created_at": "2024-12-10T15:48:19Z",
+        "description": ""
+      }
+    }
+  ],
+  "missing": []
+}

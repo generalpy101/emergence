@@ -1,0 +1,97 @@
+{
+  "candidate": {
+    "slug": "blitzgraph-com",
+    "name": "BlitzGraph",
+    "website": "https://blitzgraph.com",
+    "one_liner": "Supabase for graphs, built for LLM agents",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 48557002,
+      "story_url": "https://news.ycombinator.com/item?id=48557002",
+      "points": 15,
+      "num_comments": 13,
+      "posted_at": "2026-06-16T15:41:02Z",
+      "author": "lveillard"
+    },
+    "founder_hint": "lveillard",
+    "discovered_at": "2026-08-24T05:46:17.273198Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=48557002",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "HN launch: 15 points, 13 comments, posted 2026-06-16 by lveillard.\nShow HN: BlitzGraph – Supabase for graphs, built for LLM agents\nHello HN After becoming allergic to SQL, I opened 120+ issues in Dgraph, Typedb and surrealdb looking for the perfect graphDB. None of them was built for agents nor were they the perfect fit for what we wanted to achieve: fully ditching the SQL legacy to properly model reality. So we decided to build BlitzGraph\nIn BlitzGraph, records (units) can belong to multiple types (kinds) and evolve through time. Also polymorphic relations are first class and multiple kinds can play the same role. This design helps to escape the old table paradigm and track entities throughout their lifecycle without awkward self-joins that connect an entity to itself under different IDs in other tables\nAn example:\n{ \"$id\": \"amazn\", \"$kinds\": [\"Company\", \"Prospect\"], deal: ... } // Day 1 { \"$id\": \"amazn\", \"$kinds\": [\"Company\", \"Customer\"], contract: .. } // Day 7 { \"$id\": \"amazn\", \"$kinds\": [\"Company\", \"Churned\"], churnCause: \"...\" }, ... // Day 86\nWhat makes BlitzGraph different:\n- GraphQL-like nested queries and mutations https://blitzgraph.com/docs - Polymorphic records and relations - Bidirectional O(1) relations - Referential integrity with native cardinality validations - JSON query/mutation language designed so AI agents can build them programatically - Batched queries/mutations without N+1 issues - Built-in frontend engine for quick dashboards and MVPs - Native full text search, file storage, computed fields, ephemeral subspaces, unit history...\nHonest comparisons:\n- vs typedb: amazing db, but not ideal for app development. On the other hand we loved and brought their inference ideas and how mutations execute smartly instead of line per line - vs surrealdb: Several core differences, a key one is that we run validations and trasnformations in topological order, and our edges are first class citizens - vs dgraph: Their cool features like post commit hooks wer",
+      "meta": {
+        "points": 15,
+        "author": "lveillard"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48597830",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "\"BlitzGraph beta · data may be wiped without notice · expect resets\"\nThis is not beta. This is alpha.\n- - -\nAfter becoming allergic to SQL, I opened 120+ issues in Dgraph, Typedb and surrealdb looking for the perfect graphDB.\nWhat were those 120+ issues supposed to do?\nThat sounds suspiciously like something OpenClaw would think is a good idea. And surely only an agent would think it a good idea to brag about here.",
+      "meta": {
+        "author": "Terretta"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48580835",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "> I opened 120+ issues in Dgraph, Typedb and surrealdb looking for the perfect graphDB\nCan you share some examples? What was wrong with those?",
+      "meta": {
+        "author": "Reubend"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48567403",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "what makes you say that you're more suitable for agents compared to say neo4j and typedb? is it the temporal modeling?\ncongratulations for the beta by the way!",
+      "meta": {
+        "author": "l337h4x0rz"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48586155",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "Just build a decent rdf database, with SPARQL, basic inferencing and SHACL support rather then reinventing another thing",
+      "meta": {
+        "author": "meh2frdf"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48581810",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "SQL isn't an allergy. It's time test. Take medicine to fix your allergy.",
+      "meta": {
+        "author": "orangecoffee"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=lveillard",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "HN user lveillard: karma 27, account created 2021-09-22.\n",
+      "meta": {
+        "karma": 27,
+        "created": 1632303904
+      }
+    },
+    {
+      "kind": "web_page",
+      "url": "https://blitzgraph.com",
+      "fetched_at": "2026-08-24T06:44:17.936174Z",
+      "excerpt": "BlitzGraph - The AI-native backend. | BlitzGraph\nLoading...\nBugs / feedback\nBlitzGraph beta ·\noccasional interruptions may occur\nBlitzGraph beta ·\noccasional interruptions may occur\nduring beta\nPlayground\nFeatures\nUse cases\nCompare\nChangelog\nDocs\nGet Started\n→\nBacked by\nY Combinator\n·\nPublic beta\nThe AI-native backend.\nIdea in, API out.\nModel reality as it is, in graphs. Your agents compose typed JSON queries programmatically. No SQL, no joins, no ORMs.\nStart Building\n→\nBook a demo\n✓\nMulti-kind entities\n✓\nBQL · typed JSON queries\n✓\nBidirectional relationships\n✓\nBuilt-in search\n✓\nRich content types\n✓\nAgent sandboxes\n// try it now\nLive data, no account needed.\nLoading playground...\nQueries, hooks, validations, computed fields. All included.\nBuild your own backend for free\n→\n// try with your favourite agent\nConnect from Claude or Codex\nAdd BlitzGraph as a remote MCP server and start from the same live backend.\nClaude Code\nAdd the MCP server:\nclaude mcp add --transport http blitzgraph https://blitzgraph.com/mcp\nCodex\nAdd the MCP server:\ncodex mcp add blitzgraph --url https://blitzgraph.com/mcp\nAuth runs automatically. You sign in once in your browser; after that your agent can use the tools.\n// what makes it different\nModel reality,\nnot tables.\nEntities with multiple kinds. Relationships that traverse both ways. A typed JSON query language your agent composes correctly.\nBlitzGraph only\n⬡\nMulti-kind entities\nA User can also be an Admin and a Moderator, simultaneously. No role tables, no migrations. Entities evolve by gaining and losing kinds over time.\nBlitzGraph only\n⟲\nBidirectional relationships\n\"Who wrote this post?\" and \"What did this user write?\" Same cost, same index, O(1) both ways. No reverse-lookup tables, no extra queries.\nBlitzGraph only\n⬚\nTyped JSON queries (BQL)\nYour agent composes query objects, not SQL strings. Filters, nested expands, projections, and full-text search in one request. Zero N+1.\n⌥\nRich content types\nEMAIL, URL, DATE, JSON, FLEX. Not just varchar. Built-in validation at the database level. Your schema describes what the data actually is.\n⟷\nReferential integrity\nCardinality constraints and onDelete policies (cascade, restrict, unlink) enforced at the engine level. Your graph stays consistent by default.\n∿\nBuilt-in full-text search\nNative BM25 engine with typeahead, prefix, and exact modes. No Elasticsearch, no external service. Works inside graph traversals.\n⊕\nSmart transactions\nMutations are topologically sorted and validated on the final result, not line by line. Business rules check the end state of the whole transaction, so complex multi-entity operations just work. All or nothing, always consistent.\n⌂\nBusiness logic in the database\nValidations, computed fields, transforms, and effects, all defined in the schema. Your business rules live where the data lives, not scattered across middleware and app code.\n// bql · blitz query language\nThe query language\nagents actually write correctly.\nSQL forces agents to generate strings and guess result shapes. PostgREST adds a REST layer on top of tables. BQL is structured data from client to engine.\n01\nCompose queries from code, not strings\n.\nAgents and app code build typed JSON objects, not SQL strings, not ORM chains. The query IS the data structure. No generation step, no parsing ambiguity.\n02\nGraphQL-like reads, as typed JSON\n.\nFetch a root entity, expand relationships, project nested fields, all in one request. Same filter, sort, and limit shape at every depth. Like GraphQL, but without the schema ceremony.\n03\nModel reality, not tables\n.\nMulti-kind entities, bidirectional arcs, and native $expand. Your data model mirrors how things actually relate. No join tables, no foreign key gymnastics.\n04\nFilter through relationships\n.\nQuery by connected data, not just local fields. Traverse sessions, memories, owners, without stitching joins in application code.\nBQL · polymorphic search\n// Units that are both Human AND Spanish. Search + computed fields.\n{\n\"$kinds\"\n:\n{\n\"$all\"\n:\n[\n\"Human\"\n,\n\"Spanish\"\n] },\n\"$search\"\n:\n\"senior backend rust\"\n,\n\"$filter\"\n:\n{\n\"role\"\n:\n{\n\"$in\"\n:\n[\n\"engineer\"\n,\n\"designer\"\n] } },\n\"$fields\"\n:\n[\n\"name\"\n,\n\"salary\"\n,\n\"bonus\"\n, {\n\"%total\"\n:\n{\n\"$js\"\n:\n\"salary + bonus\"\n} }, {\n\"$expand\"\n:\n\"projects\"\n,\n\"$sort\"\n:\n\"-budget\"\n,\n\"$limit\"\n:\n3\n,\n\"$fields\"\n:\n[\n\"title\"\n,\n\"budget\"\n,\n\"spent\"\n, {\n\"%remaining\"\n:\n{\n\"$js\"\n:\n\"budget - spent\"\n} } ] } ] }\nBQL · agent memory traversal\n// Recent sessions with arc metadata on high-relevance memories.\n{\n\"$kinds\"\n:\n\"Session\"\n,\n\"$filter\"\n:\n{\n\"$created_at\"\n:\n{\n\"$gte\"\n:\n\"<datetime>2026-04-01T00:00:00Z\"\n} },\n\"$sort\"\n:\n\"-$created_at\"\n,\n\"$limit\"\n:\n5\n,\n\"$fields\"\n:\n[\n\"$created_at\"\n, {\n\"$expandArc\"\n:\n\"memories\"\n,\n\"$kinds\"\n:\n[\n\"Fact\"\n,\n\"Idea\"\n],\n\"$search\"\n:\n\"user preferences\"\n,\n\"$filter\"\n:\n{\n\"relevance\"\n:\n{\n\"$gte\"\n:\n0.7\n} },\n\"$sort\"\n:\n\"-relevance\"\n,\n\"$limit\"\n:\n10\n,\n\"$fields\"\n:\n[\n\"content\"\n,\n\"relevance\"\n] } ] }\n// the wall you hit\nGreat databases.\nStill built for tables.\nSupabase thinks in columns. Convex in documents. Mongo Atlas in collections. Here's what changes when you think in entities and relationships.\nSupabase · Postgres\nvs BlitzGraph\nThe wall\nA User who becomes Admin needs a role table.\nNew role? New table, new JOIN, new migration. Every entity change touches the schema.\n⚡\nBlitzGraph\nOne entity, multiple kinds.\nA User can be [User, Admin, Moderator] simultaneously. Kinds compose freely, no migrations.\nThe wall\n\"Who wrote this post?\" costs a reverse JOIN.\nForeign keys go one direction. Reverse lookups need indexes, JOINs, and careful query planning.\n⚡\nBlitzGraph\nBidirectional arcs, O(1) both ways.\nEvery relationship is stored in both directions. \"User → Posts\" and \"Post → Author\", same cost, same index.\nConvex · Mongo Atlas\nvs BlitzGraph\nThe wall\nNo real relationships between documents.\nReferences are just string IDs you manage yourself. No traversals, no cardinality, no cascade policies.\n⚡\nBlitzGraph\nRelationships are first-class citizens.\nBidirectional arcs with onDelete cascade/restrict/unlink. $expand traverses the graph in the same query.\nThe wall\nFlat documents, no entity evolution.\nA Task that becomes a Bug needs a type field and conditionals everywhere. Schema changes ripple through app code.\n⚡\nBlitzGraph\nEntities that grow and compose.\nAdd a kind: [Task, Bug]. The entity gains Bug fields and relationships without breaking existing queries.\nTable Paradigm · SQL\nvs BlitzGraph\nThe wall\nOne entity, scattered across tables.\nA Customer in SQL lives in users, addresses, billing_info, and roles. Four tables, four IDs, four JOINs to reconstruct one entity.\n⚡\nBlitzGraph\nOne unit, one ID, forever.\nA unit has a single ID throughout its entire lifecycle. All its data and relationships are accessible from that one identity.\nThe wall\nEntity evolution means migration hell.\nA Company that becomes a Prospect, then a Client, then Churned? That's 4 status fields, 4 conditional queries, and a prayer that nothing breaks.\n⚡\nBlitzGraph\nKinds compose and evolve naturally.\nSame unit: [Company] → [Company, Prospect] → [Company, Client] → [Company, Churned]. Same ID, new capabilities, zero migrations.\nNeo4j · Graph DBs\nvs BlitzGraph\nThe wall\nString-based query language.\nCypher queries are strings your app generates and your agent guesses at. Parsing errors at runtime, no structured validation.\n⚡\nBlitzGraph\nJSON in, JSON out.\nBQL is structured JSON. Your agent composes objects, not strings. Schema-validated at compile time with the bql! macro.\nThe wall\nNodes belong to one label at a time.\nNeo4j labels are flat tags with no schema, no inheritance, no field isolation. Adding a label doesn't add structured fields.\n⚡\nBlitzGraph\nUnits belong to multiple kinds.\nA unit with kinds [User, Admin, Moderator] inherits each kind's fields, validations, and relationships. Polymorphism is the core model.\n// honest comparison\nHow we stack up\nBlitzGraph vs the databases you’re considering. Including where they win. We’d rather be honest.\nCapability\nBlitzGraph\nSupabase\nConvex\nMongo Atla",
+      "meta": {}
+    }
+  ],
+  "missing": [
+    "no about/team page linked from homepage",
+    "no GitHub org linked from homepage"
+  ]
+}

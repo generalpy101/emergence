@@ -1,0 +1,78 @@
+```json
+{
+  "category": "b2b_smb",
+  "category_reason": "Portal automates a manual workflow (sharing browser sessions) for SMBs, and the evidence suggests a bottom-up adoption motion.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable via their HN profile, but there's limited public information about their experience beyond that. This falls between the 'technical founders with relevant experience' and 'plausible background, limited public track record' anchors.",
+    "claims": [
+      {
+        "text": "The founder is identifiable via their HN profile.",
+        "evidence_idx": 2,
+        "quote": "HN user zach4123: karma 1"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "Portal offers a working product that automates the process of sharing browser sessions, which is a clear workflow. While it's differentiated, the 'AI assistant' feature pushes it slightly beyond a simple automation tool, but it still fits within the scope of the thesis.",
+    "claims": [
+      {
+        "text": "The product automates the process of sharing browser sessions.",
+        "evidence_idx": 1,
+        "quote": "Portal lets you share a live sandbox browser session"
+      },
+      {
+        "text": "The product offers an AI assistant for user interaction.",
+        "evidence_idx": 1,
+        "quote": "In Watch Mode, an AI Agent with contextual awareness"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The described use cases (user feedback, onboarding, sales demos) represent a real market, but the 'why now' argument is somewhat generic. It's not clear if there's a budgeted workflow being addressed, or if this is a 'nice-to-have' solution.",
+    "claims": [
+      {
+        "text": "The product addresses use cases like user feedback and onboarding.",
+        "evidence_idx": 1,
+        "quote": "Some early uses: - Getting user feedback"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The HN launch provides some initial signal, but the lack of comments and recent activity limits the traction score. It's a recent launch with modest engagement.",
+    "claims": [
+      {
+        "text": "The product has a recent HN launch.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-03-11"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 5,
+    "rationale": "Portal aligns directly with the investment thesis: it's a B2B software solution automating a manual workflow for SMBs, and the evidence suggests a bottom-up adoption motion.",
+    "claims": [
+      {
+        "text": "The product automates a manual workflow for SMBs.",
+        "evidence_idx": 1,
+        "quote": "Portal lets you share a live sandbox browser session"
+      }
+    ]
+  },
+  "risks": [
+    "The 'AI assistant' feature could be a distraction from the core workflow automation.",
+    "Retention is unclear; the product's value proposition may not be compelling enough for long-term use.",
+    "Reliance on Claude Code or similar agents could create dependency and limit portability."
+  ],
+  "change_my_mind": [
+    "A named design partner or early adopter SMB.",
+    "Evidence of customer retention beyond initial trial.",
+    "Confirmation of the founder's prior startup experience and technical expertise."
+  ]
+}
+```

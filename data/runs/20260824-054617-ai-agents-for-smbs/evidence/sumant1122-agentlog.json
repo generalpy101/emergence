@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "slug": "sumant1122-agentlog",
+    "name": "AgentLog",
+    "website": "https://github.com/sumant1122/agentlog",
+    "one_liner": "a lightweight event bus for AI agents using JSONL logs",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 47367987,
+      "story_url": "https://news.ycombinator.com/item?id=47367987",
+      "points": 9,
+      "num_comments": 0,
+      "posted_at": "2026-03-13T18:39:16Z",
+      "author": "paperplaneflyr"
+    },
+    "founder_hint": "paperplaneflyr",
+    "discovered_at": "2026-08-24T05:46:17.273198Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=47367987",
+      "fetched_at": "2026-08-24T06:57:26.860873Z",
+      "excerpt": "HN launch: 9 points, 0 comments, posted 2026-03-13 by paperplaneflyr.\nShow HN: AgentLog – a lightweight event bus for AI agents using JSONL logs\nI’ve been experimenting with infrastructure for multi-agent systems.\nI built a small project called AgentLog.\nThe core idea is very simple, topics are just append-only JSONL files.\nAgents publish events over HTTP and subscribe to streams using SSE.\nThe system is intentionally single-node and minimal for now.\nFuture ideas I’m exploring: - replayable agent workflows - tracing reasoning across agents - visualizing event timelines - distributed/federated agent logs\nCurious if others building agent systems have run into similar needs.",
+      "meta": {
+        "points": 9,
+        "author": "paperplaneflyr"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=paperplaneflyr",
+      "fetched_at": "2026-08-24T06:57:26.860873Z",
+      "excerpt": "HN user paperplaneflyr: karma 73, account created 2023-08-27.\n",
+      "meta": {
+        "karma": 73,
+        "created": 1693128067
+      }
+    },
+    {
+      "kind": "github_repo",
+      "url": "https://github.com/sumant1122/agentlog",
+      "fetched_at": "2026-08-24T06:57:26.860873Z",
+      "excerpt": "GitHub repo sumant1122/agentlog: 8 stars, language Go, last push 2026-03-13T18:35:28Z.\n# AgentLog\n\nA simple, lightweight Kafka-like messaging system designed for AI agents, using JSONL append-only logs as the storage format.\n\n## Philosophy\n\nKafka × `tail -f` × AI agents.\nIt is lightweight, append-only, and easily inspectable with Unix tools.\n\n## Architecture\n\n- **Topics**: Each topic is stored as a `.jsonl` file.\n- **Offsets**: Tracked by consumer groups using `.offset` files.\n- **Broker**: Broadcasts incoming events via SSE (Server-Sent Events) for real-time streaming.\n- **Replay**: Fetch historical payloads.\n\n## Demo\nhttps://github.com/user-attachments/assets/01afcb6d-2748-400c-9c74-138a40255d70\n\n## Usage\n\n### Server\n\nRun the server:\n\n```bash\ngo run cmd/server/main.go\n```\n\nThe server binds to port 8080 and uses `data/topics/` to store event logs.\n\n### CLI\n\nThere is a simple CLI provided to interact with the system.\n\n```bash\n# Build the CLI tool\ngo build -o agentlog cmd/cli/main.go\n\n# Tail a topic (Subscribes to live SSE events)\n./agentlog tail tasks\n\n# Publish an event to the \"tasks\" topic\n./agentlog publish tasks task_created '{\"task\": \"research transformers\"}'\n\n# Replay events from offset 0\n./agentlog replay tasks --offset 0\n```\n\n### Direct HTTP / Curl access\n\n**1. Create a Topic / Publish an Event**\n\n```bash\ncurl -X POST \\\n  http://localhost:8080/topics/tasks/events \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"producer\": \"planner\",\n    \"type\": \"task_created\",\n    \"payload\": {\"task\": \"research kafka\"}\n  }'\n```\n\n**2. Subscribe to a Topic (SSE)**\n\n```bash\ncurl -N http://localhost:8080/topics/tasks/subscribe\n```\n\n**3. Replay Events**\n\n```bash\ncurl http://localhost:8080/topics/tasks/replay?offset=0\n```\n\n### File Inspection\n\nYou can view the raw logs using Unix tools:\n\n```bash\ncat data/topics/tasks.jsonl\ntail -f data/topics/tasks.jsonl\n```\n\n## AI Agent Demo (OpenRouter)\n\nThis project contains an end-to-end demonstration showcasing how two AI agents can collaborate using `agentlog`. A **Planner Agent** breaks down tasks and publishes them, and an **Executor Agent** consumes them real-time and acts on them.\n\nBoth agents leverage OpenRouter API for LLM inference.\n\n### Running the Demo\n\n1. **Start the AgentLog Server**\n   ```bash\n   go run ./cmd/server/main.go\n   ```\n\n2. **Start the Executor Agent (Terminal 2)**\n   It will wait and listen continuously on the `tasks` SSE stream.\n   ```bash\n   # Windows (PowerShell)\n   $env:OPENROUTER_API_KEY=\"your-api-key\"\n   go run ./examples/demo/executor/main.go\n\n   # Linux/Mac\n   OPENROUTER_API_KEY=\"your-api-key\" go run ./examples/demo/executor/main.go\n   ```\n\n3. **Start the Planner Agent (Terminal 3)**\n   Provide it a high-level goal. It will generate subtasks and publish them.\n   ```bash\n   # Windows (PowerShell)\n   $env:OPENROUTER_API_KEY=\"your-api-key\"\n   go run ./examples/demo/planner/main.go \"Research how to deploy Kafka\"\n\n   # Linux/Mac\n   OPENROUTER_API_KEY=\"your-api-key\" go run ./examples/demo/planner/main.go \"Research how to deploy Kafka\"\n   ```\n\n## Future Architecture: Distributed Agent Event Mesh\n\nCurrently, `agentlog` is designed to be easily testable on a single machine. The robust long-term vision is to establish it as the **central event broker** and **network-reachable message bus** for an entire ecosystem of decoupled, asynchronous micro-agents.\n\nBy exposing the HTTP/SSE endpoints across a real network, `agentlog` facilitates an **event-driven architecture** where autonomous agents can be deployed across distributed infrastructure.\n\n### The Decoupled Topology\n\n![Agentlog Distributed Architecture](assets/architecture_diagram.png)\n\nIn this distributed paradigm:\n\n- **Location Transparency:** Producers and Consumers only need the IP address of the `agentlog` broker. They are agnostic to each other's physical network locations or lifecycles.\n- **Topic-Based Pub/Sub Routing:** Agents subscribe only to the semantic event streams they care about, minimizing unnecessary network chatter.\n- **Resilience via Deterministic Log Replay:** If an Executor node crashes, it can simply reboot and issue a `GET /topics/tasks/replay?offset=X` to seamlessly rehydrate its state and resume processing with exactly-once guarantees.\n\n## Roadmap\n\n- [ ] CLI tooling\n- [ ] Topic retention policies\n- [ ] Event schemas\n- [ ] Topic compaction\n- [ ] Multi-node replication\n- [ ] Agent workflow visualization\n\n## Contributing\n\nContributions are welcome!\nFeel free to open issues or submit pull requests.\n\n## License\n\nMIT\n\n## Inspiration\n\nInspired by:\n- Apache Kafka\n- Event sourcing architectures\n- Unix philosophy: simple tools, composable systems\n",
+      "meta": {
+        "description": "AgentLog is a lightweight event bus for AI agents built on append-only JSONL logs. Agents publish and subscribe to events via HTTP/SSE, enabling simple, replayable, and debuggable multi-agent workflows.",
+        "stars": 8,
+        "language": "Go",
+        "pushed_at": "2026-03-13T18:35:28Z",
+        "open_issues": 0
+      }
+    }
+  ],
+  "missing": [
+    "no comments on the HN thread",
+    "GitHub org 'sumant1122' not found via API"
+  ]
+}

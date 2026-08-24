@@ -1,0 +1,78 @@
+```json
+{
+  "category": "b2b_smb",
+  "category_reason": "The startup targets SMBs with a B2B software solution automating workflows, aligning with our investment thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable via their HN user profile, but their track record is limited. [2]",
+    "claims": [
+      {
+        "text": "The founder is identifiable via their HN user profile.",
+        "evidence_idx": 2,
+        "quote": "HN user mcp360"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product appears to be a working product that automates a named workflow (integrating APIs for AI agents), although the positioning is somewhat unclear. [1, 3]",
+    "claims": [
+      {
+        "text": "The product automates integrating APIs for AI agents.",
+        "evidence_idx": 1,
+        "quote": "integrating APIs for AI agents"
+      },
+      {
+        "text": "The product has a free tier.",
+        "evidence_idx": 3,
+        "quote": "Get Started Free"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The startup targets AI agent developers, which represents a real market, but the 'why now' argument is somewhat generic. [1]",
+    "claims": [
+      {
+        "text": "The startup targets AI agent developers.",
+        "evidence_idx": 1,
+        "quote": "people building real agents"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The startup has a recent launch with modest signal (HN mention). [1]",
+    "claims": [
+      {
+        "text": "The startup has a recent launch.",
+        "evidence_idx": 1,
+        "quote": "posted 2025-10-13"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 5,
+    "rationale": "The startup squarely fits our thesis: B2B, SMB buyer (AI agent developers), manual-workflow automation (API integration), and a bottom-up motion. [1]",
+    "claims": [
+      {
+        "text": "The startup aligns with our investment thesis.",
+        "evidence_idx": 1,
+        "quote": "building based on what people actually need"
+      }
+    ]
+  },
+  "risks": [
+    "The market for AI agent tooling is nascent and could be highly competitive.",
+    "Retention evidence is lacking; the startup needs to demonstrate stickiness beyond initial adoption.",
+    "The product's value proposition relies on the continued adoption of AI agents."
+  ],
+  "change_my_mind": [
+    "A named design partner or early customer.",
+    "Evidence of customer retention beyond the free tier.",
+    "More detail on the team's prior experience and expertise."
+  ]
+}
+```

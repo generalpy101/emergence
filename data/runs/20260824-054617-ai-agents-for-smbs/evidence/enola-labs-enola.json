@@ -1,0 +1,94 @@
+{
+  "candidate": {
+    "slug": "enola-labs-enola",
+    "name": "enola",
+    "website": "https://github.com/enola-labs/enola/tree/main",
+    "one_liner": "Enola-A deterministic architecture graph for developers and AI agents",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 48762592,
+      "story_url": "https://news.ycombinator.com/item?id=48762592",
+      "points": 10,
+      "num_comments": 6,
+      "posted_at": "2026-07-02T14:53:27Z",
+      "author": "GertLH"
+    },
+    "founder_hint": "GertLH",
+    "discovered_at": "2026-08-24T05:46:17.273198Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=48762592",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "HN launch: 10 points, 6 comments, posted 2026-07-02 by GertLH.\nShow HN: Enola-A deterministic architecture graph for developers and AI agents\nTogether with a friend, we were developing a golf application. Our codebase grew rapidly and became split between multiple repositories: the iOS app, Android app, backend, front-end, and extra tooling. Both of us also work in larger scale-ups, and we saw the same problem: understanding large distributed codebases becomes progressively harder. Yay for microservices.\nIt takes time to understand and answer questions like: -\nWhat calls this function?\n-\nWhat is the impact of changing this interface?\n-\nIs this code actually reachable and used?\nNot a secret that both of us embrace the leverage AI coding agents bring. But … AI agents spend a surprising amount of time understanding and rediscovering architecture. For them, architecture is a result of greps and, at times, assuming dependencies. With a new session, they rediscover the architecture again. Yet, architecture is deterministic. To introduce any changes, you need to understand the architecture.\nOver months, we optimised and built Enola to manage that hurdle.\nEnola is an open-source architecture engine that exposes an MCP server. Index any codebase into a persistent knowledge graph. If needed, combine multiple repositories into a graph of graphs. While constructing the graph, Enola parses the repository without using an LLM. The graph is built deterministically from source code. Outcome: A structured, deterministic architectural model of your system\n(a collection of multiple repositories)\n.\nWhy open-source? Our goal is to provide engineering tools to manage the\n“code inflation”.\nThere is a lot more code being produced, and codebases grow faster and faster. But the architectural integrity is still needed. Enola exists because software engineering still begins with understanding a system before changing it.\nKey Features\n(subset)\n:\n1. Impact Analysis: Determine the \"blast radius\" ",
+      "meta": {
+        "points": 10,
+        "author": "GertLH"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48867663",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "Interesting technical direction. What signal do you use to decide when the agent should stop gathering context and start making a concrete code change?",
+      "meta": {
+        "author": "xms17189"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48768524",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "I will definitely have a look at it. I have something similar I have been working on for a while to give me insight into my own code that became too large to reason over by myself. Its called Determined (because it is deterministic first with some AI narration over it). Mine isn't ready for release yet. I keep driving it to find gaps between what it finds deterministically and what Claude finds.",
+      "meta": {
+        "author": "bartleeanderson"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=48763960",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "This is an interesting problem to tackle. It's not clear from the github readme what the output of this looks like, specifically what does it return to the LLM?",
+      "meta": {
+        "author": "creativeSlumber"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=GertLH",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "HN user GertLH: karma 6, account created 2026-04-18.\n",
+      "meta": {
+        "karma": 6,
+        "created": 1776511552
+      }
+    },
+    {
+      "kind": "github_repo",
+      "url": "https://github.com/enola-labs/enola",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "GitHub repo enola-labs/enola: 182 stars, language C, last push 2026-08-24T05:35:05Z.\n# enola - architectural regression testing for AI-assisted development\n\n[![MCP Toplist](https://mcptoplist.com/badge/glama%2Fenola-labs%2Fenola.svg)](https://mcptoplist.com/server/glama%2Fenola-labs%2Fenola)\n[![CI](https://github.com/enola-labs/enola/actions/workflows/ci.yml/badge.svg)](https://github.com/enola-labs/enola/actions/workflows/ci.yml)\n[![Release](https://img.shields.io/github/v/release/enola-labs/enola)](https://github.com/enola-labs/enola/releases)\n[![License](https://img.shields.io/github/license/enola-labs/enola)](LICENSE)\n\n**enola indexes your repository into a dependency graph, pins that graph before a change, and reports exactly what the change did to the structure - then exits `1` on the parts you said should fail.** What counts as worse is yours to state: out of the box nothing fails, and one flag turns a violated layer order, an undeclared cross-repo seam, or a change that spread outside the area you named into a broken build. Tree-sitter parsers and graph algorithms - no model, no embeddings, nothing leaves your machine.\n\nYour agent reads the same graph over **MCP** - the protocol Claude Code, Cursor and Copilot use to plug in tools - so it knows what depends on what *before* it edits, and gets the verdict *after*, in time to fix its own regression.\n\n**You never tell enola what your repository is.** It detects every language in the tree and indexes all of them into one graph, one baseline, one verdict - and the boundary worth grading is usually the one *between* them. On [Discourse](https://github.com/discourse/discourse) that is 66,497 Ruby facts beside 69,562 TypeScript/Ember ones, where the fifth-largest god class in the whole repository is the frontend's `ajax` module - 553 dependents, and its entire job is calling Rails. A Rails-only checker grades half that system and calls it the architecture.\n\n[23 languages and formats](#supported-languages), detected rather than configured.\n\nYour agent adds a helper to `storage`, and the innermost layer of your app now reaches out to the outermost one to send an email. You run `enola check --fail-on=layers`:\n\n```\nFAIL — 1 structural regression introduced.\n\nRegressions (fail):\n  - [layers] 1.00 — Layer violation: storage -> delivery\n      import of notify\n\nPolicy: fail on new findings from [layers] at confidence >= 1.00.\n```\n\nExit code `1`, so a commit hook or a CI job can stop there. That last line is the part worth reading twice: it is the policy **this run** enforced, not a fixed rule. enola shipped holding no opinion about your layers - it graded that crossing because you declared the order it crosses:\n\n```yaml\n# enola-intent.yaml\nlayers:                          # outermost first\n  - {name: delivery, paths: [\"web/**\", \"notify/**\"]}\n  - {name: api,      paths: [\"api/**\"]}\n  - {name: storage,  paths: [\"storage/**\"]}\n```\n\nBound the *scope* as well - `--target=storage --max-spillover=0` - and the same command grades that too. The author said this change was about `storage`; it also edited `telemetry`, and that second regression has no finding behind it at all:\n\n```\nFAIL — 2 structural regressions introduced.\n\nMeasurements over threshold:\n  - [fail] 1 package(s) reached outside the declared scope\n\nRegressions (fail):\n  - [layers] 1.00 — Layer violation: storage -> delivery\n      import of notify\n\nPolicy: fail on new findings from [layers] at confidence >= 1.00.\n```\n\nBoth runs are [`examples/layers-gate/`](examples/layers-gate/) - five packages, one `./run.sh`, and the output above is what it prints.\n\n[What fails the build](#what-fails-the-build) is the full set and how to choose it. The [full output](#what-the-verdict-tells-you) names the symbols and edges the change added.\n\n## Quickstart\n\n**1. Install the binary.** No Go toolchain, no C compiler - Linux, macOS (amd64/arm64) and Windows:\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/enola-labs/enola/main/install.sh | sh\n```\n\nThat drops one binary into `~/.local/bin`. If the next command comes back `enola: command not found`, that directory isn't on your `PATH` yet:\n\n```bash\nexport PATH=\"$HOME/.local/bin:$PATH\"\n```\n\n**Ruby and Rails?** There is a community-maintained gem that wraps the same release, fetches the binary on first use and forwards every command - and `enola-rb` adds a Rails generator plus `enola:snapshot` / `enola:check` rake tasks:\n\n```bash\nbundle add enola-rb\nbin/rails generate enola:install\nbin/rake enola:check\n```\n\nBoth Ruby fact providers are on by default there. The gems are maintained by [Muhamed Isabegović](https://github.com/misabegovic) at [misabegovic/enola-rb](https://github.com/misabegovic/enola-rb); issues and pull requests belong there. See [docs/RAILS.md](docs/RAILS.md).\n\n**2. Tell your agents it exists, and close the loop automatically:**\n\n```bash\nenola install --hooks\n```\n\nThis writes enola's instructions into the files your agents already read - Claude Code, Cursor, Copilot, Codex, Pi - and `--hooks` adds the two hooks that grade each session for you. It previews every change and asks before writing, never creates a shared file like `AGENTS.md` that wasn't already there, and `enola uninstall` reverses everything byte-for-byte, including the files and directories it created itself.\n\n**3. Give your agent the graph over MCP.** Pick your client:\n\n| Client | Do this |\n|---|---|\n| **Claude Code** | `claude mcp add enola enola` |\n| **Copilot (VS Code)** | `code --add-mcp '{\"name\":\"enola\",\"command\":\"enola\"}'` |\n| **Cursor** | add the block below to `.cursor/mcp.json` (or `~/.cursor/mcp.json` for every project) |\n| **Codex, or any other MCP client** | add the same block to its MCP config |\n\n<details>\n<summary>MCP config block</summary>\n\n```json\n{\n  \"mcpServers\": {\n    \"enola\": {\n      \"command\": \"enola\"\n    }\n  }\n}\n```\n\nCopilot's `.vscode/mcp.json` uses `servers` as the top-level key instead of `mcpServers`. A config path in `args` is optional everywhere - omit it to run on built-in defaults. Full details and per-client restart instructions: [docs/CLI.md](docs/CLI.md).\n\n</details>\n\n**4. Confirm it actually works.** After your next session:\n\n```bash\nenola doctor\n```\n\nA report, not a gate - it always exits `0`. It is the fastest way to find out that something has gone quietly wrong:\n\n- **whether the hooks fired.** A hook configuration is a contract with your agent, and one it silently ignores looks exactly like one it honours, so `doctor` reports when each hook last ran rather than whether it is configured.\n- **whether your baseline still counts.** One pinned by a different enola version, or under different ignore rules, is not comparable - and nothing is graded against it until you re-pin.\n- **whether there is a newer release** - and specifically whether the **extractors** changed, which means your snapshots are missing facts a current build would find. `enola upgrade` installs it.\n\n### Not using an agent?\n\nThe gate is a plain CLI. No MCP, no hooks, no config file:\n\n```bash\nenola baseline pin              # freeze the architecture before you edit\n#   …make your change…\nenola check                     # report what it did - always exit 0\nenola check --fail-on=layers    # …and exit 1 on the part you named\n```\n\nSame commands and same exit codes in CI, on every pull request. Every flag and all four exit codes: **[docs/CLI.md](docs/CLI.md)**.\n\n## Try it on your own repo, right now\n\nOne read-only command, no baseline, no setup, nothing written to disk:\n\n```bash\nenola --explain /path/to/your/repo\n```\n\nOn this repository that takes 252ms and prints, among other sections:\n\n```\nArchitecture\n  Pattern:             declared (enola) (100% confidence)\n  cyclic dependencies         0\n  layer violations            0\n\nImpact analysis (hotspots)\n  coupled modules            38\n    high criticality         22\n    medium criticality       16\n  Top hotspots (by coupling):\n    module                            fan-in  fan-out crit     blast rad",
+      "meta": {
+        "description": "Architecture intelligence for developers, coding agents, and CI - understand codebases, analyze change impact, and catch architectural regressions.",
+        "stars": 182,
+        "language": "C",
+        "pushed_at": "2026-08-24T05:35:05Z",
+        "open_issues": 2
+      }
+    },
+    {
+      "kind": "github_org",
+      "url": "https://github.com/enola-labs",
+      "fetched_at": "2026-08-24T06:50:36.870275Z",
+      "excerpt": "enola | stars=182 | lang=C | pushed=2026-08-24T05:35:05Z\nenola-action | stars=1 | lang=TypeScript | pushed=2026-08-24T04:44:12Z\nenola-guides | stars=0 | lang=Shell | pushed=2026-08-23T20:31:58Z\nenola-rb | stars=0 | lang=Ruby | pushed=2026-08-23T17:09:58Z\n.github | stars=0 | lang=None | pushed=2026-08-13T15:26:55Z",
+      "meta": {
+        "org": "enola-labs",
+        "public_repos": 5,
+        "created_at": "2026-06-07T07:26:18Z",
+        "description": "Building developer infrastructure for agentic era."
+      }
+    }
+  ],
+  "missing": []
+}

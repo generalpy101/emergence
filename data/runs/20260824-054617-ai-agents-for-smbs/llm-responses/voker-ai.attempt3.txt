@@ -1,0 +1,93 @@
+```json
+{
+  "category": "b2b_smb",
+  "category_reason": "Voker targets SMBs with a software solution automating a manual workflow (agent analytics), fitting the core thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founders are identifiable and have plausible backgrounds, but limited public track record beyond the HN launch and website.",
+    "claims": [
+      {
+        "text": "The founders are Alex and Tyler.",
+        "evidence_idx": 7,
+        "quote": "Co-Founder of Voker (YC S24)"
+      },
+      {
+        "text": "Alex has experience building applied data products.",
+        "evidence_idx": 7,
+        "quote": "In previous roles, I've built applied data products"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "Voker has a real product, but the positioning is somewhat fuzzy and the space is crowded with observability and evaluation tools.",
+    "claims": [
+      {
+        "text": "Voker provides analytics for AI agents.",
+        "evidence_idx": 1,
+        "quote": "Analytics for AI Agents"
+      },
+      {
+        "text": "The product offers Intents, Corrections, and Resolutions.",
+        "evidence_idx": 2,
+        "quote": "Intents vs Corrections vs Resolutions"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "A real market exists for agent observability, but the 'why now' argument is somewhat generic.",
+    "claims": [
+      {
+        "text": "Teams currently rely on customer complaints to identify agent issues.",
+        "evidence_idx": 1,
+        "quote": "only know if their Agents are failing users in production is by hearing complaints from customers"
+      },
+      {
+        "text": "The target market is AI product teams.",
+        "evidence_idx": 1,
+        "quote": "Agent Engineers and AI product teams"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "Recent launch with modest engagement on HN.",
+    "claims": [
+      {
+        "text": "The product launched on HN 2026-05-12.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-05-12"
+      },
+      {
+        "text": "The HN launch received 59 points and 22 comments.",
+        "evidence_idx": 1,
+        "quote": "59 points, 22 comments"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 5,
+    "rationale": "Voker aligns well with the thesis: B2B, SMB buyer, manual-workflow automation (agent observability), and a bottom-up motion.",
+    "claims": [
+      {
+        "text": "Voker automates a workflow for AI product teams.",
+        "evidence_idx": 1,
+        "quote": "Analytics for AI Agents"
+      }
+    ]
+  },
+  "risks": [
+    "The market for agent observability may be crowded, and Voker needs to demonstrate clear differentiation.",
+    "Retention evidence is currently lacking; reliance on HN traction is a potential churn risk.",
+    "The product's reliance on AI coding tools for setup could create a barrier to entry for some users."
+  ],
+  "change_my_mind": [
+    "A named design partner or early customer.",
+    "Evidence of customer retention beyond initial HN engagement.",
+    "A more detailed explanation of Voker's differentiation from competitors like Langfuse and Amplitude."
+  ]
+}
+```

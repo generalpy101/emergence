@@ -1,0 +1,78 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While Dexto aims to solve a problem for businesses, its primary buyer appears to be AI developers, placing it outside the core SMB workflow automation thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The team is associated with Truffle AI, a YC Winter 2025 company, indicating some technical background and startup experience. However, there's limited public information beyond this association.",
+    "claims": [
+      {
+        "text": "The team is associated with Truffle AI, a YC Winter 2025 company.",
+        "evidence_idx": 7,
+        "quote": "Truffle AI (YC W25)"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "Dexto presents a real product, an agent harness, but its positioning as a runtime and orchestration layer for AI agents suggests a more complex and potentially crowded space. It's not immediately clear how it's differentiated from alternatives like Claude Agent Skills.",
+    "claims": [
+      {
+        "text": "The product is described as an agent harness.",
+        "evidence_idx": 8,
+        "quote": "An agent harness"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The HN discussion indicates a focus on developers building AI applications, suggesting a niche market rather than a broad SMB segment. The comment seeking a 'Mumbai-based SaaS orchestrator' further reinforces this developer-centric focus.",
+    "claims": [
+      {
+        "text": "The product appears to target developers building AI applications.",
+        "evidence_idx": 4,
+        "quote": "does anyone have a Mumbai-based SaaS orchestrator"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The product has a recent launch with some engagement on Hacker News, but the comments reveal ongoing issues and a steep learning curve, suggesting modest and potentially fragile traction.",
+    "claims": [
+      {
+        "text": "The product has a recent launch with some engagement on Hacker News.",
+        "evidence_idx": 1,
+        "quote": "posted 2025-10-28"
+      },
+      {
+        "text": "Some users have reported issues and a steep learning curve.",
+        "evidence_idx": 3,
+        "quote": "spending more time fighting the framework"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "Dexto aligns with the broader B2B software theme, but its focus on AI agent orchestration and developer tooling places it adjacent to the core SMB workflow automation thesis. The developer-centric nature necessitates a credible path to a non-developer SMB buyer for it to be considered a strong fit.",
+    "claims": [
+      {
+        "text": "The product is described as tooling for AI developers.",
+        "evidence_idx": 8,
+        "quote": "developers building intelligent applications"
+      }
+    ]
+  },
+  "risks": [
+    "The product's complexity and developer focus may limit its adoption by SMBs.",
+    "The agent orchestration space is becoming increasingly crowded, potentially making differentiation difficult.",
+    "The Elastic License 2.0 may deter some potential users."
+  ],
+  "change_my_mind": [
+    "Evidence of a significant number of SMBs using Dexto directly, without requiring developer intervention.",
+    "Public case studies demonstrating Dexto's impact on concrete, measurable SMB workflows.",
+    "Confirmation of the team's prior shipping experience and technical depth beyond their association with Truffle AI."
+  ]
+}
+```

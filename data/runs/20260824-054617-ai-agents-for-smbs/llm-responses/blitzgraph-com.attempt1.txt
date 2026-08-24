@@ -1,0 +1,84 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While BlitzGraph solves a technical problem for SMBs, its primary buyer appears to be developers building AI agents, not SMB operators directly, and there's no clear evidence of a non-developer SMB buyer.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable via HN, but there's limited public information about their experience beyond this.",
+    "claims": [
+      {
+        "text": "The founder is identifiable via their HN profile.",
+        "evidence_idx": 7,
+        "quote": "karma 27, account created 2021-09-22"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "BlitzGraph presents a working product with a unique approach to graph databases, but the positioning is somewhat technical and the value proposition for SMBs isn't immediately clear.",
+    "claims": [
+      {
+        "text": "BlitzGraph is a working product.",
+        "evidence_idx": 8,
+        "quote": "The AI-native backend"
+      },
+      {
+        "text": "BlitzGraph aims to provide a backend for AI agents.",
+        "evidence_idx": 1,
+        "quote": "built for LLM agents"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 2,
+    "rationale": "The market for graph databases is real, but the 'why now' argument is tied to the rise of AI agents, which is a crowded space. The segment of SMBs using these agents is unclear.",
+    "claims": [
+      {
+        "text": "The market is tied to the rise of AI agents.",
+        "evidence_idx": 1,
+        "quote": "looking for the perfect graphDB"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The HN launch indicates some initial interest, but the comments reveal it's in an early, alpha stage.",
+    "claims": [
+      {
+        "text": "There was a recent launch on HN.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-06-16"
+      },
+      {
+        "text": "The product is in alpha.",
+        "evidence_idx": 2,
+        "quote": "This is alpha"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 2,
+    "rationale": "BlitzGraph is adjacent to the thesis because it targets a B2B market and automates a workflow, but the primary buyer is AI developers, not SMB operators. The lack of evidence of a non-developer SMB buyer pushes it to a lower score.",
+    "claims": [
+      {
+        "text": "The primary buyer appears to be AI developers.",
+        "evidence_idx": 2,
+        "quote": "surely only an agent would think it a good idea"
+      }
+    ]
+  },
+  "risks": [
+    "The product's value proposition for SMBs is not immediately clear.",
+    "The reliance on AI agents introduces dependency on a rapidly evolving and competitive landscape.",
+    "The alpha stage indicates significant development work remains.",
+    "The technical nature of the product may limit adoption by non-technical SMB users."
+  ],
+  "change_my_mind": [
+    "Evidence of a named SMB customer using BlitzGraph for a core business workflow.",
+    "A public case study demonstrating BlitzGraph's impact on an SMB's operations.",
+    "A clear explanation of how BlitzGraph integrates into existing SMB workflows beyond AI agent development."
+  ]
+}
+```

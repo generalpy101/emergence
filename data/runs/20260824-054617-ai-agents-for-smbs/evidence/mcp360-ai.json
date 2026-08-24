@@ -1,0 +1,64 @@
+{
+  "candidate": {
+    "slug": "mcp360-ai",
+    "name": "Universal MCP gateway for AI agents",
+    "website": "https://mcp360.ai",
+    "one_liner": "",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 45567413,
+      "story_url": "https://news.ycombinator.com/item?id=45567413",
+      "points": 6,
+      "num_comments": 0,
+      "posted_at": "2025-10-13T12:04:49Z",
+      "author": "mcp360"
+    },
+    "founder_hint": "mcp360",
+    "discovered_at": "2026-08-24T05:46:17.273198Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=45567413",
+      "fetched_at": "2026-08-24T07:14:54.089542Z",
+      "excerpt": "HN launch: 6 points, 0 comments, posted 2025-10-13 by mcp360.\nShow HN: Universal MCP gateway for AI agents\nHey HN Community,\nI built MCP360 after spending weeks integrating APIs for an AI agent project. Each tool needed its own setup, auth, billing, and maintenance. When any APIs changed, my integrations broke. I got tired of it.\nMCP360 is a single gateway giving AI agents access to 100+ tools through one config block. Search engines, web scraping, SEO, e-commerce data, maps, domain tools, and more.\nReal example: Instead of managing Google Search, web scraping, SERP tracking, and keyword research as 4 separate subscriptions (4 bills, 4 auth systems, 4 points of failure), you connect once.\nWorks with Claude Desktop, Cline, or any MCP-compatible client.\nSetup in 2 minutes: - Copy one config block into your MCP client - Start using 100+ tools immediately - We handle everything for you\nThere's a free tier to get started.\nI'm posting here because I need feedback from people building real agents:\n1. What integrations are you currently struggling with? 2. What would make this genuinely useful (not just convenient)? 3.What tools should we add next?\nThis is early stage. I'm building based on what people actually need, not what sounds cool. Honest feedback welcome, even if it's \"this doesn't solve my problem because X.\"\nWebsite:\nhttps://mcp360.ai\nHappy to answer technical questions!",
+      "meta": {
+        "points": 6,
+        "author": "mcp360"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=mcp360",
+      "fetched_at": "2026-08-24T07:14:54.089542Z",
+      "excerpt": "HN user mcp360: karma 1, account created 2025-10-13.\n",
+      "meta": {
+        "karma": 1,
+        "created": 1760340252
+      }
+    },
+    {
+      "kind": "web_page",
+      "url": "https://mcp360.ai",
+      "fetched_at": "2026-08-24T07:14:54.089542Z",
+      "excerpt": "MCP360 - Unified MCP Gateway with Custom MCP Builder | 100+ AI Tools | MCP360\nHome\nMCPs\nPricing\nBlogs\nToggle theme\nSign in\nGet Started\nToggle theme\nNew:\nCustom MCP Builder is now live\nThe Unified Data Layer\nFor Your AI Agents\nOne universal gateway connecting Claude, Cursor, and your AI agents to 100+ production-ready tools. Start for free.\nGet Started Free\nExplore All Tools\nPowering tools for agents like\nExplore All MCPs\nMCP360 - Universal MCP Gateway\nGoogle Search\nWeb Scraping\nAmazon Product Search\nGoogle Maps\nMCP360 - Universal MCP Gateway\nGoogle Search\nWeb Scraping\nAmazon Product Search\nGoogle Maps\nGoogle Shopping\nYouTube\nGoogle Trends\nKeyword Research\nGoogle Shopping\nYouTube\nGoogle Trends\nKeyword Research\nIntegrates with\nCURSOR\nCLAUDE\nN8N\nYOURGPT\n0\n+\nMCP Servers\n0\n%\nProductivity\n0\nmin\nSetup Time\n0.0\n%\nSuccess Rate\nPowerful Features\nBuilt for Fast Moving Teams\nEverything you need to accelerate your AI workflow with speed, reliability, and simplicity.\nOne Subscription for Everything\nManage all integrations under one plan. Access the complete library of tools without handling multiple accounts or API setups.\n100+ Tools\nUnified Billing\nEnterprise Security\n+25 more\nNo Setup Complexity\nCopy and paste to connect. Your team can add new tools or extend capabilities in minutes without technical support.\n{\n\"mcpServers\"\n:\n{\n\"url\"\n:\n}\n}\nCopy Configuration\nAlways Expanding\nNew tools are added every month and included automatically. Each integration is secure with enterprise-grade protection.\n100\n+\nTools Available\nGrowing Hub\nLive Updates\nProduction-Ready MCPs\nBuild Custom MCPs\nTransform any API into an MCP in minutes. Configure, code in JS/Python, and deploy your custom integrations instantly.\nCustom MCP Builder\nCreate\nAPI Type\nCode Type\nAPI Configuration\nhttps://api.example.com/v1/data\nGET\nBearer Token\n{ \"Content-Type\": \"application/json\" }\nCall via API\nAccess your configured tools and services programmatically. Connect MCP360 directly to your custom backends via our standard REST API.\nREST API Integration\nLive Endpoint\nEndpoint\nPOST\nhttps://connect.mcp360.ai/api/v1/keyword-research/search_keyword_volume\nRequest Body\n{ \"keywords\": [\"seo tools\", \"keyword research\"], \"location\": \"United States\", \"language\": \"en\" }\nResponse\n{ \"search_volume\": 14500, \"difficulty\": 78 }\nWorkflow\nFrom Days of Work to Done in Minutes\nConnect your AI agents to 100+ production-ready tools with one unified gateway.\nLegacy Workflow\nManual setup &\nconstant upkeep\nFragmented API Subscriptions\nMultiple accounts, invoices, and complex setup processes\nManual Auth Management\nRotating keys and tokens across different providers\nCustom Integration Code\nWriting and maintaining glue-code for every tool\nConstant Connection Upkeep\nMonitoring and updating integrations individually\nSecurity & Compliance Risks\nManaging access controls and data privacy for each tool\nUnified Gateway\nConnect once,\nintegrate everything\nSingle Account Access\nOne unified platform for all your AI tool needs\nOne Key for Everything\nSingle secure point for all integrations\nReady-to-Use Tools\nProduction-ready MCPs available immediately\nAutomatic Infrastructure\nContinuous updates and scaling handled for you\nGet Started for Free\nIdeas Turned Into Intelligent Systems\nSee how you can use MCP360 to automate your workflows, improve productivity, and build faster with one integration.\nCompetitor Price Tracker\nMonitor competitor prices on Amazon automatically. When a competitor drops their price, your AI built with N8N and MCP360 sends an instant alert with detailed comparison insights.\nLearn More\nMCP made EASY: 3 REAL MCP Workflows\nSee three real-world MCP workflows built with MCP360 using a single node—ready to use out of the box.\nLearn More\nAsk AI to Verify Leads & make reports.\nDo Email & Leads verification directly in your AI , Generate curated leads from your email list with MCP360\nLearn More\nConnect Claude & GPT to the Real World (MCP360 + YourGPT)\nBuild production-ready AI agents in minutes with MCP360 and YourGPT. Address the complexities of real-world integration with one node.\nLearn More\nBrainstorm Domain Ideas and Check Availability (MCP).\nAccess Domain related tools right into your AI Apps(Claude, ChatGPT, etc.) with MCP360\nLearn More\nSmart Trip Planner\nPlan complete journeys with an AI that builds custom itineraries, books hotels, and suggests destinations based on real-time availability and user preferences. Built using the OpenAI Agent Builder and MCP360.\nLearn More\nTrending Content Generator\nFind trending keywords, analyse competitors, scrape data, and generate drafts automatically using Claude and MCP360.\nLearn More\nDeveloper First\nStart\nintegrating\ntoday\nEnhance your AI agents with industry leading tools and custom MCP capabilities.\nKeyword Research\nDiscover high-value keywords, analyze search volumes, and uncover content opportunities across search engines.\nLearn more\nSearch Engine Result Position (SERP)\nTrack rankings, analyze SERP features, and monitor competitor positions across multiple search engines.\nLearn more\nDomain & Web\nComprehensive domain tools with WHOIS, DNS records, URL validation, and webpage analysis.\nLearn more\nSales & Market Research\nAccess product data, pricing trends, competitor analysis, and market insights across e-commerce platforms.\nLearn more\nWeb Search & Scraping\nExtract structured data from websites, search results, and online sources with powerful scraping tools.\nLearn more\nSEO Audit\nComplete SEO analysis: technical audits, performance tracking, backlink analysis, and optimization recommendations.\nLearn more\nBrowse All 100+ Tools\nComparison\nMCP360 vs. Others\nSee how one unified MCP gateway compares to other integration and automation platforms.\nUnified MCP gateway\nHosted MCP server/gateway endpoint that can expose multiple tools or integrations through one MCP connection.\nMCP360\nOthers\nLarge pre-built tool catalog\nPublicly available catalog of many ready-to-use tools/integrations (native MCP tools or provider tools exposed via MCP).\nMCP360\nOthers\nNo-code API-to-MCP builder\nNo-code workflow to turn a REST API into an MCP server without writing MCP server code.\nMCP360\nOthers\nAll-in-one MCP workflow\nDiscover pre-built MCPs, chat-test them in-browser, and build custom API-to-MCP integrations in one product workflow.\nMCP360\nOthers\nNative MCP protocol\nBuilt for Claude, Cursor, Windsurf, n8n, and any MCP-compatible client.\nMCP360\nOthers\nPlatform Capabilities\nMCP360\nOthers\nUnified MCP gateway\nHosted MCP server/gateway endpoint that can expose multiple tools or integrations through one MCP connection.\nLarge pre-built tool catalog\nPublicly available catalog of many ready-to-use tools/integrations (native MCP tools or provider tools exposed via MCP).\nNo-code API-to-MCP builder\nNo-code workflow to turn a REST API into an MCP server without writing MCP server code.\nAll-in-one MCP workflow\nDiscover pre-built MCPs, chat-test them in-browser, and build custom API-to-MCP integrations in one product workflow.\nNative MCP protocol\nBuilt for Claude, Cursor, Windsurf, n8n, and any MCP-compatible client.\nCompare with Apify, Zapier, Manufact, and more\nView all MCP360 comparisons\nHome preview shows a conservative aggregate across all listed competitors (checked only when common to all). Open individual comparison pages for provider-specific details.\nThree Steps to Production\nGet your AI agents connected to the world's tools in minutes.\nCopy Configuration\nOne line of code connects AI agents to our platform. Works with Claude, Cursor, and more.\nLEARN MORE\nAdd to AI Client\nPaste your unique endpoint into any MCP-compatible agent to unlock 100+ more.\nLEARN MORE\nStart Building\nYour AI now access real-time data, search, and data of tools with zero custom extra config.\nLEARN MORE\nGet Started Now\nCustom MCP Builder\nTransform Any API\ninto\nCustom MCPs\nBuild powerful MCP integrations in minutes, not days. Configure and deploy your custom tools instantly.\nAPI Type Tools\nConfigure REST APIs with endpoints, methods, and heade",
+      "meta": {}
+    },
+    {
+      "kind": "github_org",
+      "url": "https://github.com/mcp360",
+      "fetched_at": "2026-08-24T07:14:54.089542Z",
+      "excerpt": "unified-gateway-mcp | stars=23 | lang=TypeScript | pushed=2026-06-17T06:57:31Z\nmTarsier | stars=47 | lang=TypeScript | pushed=2026-04-20T17:56:58Z",
+      "meta": {
+        "org": "mcp360",
+        "public_repos": 2,
+        "created_at": "2025-10-12T05:27:40Z",
+        "description": ""
+      }
+    }
+  ],
+  "missing": [
+    "no comments on the HN thread",
+    "no about/team page linked from homepage"
+  ]
+}

@@ -1,0 +1,98 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While the tool addresses a developer workflow, the buyer appears to be developers themselves, not SMBs directly, placing it outside the core thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The team is identifiable through their GitHub activity and HN presence, but limited public information exists beyond that. [5] shows a user with a low karma score and recent account creation, suggesting limited prior startup experience.",
+    "claims": [
+      {
+        "text": "The team is identifiable through their GitHub activity.",
+        "evidence_idx": 5,
+        "quote": "account created 2026-04-18"
+      },
+      {
+        "text": "Limited public information exists about the team's prior experience.",
+        "evidence_idx": 5,
+        "quote": "karma 6"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product appears to be a working tool for managing architecture graphs, as evidenced by the GitHub repository and description. [6] describes its functionality and purpose. However, it's positioned as a developer tool, not a direct SMB workflow automation solution.",
+    "claims": [
+      {
+        "text": "The product is a working tool for managing architecture graphs.",
+        "evidence_idx": 6,
+        "quote": "indexes your repository into a dependency graph"
+      },
+      {
+        "text": "The product is positioned as a developer tool.",
+        "evidence_idx": 6,
+        "quote": "Your agent reads the same graph over MCP"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 2,
+    "rationale": "The problem of managing large codebases is real, but the market is within the developer ecosystem, not directly targeting SMBs. [3] mentions a similar tool already exists, suggesting a crowded space, but the focus is on developer needs.",
+    "claims": [
+      {
+        "text": "The problem of managing large codebases is real.",
+        "evidence_idx": 3,
+        "quote": "I have something similar I have been working on"
+      },
+      {
+        "text": "The market is within the developer ecosystem.",
+        "evidence_idx": 6,
+        "quote": "enola indexes your repository"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The HN launch shows some initial interest, but the level of engagement is modest. [1] indicates a recent launch with limited comments and points. The GitHub repo has a moderate number of stars.",
+    "claims": [
+      {
+        "text": "The product has a recent launch with modest engagement.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-07-02"
+      },
+      {
+        "text": "The GitHub repository has a moderate number of stars.",
+        "evidence_idx": 6,
+        "quote": "stars=182"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 2,
+    "rationale": "The tool automates a developer workflow, but the buyer is developers, not SMBs. This falls into the 'adjacent' category, but the lack of a clear path to SMB adoption results in a low score. [6] highlights the developer focus.",
+    "claims": [
+      {
+        "text": "The tool automates a developer workflow.",
+        "evidence_idx": 6,
+        "quote": "indexes your repository into a dependency graph"
+      },
+      {
+        "text": "The buyer is developers, not SMBs.",
+        "evidence_idx": 6,
+        "quote": "Your agent reads the same graph over MCP"
+      }
+    ]
+  },
+  "risks": [
+    "The tool may remain a niche developer utility without broader SMB adoption.",
+    "Competition from existing developer tooling could limit market share.",
+    "The reliance on MCP could create vendor lock-in or compatibility issues."
+  ],
+  "change_my_mind": [
+    "Evidence of SMBs directly using the tool to automate their workflows.",
+    "A named design partner from the SMB space.",
+    "Public documentation of a clear path to SMB adoption beyond developer use."
+  ]
+}
+```

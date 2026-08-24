@@ -1,0 +1,93 @@
+```json
+{
+  "category": "b2b_smb",
+  "category_reason": "The startup automates a concrete, expensive, currently-manual workflow (corporate hierarchy research) for SMBs, aligning with the investment thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable via their HN profile and has a plausible background in data enrichment and entity resolution, but limited public track record beyond that.",
+    "claims": [
+      {
+        "text": "The founder is identifiable via their HN profile.",
+        "evidence_idx": 5,
+        "quote": "HN user mfrye0: karma 464"
+      },
+      {
+        "text": "The founder has experience in data enrichment and entity resolution.",
+        "evidence_idx": 1,
+        "quote": "I've spent 10 years building MDM, data enrichment"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product is a working API for corporate hierarchy mapping, automating a specific workflow. It's differentiated by its AI-powered approach and Mermaid diagram generation, though the space is competitive.",
+    "claims": [
+      {
+        "text": "The product is a working API for corporate hierarchy mapping.",
+        "evidence_idx": 6,
+        "quote": "Corporate Hierarchy API – Map the corporate family tree"
+      },
+      {
+        "text": "The API generates Mermaid diagrams.",
+        "evidence_idx": 4,
+        "quote": "You can copy/paste that into any Mermaid renderer"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 4,
+    "rationale": "The market is identifiable (compliance/risk teams in SMBs), and the problem is painful and budgeted (millions spent on manual research).",
+    "claims": [
+      {
+        "text": "The target market includes compliance/risk teams in SMBs.",
+        "evidence_idx": 1,
+        "quote": "does this business roll up to a state owned entity"
+      },
+      {
+        "text": "Companies spend millions on manual research.",
+        "evidence_idx": 1,
+        "quote": "$100M/yr spent with Deloitte"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The product has a recent launch with modest engagement on HN.",
+    "claims": [
+      {
+        "text": "The product launched recently.",
+        "evidence_idx": 1,
+        "quote": "posted 2025-10-22"
+      },
+      {
+        "text": "The launch received some signal on HN.",
+        "evidence_idx": 1,
+        "quote": "17 points, 10 comments"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 5,
+    "rationale": "The startup squarely fits the thesis: B2B, SMB buyer, manual-workflow automation, and bottom-up motion.",
+    "claims": [
+      {
+        "text": "The startup automates a manual workflow for SMBs.",
+        "evidence_idx": 1,
+        "quote": "mapping the complete corporate ownership upwards"
+      }
+    ]
+  },
+  "risks": [
+    "The competitive landscape for corporate data APIs is likely crowded.",
+    "Retention evidence is currently absent; reliance on HN signal is a weak indicator.",
+    "The API's value proposition depends on the accuracy and completeness of its data, which could be a source of error."
+  ],
+  "change_my_mind": [
+    "Evidence of named design partners or early customers beyond the HN mentions.",
+    "Confirmation of the founder's prior startup experience and exits.",
+    "Data on customer retention and usage frequency beyond the initial launch."
+  ]
+}
+```

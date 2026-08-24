@@ -1,0 +1,78 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While the product solves a problem for businesses, the primary buyer appears to be developers building AI agents, not SMBs directly, and there's no clear path to SMB adoption.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 2,
+    "rationale": "The founder is identifiable through their HN profile, but there's limited public information about their experience. The lack of a team page on the website further reduces the score.",
+    "claims": [
+      {
+        "text": "The founder is identifiable through their HN profile.",
+        "evidence_idx": 2,
+        "quote": "HN user mcp360: karma 1"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product appears to be a working solution for a specific problem (managing API integrations for AI agents), and the website describes its functionality. However, the workflow depth isn't immediately clear, and it's positioned as a solution for agent developers rather than SMBs.",
+    "claims": [
+      {
+        "text": "The product appears to be a working solution.",
+        "evidence_idx": 3,
+        "quote": "One universal gateway connecting Claude"
+      },
+      {
+        "text": "The product solves a specific problem.",
+        "evidence_idx": 1,
+        "quote": "I built MCP360 after spending weeks"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 2,
+    "rationale": "The market for AI agent infrastructure is real, but it's not a clear fit for the SMB back-office unlock thesis. The 'why now' is tied to the growth of AI agents, which isn't a distinct SMB-specific trend.",
+    "claims": [
+      {
+        "text": "The market is tied to the growth of AI agents.",
+        "evidence_idx": 1,
+        "quote": "I'm building based on what people"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The HN launch provides some initial signal, but the lack of comments and recent activity limits the score. The product is recent, but engagement is minimal.",
+    "claims": [
+      {
+        "text": "The product has a recent HN launch.",
+        "evidence_idx": 1,
+        "quote": "posted 2025-10-13"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 2,
+    "rationale": "The product is adjacent to the thesis because it's B2B software, but the primary buyer is AI developers, not SMBs. The lack of a clear path to SMB adoption further reduces the score.",
+    "claims": [
+      {
+        "text": "The primary buyer appears to be developers.",
+        "evidence_idx": 3,
+        "quote": "Powering tools for agents like"
+      }
+    ]
+  },
+  "risks": [
+    "The product's value proposition is heavily reliant on the continued growth of the AI agent market.",
+    "The lack of SMB focus could limit the product's overall market size and scalability.",
+    "Competition in the AI agent infrastructure space is likely to be intense."
+  ],
+  "change_my_mind": [
+    "Evidence of SMBs directly using the product and paying for it.",
+    "A named SMB customer or design partner.",
+    "Public information about the founder's prior startup experience and successes."
+  ]
+}
+```

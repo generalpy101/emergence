@@ -1,0 +1,98 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While Voker serves businesses, its primary buyer appears to be AI product teams, placing it in the adjacent 'b2b_other' category, as tooling for AI developers isn't a core focus of the thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founders are identifiable and have plausible backgrounds, but there's limited public track record beyond their HN profile and the startup itself. [7]",
+    "claims": [
+      {
+        "text": "The founders are identifiable and have names.",
+        "evidence_idx": 7,
+        "quote": "Alex and Tyler, co-founders of Voker"
+      },
+      {
+        "text": "One founder has experience in data science and e-commerce.",
+        "evidence_idx": 7,
+        "quote": "ran revenue growth data science for a $10B public SaaS company"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "Voker has a real product with a defined purpose – agent analytics – but the positioning is somewhat fuzzy and there are competitors like Langfuse and Amplitude. [3, 5]",
+    "claims": [
+      {
+        "text": "The product is an agent analytics platform.",
+        "evidence_idx": 1,
+        "quote": "Analytics for AI Agents"
+      },
+      {
+        "text": "The product aims to provide visibility into agent performance.",
+        "evidence_idx": 1,
+        "quote": "gives full visibility into what users are asking of your agents"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "There's a real market for agent analytics, but the 'why now' argument feels somewhat generic, relying on the general hype around AI. [1]",
+    "claims": [
+      {
+        "text": "The target market is AI product teams.",
+        "evidence_idx": 1,
+        "quote": "Agent Engineers and AI product teams"
+      },
+      {
+        "text": "The market faces a challenge in understanding agent performance.",
+        "evidence_idx": 1,
+        "quote": "don’t have the right level of visibility into agent performance"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The recent HN launch shows some engagement, but it's modest. [1]",
+    "claims": [
+      {
+        "text": "The product has a recent HN launch.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-05-12"
+      },
+      {
+        "text": "The HN launch received 59 points and 22 comments.",
+        "evidence_idx": 1,
+        "quote": "59 points, 22 comments"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "Voker aligns with the thesis in that it automates a workflow for businesses, but the focus on AI developer tooling pushes it into the 'adjacent' category. [1]",
+    "claims": [
+      {
+        "text": "The product automates a workflow for businesses.",
+        "evidence_idx": 1,
+        "quote": "Analytics for AI Agents"
+      },
+      {
+        "text": "The primary buyer appears to be AI developers.",
+        "evidence_idx": 1,
+        "quote": "Agent Engineers and AI product teams"
+      }
+    ]
+  },
+  "risks": [
+    "The market for agent analytics may be more crowded than initially appears, with competitors like Langfuse and Amplitude already present.",
+    "Retention evidence is lacking; the HN launch could represent a short-term spike in interest.",
+    "The product's value proposition may be difficult to communicate clearly, as evidenced by the comments on the website [2]."
+  ],
+  "change_my_mind": [
+    "Evidence of a non-developer SMB buyer, demonstrating a broader market.",
+    "A named design partner or early customer outside of the YC ecosystem.",
+    "A deeper dive into the product's retention metrics, beyond the initial HN launch engagement."
+  ]
+}
+```

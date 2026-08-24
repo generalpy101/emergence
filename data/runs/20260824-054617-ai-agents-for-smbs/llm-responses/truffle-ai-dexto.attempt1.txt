@@ -1,0 +1,78 @@
+```json
+{
+  "category": "b2b_other",
+  "category_reason": "While Dexto targets businesses, its core value proposition appears to be developer tooling for building AI agents, rather than automating workflows for SMBs directly.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The team is identifiable through their GitHub organization and HN profiles, but there's limited public information about their prior startup experience beyond being part of YC W25. [7]",
+    "claims": [
+      {
+        "text": "The team is associated with Truffle AI, a YC Winter 2025 company.",
+        "evidence_idx": 7,
+        "quote": "Truffle AI (YC W25)"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "Dexto offers a working product that aims to orchestrate AI agents, but its positioning is somewhat fuzzy and it appears to be more focused on developer tooling than a specific SMB workflow. [3]",
+    "claims": [
+      {
+        "text": "The product is described as an agent harness for AI applications.",
+        "evidence_idx": 8,
+        "quote": "agent harness for AI applications"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The market for AI agent orchestration is emerging, but it's not clear if there's a large, identifiable SMB segment that is actively seeking this type of solution. [5]",
+    "claims": [
+      {
+        "text": "The product's pricing model is not publicly available.",
+        "evidence_idx": 5,
+        "quote": "What's your pricing model?"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The product has a recent launch with some engagement on Hacker News and a GitHub repository with a moderate number of stars. However, the comments indicate some early adopter challenges. [1, 3]",
+    "claims": [
+      {
+        "text": "The product was launched on Hacker News on 2025-10-28.",
+        "evidence_idx": 1,
+        "quote": "posted 2025-10-28"
+      },
+      {
+        "text": "The GitHub repository has 648 stars.",
+        "evidence_idx": 8,
+        "quote": "stars=648"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "Dexto is adjacent to the thesis as it involves B2B software and automation, but its focus on developer tooling rather than direct SMB workflow automation pushes it outside the core fit. [8]",
+    "claims": [
+      {
+        "text": "The product is described as tooling for developers building AI applications.",
+        "evidence_idx": 8,
+        "quote": "tooling for developers building AI applications"
+      }
+    ]
+  },
+  "risks": [
+    "The product's complexity may hinder adoption by non-technical SMB users.",
+    "The market for AI agent orchestration is still nascent and may not materialize as expected.",
+    "Competition in the AI agent space is intensifying."
+  ],
+  "change_my_mind": [
+    "Evidence of SMBs directly using Dexto to automate a concrete workflow, not just developers.",
+    "Public case studies or testimonials from SMB customers.",
+    "Clarification of the pricing model and a demonstration of its affordability for SMBs."
+  ]
+}
+```
