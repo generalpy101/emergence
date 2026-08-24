@@ -108,8 +108,58 @@
   sharper reason ("developer tool, not an SMB vertical") → "Watch". The 27B
   read was the more disciplined application of the thesis. Tradeoff:
   ~5.5 min vs ~1.5–2.5 min per analysis on this machine.
-- Preflight run dir (`data/runs/preflight-qwen`) left uncommitted — the
-  committed demo run remains the complete gemma3:12b one.
+- Scratch runs (`preflight-qwen`, `my-test-3`) were later deleted; the
+  committed demo runs are the complete ones under `data/runs/`.
+
+### 2026-08-23 — Adversarial review before submission
+
+We ran a fresh-context AI reviewer (Codex harness, gpt-5.6-sol, `traycer-review`
+skill, read-only) with the assignment rubric as its grading sheet. Its verdict
+was harsh (roughly 57/100) and substantially correct. What it caught:
+
+- **CRITICAL: the committed gemma demo run rubber-stamped the thesis.** All 12
+  candidates classified `b2b_smb`, all thesis-fit 5/5 — including X402, a
+  crypto-payments protocol the thesis hard-gates, and wuphf, which the Qwen
+  preflight had *already* scored correctly as a dev tool (2/5). We had compared
+  models on one candidate and never audited the other eleven. Retained in this
+  log as the canonical lesson: "the model scored it" is not "the thesis was
+  applied".
+- **Citations were syntactic, not semantic.** A `source_url` proved a page
+  exists, not that it supports the sentence. Now claims cite evidence by index
+  + verbatim quote, both machine-validated (`validate_claims`); failures take
+  the repair→degraded path. The first run under this regime caught two
+  brittleness bugs of our own (facts in meta not excerpts; markdown punctuation
+  breaking verbatim matching; absence claims being unquotable) — all fixed with
+  regression tests, including an `evidence_idx: 0` escape hatch for
+  claims-about-missing-evidence.
+- **Stale resume.** Analyses were reused by slug alone. Now invalidated on
+  model/prompt/thesis hash drift; re-sourcing a changed set clears analyses.
+- **Tautological "Why this call"** ("Score 70 ≥ 70"). Now deterministic
+  strengths/concerns/sharpest-risk bullets.
+- **Unguarded repair call and malformed payloads** — both now degrade honestly.
+- **Candidate shortfall was silent.** Now warns loudly + records in run.json;
+  `--limit` applies to URL mode.
+
+Outcome of the re-run with the hardened pipeline:
+
+- The Qwen re-run (`data/runs/20260823-141008-ai-agents-for-smbs`) was stopped
+  after evidence/prompt generation but before the analysis stage completed —
+  its dir is committed as-is (candidates + evidence + prompts, no analyses) as
+  an honest artifact of the attempt.
+- The full hardened re-run ran on gemma3:12b
+  (`data/runs/20260824-054617-ai-agents-for-smbs`): 13 candidates →
+  2 Take a meeting / 9 Watch / 2 Pass.
+- Mechanical audit (`scripts/audit_run.py`, exit 0): all 13 analyses
+  re-validated — every claim's quote verified against its cited evidence, no
+  exclusion-gate misses, traction anchors respected, and categories now
+  discriminate (11 `b2b_other` / 2 `b2b_smb`, vs. the old run's uniform
+  12× `b2b_smb`). This run replaces the rubber-stamped one as the committed
+  demo.
+
+The review itself is part of the trail: we asked for harsh, got it, and the
+fixes above are its commit references. The one thing we deliberately did NOT
+do: rewrite history to look cleaner. Commit timestamps stay as they are; the
+local commit-splitting incidents are logged above.
 
 ## Reflections
 
