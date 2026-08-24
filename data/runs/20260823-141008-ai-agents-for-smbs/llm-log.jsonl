@@ -1,0 +1,12 @@
+{"candidate": "nex-crm-wuphf", "model": "Qwen3.8-27B-4bit", "prompt_sha": "e266ba27888e", "thesis_sha": "efc58862c75c", "input_tokens": 3902, "output_tokens": 1120, "latency_ms": 132822, "repaired": true, "ok": true}
+{"candidate": "lahfir-agent-desktop", "model": "Qwen3.8-27B-4bit", "prompt_sha": "e266ba27888e", "thesis_sha": "efc58862c75c", "input_tokens": 3636, "output_tokens": 1515, "latency_ms": 262081, "repaired": false, "ok": true}
+{"candidate": "sprocket-demo-spikonado-com", "model": "Qwen3.8-27B-4bit", "prompt_sha": "e266ba27888e", "thesis_sha": "efc58862c75c", "input_tokens": 3180, "output_tokens": 1262, "latency_ms": 272126, "repaired": true, "ok": true}
+{"candidate": "notasithlord-peerd", "model": "Qwen3.8-27B-4bit", "prompt_sha": "e266ba27888e", "thesis_sha": "efc58862c75c", "input_tokens": 3769, "output_tokens": 1244, "latency_ms": 300680, "repaired": true, "ok": true}
+{"candidate": "voker-ai", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "repair: peer closed connection without sending complete message body (incomplete chunked read)"}
+{"candidate": "truffle-ai-dexto", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}
+{"candidate": "blitzgraph-com", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}
+{"candidate": "savvyiq-ai", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}
+{"candidate": "enola-labs-enola", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}
+{"candidate": "sumant1122-agentlog", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}
+{"candidate": "ama2-me", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}
+{"candidate": "mcp360-ai", "model": "Qwen3.8-27B-4bit", "ok": false, "error": "[Errno 61] Connection refused"}

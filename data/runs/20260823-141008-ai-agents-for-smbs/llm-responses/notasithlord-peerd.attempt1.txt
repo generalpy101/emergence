@@ -1,0 +1,111 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer tool (AI agent harness) for technical users, not a workflow automation solution for non-technical SMBs.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable via the HN account and GitHub profile, and the technical depth of the project (vanilla JS, no build, complex sandboxing) suggests a technical founder. However, there is no evidence of prior shipping, exits, or a larger team, fitting the 'plausible background, limited public track record' anchor.",
+    "claims": [
+      {
+        "text": "The founder is identified as NotASithLord on Hacker News.",
+        "evidence_idx": 7,
+        "quote": "author=NotASithLord"
+      },
+      {
+        "text": "The project is described as a solo side project.",
+        "evidence_idx": 1,
+        "quote": "While it has largely been a solo side project"
+      },
+      {
+        "text": "The codebase is fully typed and tested, indicating technical competence.",
+        "evidence_idx": 2,
+        "quote": "Fully typed checked with JSdoc, and Bun/TS for testing."
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "The product is a real, working open-source browser extension that automates agent execution in the browser. However, it is a developer tool/infrastructure layer rather than a vertical-specific workflow automation for SMBs. The positioning is somewhat crowded with other browser-based agents, and the feature list is criticized as verbose.",
+    "claims": [
+      {
+        "text": "The product is a web extension that runs AI agents in the browser.",
+        "evidence_idx": 1,
+        "quote": "is an AI agent harness that lives entirely in your browser as a web extension"
+      },
+      {
+        "text": "The product supports isolated sandboxes for various workload types.",
+        "evidence_idx": 1,
+        "quote": "It spins up isolated sandboxes using tabs and worker instances to support various real workload types"
+      },
+      {
+        "text": "The feature list is criticized for being verbose and lacking credibility.",
+        "evidence_idx": 6,
+        "quote": "The project would be a lot more credible if the feature list wasn't so comically extensive and verbose"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The target market is developers and technical users interested in AI agent infrastructure, not the 1-500 employee SMBs with manual workflows that the thesis targets. The 'why-now' is a technical capability shift (browser as sandbox) rather than a business workflow pain point.",
+    "claims": [
+      {
+        "text": "The product targets users who want to avoid installing separate AI browsers or managing MCP integrations.",
+        "evidence_idx": 1,
+        "quote": "You don’t have to install a separate “AI browser”. You don’t have to bolt on or run some external process or manage a clunky mcp integration"
+      },
+      {
+        "text": "The market discourse is focused on which substrate is best for AI agent sandboxes.",
+        "evidence_idx": 1,
+        "quote": "The industry discourse over the last several months has been dominated by “which substrate is the best for ai agent sandboxes”"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The project launched recently (June 2026) and has modest but real engagement: 75 points on HN and 394 GitHub stars. It is not a front-page phenomenon, but it has observable third-party signal.",
+    "claims": [
+      {
+        "text": "The HN launch received 75 points and 23 comments.",
+        "evidence_idx": 1,
+        "quote": "points=75 comments=23"
+      },
+      {
+        "text": "The GitHub repository has 394 stars.",
+        "evidence_idx": 8,
+        "quote": "stars=394"
+      },
+      {
+        "text": "The repository was recently pushed to.",
+        "evidence_idx": 8,
+        "quote": "pushed_at=2026-08-22T14:34:08Z"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 1,
+    "rationale": "The product is a horizontal developer tool for AI agents, not a vertical-specific automation for SMB manual workflows. It does not fit the 'SMB Back-Office Unlock' thesis which requires automating concrete, expensive, currently-manual workflows for small businesses.",
+    "claims": [
+      {
+        "text": "The product is an AI agent harness, not a workflow automation tool for a specific industry.",
+        "evidence_idx": 1,
+        "quote": "is an AI agent harness that lives entirely in your browser"
+      },
+      {
+        "text": "The product is open source and uses user-provided keys, suggesting a developer/prosumer model rather than a B2B SaaS subscription for SMBs.",
+        "evidence_idx": 1,
+        "quote": "using your own provider keys, and Apache 2."
+      }
+    ]
+  },
+  "risks": [
+    "The product is a horizontal developer tool, which is a crowded space with many competing browser-based agents and cloud sandboxes.",
+    "The solo founder model may limit the ability to support enterprise or large-scale SMB deployments if the product gains traction.",
+    "The 'browser as sandbox' thesis is technically interesting but may not translate to a viable business model for non-technical SMBs who are the thesis target."
+  ],
+  "change_my_mind": [
+    "Evidence that the product is being adopted by specific SMB verticals (e.g., legal, accounting) to automate their workflows, not just by developers.",
+    "A pivot or clear positioning that targets non-technical SMB users with a specific workflow use case.",
+    "Evidence of a larger team or technical co-founders with relevant domain experience in SMB software."
+  ]
+}

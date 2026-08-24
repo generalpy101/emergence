@@ -1,0 +1,96 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer tool for AI agent memory and workflow automation, targeting technical users and developers rather than non-technical SMB business owners.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable as the CEO of Nex.ai and a full-time WUPHFer, with a technical background implied by the Go-based implementation. However, there is no evidence of prior exits, significant OSS track record, or a larger team, placing this at the 'plausible background, limited public track record' anchor.",
+    "claims": [
+      {
+        "text": "The founder is identified as the CEO and Founder of Nex.ai and a full-time WUPHFer.",
+        "evidence_idx": 7,
+        "quote": "CEO & Founder @ Nex.ai | Full time WUPHFer at https://wuphf.team"
+      },
+      {
+        "text": "The project is built in Go, indicating a technical implementation.",
+        "evidence_idx": 8,
+        "quote": "language=Go"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "The product is a real, working tool that automates the creation of 'microapps' for manual workflows using AI agents. However, the positioning is crowded (competing with other LLM wiki/agent memory systems) and the value proposition is somewhat fuzzy between a developer tool and a general automation platform, fitting the 'real product, fuzzy positioning or crowded space' anchor.",
+    "claims": [
+      {
+        "text": "The product allows users to turn manual workflows into microapps across 1200+ integrations.",
+        "evidence_idx": 8,
+        "quote": "WUPHF lets anyone turn their manual workflows into microapps across 1200+ integrations in minutes."
+      },
+      {
+        "text": "The system uses markdown and git as the source of truth for agent knowledge.",
+        "evidence_idx": 1,
+        "quote": "I shipped a wiki layer for AI agents that uses markdown + git as the source of truth"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The market for AI agent infrastructure is large, but the specific segment of 'SMB back-office' is not clearly addressed; the product seems aimed at developers and power users. The 'why-now' is tied to the general AI agent trend, which is generic, and the segment is unclear regarding non-technical SMB buyers.",
+    "claims": [
+      {
+        "text": "The product targets users who want to automate manual workflows, but the specific buyer persona is not explicitly defined as SMB non-technical staff.",
+        "evidence_idx": 8,
+        "quote": "WUPHF lets anyone turn their manual workflows into microapps"
+      },
+      {
+        "text": "The launch occurred during a period of high interest in LLM wiki systems, indicating a hot topic.",
+        "evidence_idx": 4,
+        "quote": "It is a third llm wiki on front page in 24 hours! Obviously it is a hot topic."
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 5,
+    "rationale": "The project launched recently (April 2026) with strong third-party signal: 260 points on Hacker News, 114 comments, and over 1,200 GitHub stars. This meets the anchor for 'Launched ≤6 months ago with strong third-party signal'.",
+    "claims": [
+      {
+        "text": "The Hacker News launch received 260 points and 114 comments.",
+        "evidence_idx": 1,
+        "quote": "points=260 comments=114"
+      },
+      {
+        "text": "The GitHub repository has 1247 stars.",
+        "evidence_idx": 8,
+        "quote": "stars=1247"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "The product is B2B and automates workflows, but it is a developer tool for AI agents rather than a direct solution for non-technical SMB back-office staff. It is adjacent to the thesis (right motion of automation, but wrong segment of technical developers/power users rather than SMB business owners), fitting the 'adjacent' anchor.",
+    "claims": [
+      {
+        "text": "The product requires a technical setup involving agent CLIs like Claude Code or Codex CLI.",
+        "evidence_idx": 8,
+        "quote": "Prerequisites: one agent CLI, signed in — [Claude Code](https://docs.anthropic.com/docs/claude-code) by default"
+      },
+      {
+        "text": "The product is positioned as a tool for building microapps, which is a developer-oriented workflow.",
+        "evidence_idx": 8,
+        "quote": "Build a microapp for every manual workflow."
+      }
+    ]
+  },
+  "risks": [
+    "The product is a developer tool requiring technical setup (CLI, Go, Bun), which creates a high barrier to entry for the non-technical SMB segment targeted by the thesis.",
+    "The market for 'LLM wiki' and agent memory systems is highly crowded, with multiple competitors launching simultaneously, leading to potential differentiation challenges.",
+    "The reliance on external agent CLIs (Claude Code, Codex) introduces dependency on third-party platforms and their pricing/policy changes."
+  ],
+  "change_my_mind": [
+    "Evidence of a specific, non-technical SMB vertical (e.g., logistics, retail) adopting the tool without developer intervention.",
+    "Confirmation that the 'microapp' builder can be operated by non-technical staff via a simplified UI, rather than requiring CLI/Go setup.",
+    "Retention data showing that SMB users continue to use the generated microapps after the initial novelty wears off."
+  ]
+}

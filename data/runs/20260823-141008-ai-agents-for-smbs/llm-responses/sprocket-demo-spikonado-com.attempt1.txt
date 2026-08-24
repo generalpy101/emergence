@@ -1,0 +1,96 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a general-purpose AI coding and hardware design agent for developers, which is a B2B developer tool but not a vertical-specific SMB back-office workflow automation.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 1,
+    "rationale": "The founder is a 16-year-old with no prior startup or exit history, and the team is effectively a solo individual. While technical, the lack of experience and team depth places this at the bottom of the rubric.",
+    "claims": [
+      {
+        "text": "The founder is 16 years old.",
+        "evidence_idx": 1,
+        "quote": "I am 16y/o"
+      },
+      {
+        "text": "The founder is the sole named individual.",
+        "evidence_idx": 1,
+        "quote": "Thanks, Aarav"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "There is a working open-source product with a demo, but the positioning is broad ('beats every other agent') and the core value prop (autonomous purchasing) is unproven and risky. It is a real product but with fuzzy differentiation against major incumbents like Cursor/Codex.",
+    "claims": [
+      {
+        "text": "The product is an open-source AI agent.",
+        "evidence_idx": 1,
+        "quote": "It's an open-source AI agent"
+      },
+      {
+        "text": "The product claims to rival major coding tools.",
+        "evidence_idx": 1,
+        "quote": "rival that of Codex/Cursor/T3Code"
+      },
+      {
+        "text": "The product claims to handle hardware design.",
+        "evidence_idx": 1,
+        "quote": "Sprocket can make beautiful schematics in react"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The market for AI coding agents is large, but the 'why now' is generic ('AI is hot') and the segment is developers, not SMBs with manual back-office workflows. The claim to 'buy anything' suggests a consumer or generalist angle rather than a specific SMB pain point.",
+    "claims": [
+      {
+        "text": "The product targets both hardware and software development.",
+        "evidence_idx": 1,
+        "quote": "beats every other agent out there at both hardware and software"
+      },
+      {
+        "text": "The product claims to purchase items autonomously.",
+        "evidence_idx": 1,
+        "quote": "Sprocket can (on its own) buy anything from any website"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The launch is recent (2026-08-02) and has modest HN traction (124 points), but the demo was initially broken and the comment section is small. This fits 'recent launch, modest but real engagement'.",
+    "claims": [
+      {
+        "text": "The HN launch received 124 points.",
+        "evidence_idx": 1,
+        "quote": "points=124"
+      },
+      {
+        "text": "The demo site was initially down.",
+        "evidence_idx": 4,
+        "quote": "The site is down... please check..."
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 1,
+    "rationale": "The thesis requires automating concrete, expensive, manual workflows for SMBs. Sprocket is a general-purpose developer tool (coding/hardware design) that does not fit the 'SMB back-office' vertical. It is outside the thesis but not gated out by category (it is B2B software, not crypto/consumer).",
+    "claims": [
+      {
+        "text": "The product is for hardware and software development.",
+        "evidence_idx": 1,
+        "quote": "The Best AI Agent for Hardware and Software Development"
+      }
+    ]
+  },
+  "risks": [
+    "The founder is a minor (16 years old), which creates significant legal and operational risks regarding contract signing, IP ownership, and liability that are difficult to underwrite at seed stage.",
+    "The claim that the agent can 'buy anything from any website' is a massive security and fraud risk; if this feature is real, it is a liability magnet, and if it is not, it is a deceptive marketing claim.",
+    "Competing directly with well-funded incumbents like Cursor, Codex, and GitHub Copilot in the general-purpose coding agent space is a 'death by a thousand cuts' strategy with no clear wedge."
+  ],
+  "change_my_mind": [
+    "Evidence that the 'autonomous purchasing' feature is restricted to a specific, safe, and valuable SMB workflow (e.g., only buying specific inventory from vetted suppliers) rather than 'anything from any website'.",
+    "A named design partner or customer from a specific SMB vertical (e.g., a hardware startup) that uses Sprocket to automate a specific back-office or engineering workflow, proving bottom-up pull in a niche.",
+    "Confirmation that the founder has a legal guardian or co-founder who is an adult and can sign contracts, mitigating the legal risk of the minor founder."
+  ]
+}

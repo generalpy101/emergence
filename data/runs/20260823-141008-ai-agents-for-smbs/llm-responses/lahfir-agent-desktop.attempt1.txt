@@ -1,0 +1,106 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer tool/infrastructure layer for AI agents to automate desktop applications, not a direct workflow automation solution for SMB back-office staff.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable with a technical background in computer-use tools and claims to be a 2X founder, but the specific history is not fully verifiable in the provided evidence, and the GitHub org API check failed.",
+    "claims": [
+      {
+        "text": "The founder has a background in building computer-use tools and is a 2X founder.",
+        "evidence_idx": 7,
+        "quote": "Computer Use | Built agent-desktop, cracked-agent, PILOT | 2X founder | lahfir.com"
+      },
+      {
+        "text": "The founder has been building computer-use tools for a while.",
+        "evidence_idx": 1,
+        "quote": "I've been building computer-use tools for a while"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 4,
+    "rationale": "The product is a working, differentiated CLI that uses accessibility trees instead of screenshots, solving a specific technical problem (token cost/fragility) for agent developers. It is a real product with a clear wedge, though it is a dev tool rather than a vertical workflow app.",
+    "claims": [
+      {
+        "text": "The product is a cross-platform CLI for structured desktop automation through the accessibility tree.",
+        "evidence_idx": 1,
+        "quote": "It's a cross-platform CLI for structured desktop automation through the accessibility tree."
+      },
+      {
+        "text": "The product is built with Rust and is a single binary with no runtime dependencies.",
+        "evidence_idx": 1,
+        "quote": "One Rust binary, about 15 MB, no runtime dependencies."
+      },
+      {
+        "text": "The product exposes 53 commands with JSON output for LLMs.",
+        "evidence_idx": 1,
+        "quote": "It exposes 53 commands with JSON output, so an LLM can inspect and operate native apps without screenshots or vision models."
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The market is the emerging space of AI agent infrastructure. While the 'why-now' is strong due to the shift from vision models to structured data, the segment is not clearly SMB back-office; it is developers building agents. The thesis requires SMB buyer/workflow automation, which this is adjacent to but not squarely in.",
+    "claims": [
+      {
+        "text": "The market context includes recent launches of computer-use agents like Codex and Claude Code.",
+        "evidence_idx": 1,
+        "quote": "Over the last few months, a lot of computer-use agents have come out: Codex, Claude Code, CUA, and others."
+      },
+      {
+        "text": "The product addresses the inefficiency of screenshot-based automation which is slow and expensive in tokens.",
+        "evidence_idx": 1,
+        "quote": "That works, but it's slow, expensive in tokens, and fragile."
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 4,
+    "rationale": "The project has strong recent traction with 1024 GitHub stars and a recent HN launch with 99 points. The repo was pushed recently (2026-08-22), indicating active development. This meets the criteria for strong third-party signal and recent launch.",
+    "claims": [
+      {
+        "text": "The GitHub repository has 1024 stars.",
+        "evidence_idx": 8,
+        "quote": "stars=1024"
+      },
+      {
+        "text": "The HN launch received 99 points and 44 comments.",
+        "evidence_idx": 1,
+        "quote": "points=99 comments=44"
+      },
+      {
+        "text": "The repository was last pushed on 2026-08-22.",
+        "evidence_idx": 8,
+        "quote": "pushed_at=2026-08-22T22:34:14Z"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "The product is B2B (developer tools) and uses a bottom-up open-source motion, but it is not a direct automation of a concrete, expensive, manual workflow for SMBs. It is infrastructure for agents. It is adjacent to the thesis (right motion, wrong segment/use-case) with a credible path to being used by SMBs if agents are deployed, but it is not squarely in the 'SMB Back-Office Unlock' thesis.",
+    "claims": [
+      {
+        "text": "The product is a CLI for AI agents, implying a B2B/developer audience rather than direct SMB end-users.",
+        "evidence_idx": 1,
+        "quote": "It's a cross-platform CLI for structured desktop automation through the accessibility tree."
+      },
+      {
+        "text": "The product is inspired by agent-browser by Vercel Labs, a developer tool.",
+        "evidence_idx": 1,
+        "quote": "Inspired by agent-browser by Vercel Labs."
+      }
+    ]
+  },
+  "risks": [
+    "The product is a developer tool/infrastructure layer, not a direct SMB workflow automation solution, which may not align with the firm's specific 'SMB Back-Office Unlock' thesis that targets manual workflows for 1-500 employee businesses.",
+    "There is significant competition in the 'computer-use' agent space, with multiple similar projects mentioned in the HN thread, including one with the same name.",
+    "The cross-platform claim is disputed in the HN comments, with users noting it appears to be macOS only, which could limit its utility for Windows-centric SMBs."
+  ],
+  "change_my_mind": [
+    "Evidence that the tool is being used by SMBs to automate specific back-office workflows (e.g., via a partner or agent platform) rather than just by developers building agents.",
+    "Confirmation that the tool is fully functional on Windows and Linux, as the current evidence suggests it may be macOS-only.",
+    "A named design partner or customer from the SMB space using the tool for a specific business workflow."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "candidate": {
+    "slug": "truffle-ai-dexto",
+    "name": "Dexto",
+    "website": "https://github.com/truffle-ai/dexto",
+    "one_liner": "Connect your AI Agents with real-world tools and data",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 45734696,
+      "story_url": "https://news.ycombinator.com/item?id=45734696",
+      "points": 41,
+      "num_comments": 12,
+      "posted_at": "2025-10-28T16:07:27Z",
+      "author": "shaunaks"
+    },
+    "founder_hint": "shaunaks",
+    "discovered_at": "2026-08-23T14:10:09.019688Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=45734696",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "points=41 comments=12 author=shaunaks\nHi HN, we’re the team at Truffle AI (YC W25), and we’ve been working on Dexto (\nhttps://www.dexto.ai/\n), a runtime and orchestration layer for AI Agents that lets you turn any app, service or tool into an AI assistant that can reason, think and act. Here's a video walkthrough -\nhttps://www.youtube.com/watch?v=WJ1qbI6MU6g\nWe started working on Dexto after helping clients setup agents for everyday marketing tasks like posting on LinkedIn, running Reddit searches, generating ad creatives, etc. We realized that the LLMs weren’t the issue. The real drag was the repetitive orchestration around them:\n- wiring LLMs to tools - managing context and persistence - adding memory and approval flows - tailoring behavior per client/use case\nEach small project quietly ballooned into weeks of plumbing where each customer had mostly the same, but slightly custom requirement.\nSo instead of another framework where you write orchestration logic yourself, we built Dexto as a top-level orchestration layer where you declare an agent’s capabilities and behavior:\n- which tools or MCPs the agent can use - which LLM powers it - how it should behave (system prompt, tone, approval rules)\nOnce configured, the agent runs as an event-driven loop - reasoning through steps, invoking tools, handling retries, and maintaining its own state and memory. Your app doesn’t manage orchestration, it just triggers and subscribes to the agent’s events and decides how to render or approve outcomes.\nAgents can run locally, in the cloud, or hybrid. Dexto ships with a CLI, a web UI, and a few sample agents to get started.\nTo show its flexibility, we wrapped some OpenCV functions into an MCP server and connected it to Dexto (\nhttps://youtu.be/A0j61EIgWdI\n). Now, a non-technical user could detect faces in images or create custom photo collages by talking to the agent. The same approach works for coding agents, browser agents, multi-speaker podcast agents, and marketing assistants t",
+      "meta": {
+        "points": 41,
+        "author": "shaunaks"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45864642",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "It's sort of like Claude Agent Skills but I feel dexo better, I saw some agent use MCP server as backend and unlike Agent Skills install on the client.",
+      "meta": {
+        "author": "robmao"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45764180",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "Just tried it. I think this has a lot of potential and I'm planning to revisit in a few months. Right now I'm running into issues with the orchestrator itself, both bugs and difficulty adapting it to my use case. I found myself spending more time fighting the framework than building my actual agent.",
+      "meta": {
+        "author": "borisandcrispin"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45738970",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "does anyone have a Mumbai-based SaaS orchestrator for my orchestrators?",
+      "meta": {
+        "author": "mrdarkie"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45739233",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "What's your pricing model?",
+      "meta": {
+        "author": "ra"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=45737655",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "From the site: \"Join developers building intelligent applications with Dexto. Open source, local-first, and ready for production.\"\nNote that this code is licensed under \"Elastic License 2.0 (ELv2)\", so not open source according to OSI.",
+      "meta": {
+        "author": "boxerab"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=shaunaks",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "karma=19 account_created=1698866964\n",
+      "meta": {
+        "karma": 19,
+        "created": 1698866964
+      }
+    },
+    {
+      "kind": "github_repo",
+      "url": "https://github.com/truffle-ai/dexto",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "stars=648 language=TypeScript pushed_at=2026-08-18T10:15:27Z\n<a href=\"https://dexto.ai\">\n  <div align=\"center\">\n    <picture>\n      <source media=\"(prefers-color-scheme: light)\" srcset=\".github/assets/dexto_logo_light.svg\">\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\".github/assets/dexto_logo_dark.svg\">\n      <img alt=\"Dexto\" src=\".github/assets/dexto_logo_dark.svg\" width=\"55%\" style=\"max-width: 1000px; padding: 48px 8px;\">\n    </picture>\n  </div>\n</a>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/Status-Beta-yellow\">\n  <img src=\"https://img.shields.io/badge/License-Elastic%202.0-blue.svg\">\n  <a href=\"https://discord.gg/GFzWFAAZcm\"><img src=\"https://img.shields.io/badge/Discord-Join%20Chat-7289da?logo=discord&logoColor=white\"></a>\n  <a href=\"https://deepwiki.com/truffle-ai/dexto\"><img src=\"https://deepwiki.com/badge.svg\"></a>\n</p>\n\n<!-- Keep these links. Translations will automatically update with the README. -->\n<p align=\"center\">\n<a href=\"https://zdoc.app/de/truffle-ai/dexto\">Deutsch</a> |\n<a href=\"https://zdoc.app/en/truffle-ai/dexto\">English</a> |\n<a href=\"https://zdoc.app/es/truffle-ai/dexto\">Español</a> |\n<a href=\"https://zdoc.app/fr/truffle-ai/dexto\">français</a> |\n<a href=\"https://zdoc.app/ja/truffle-ai/dexto\">日本語</a> |\n<a href=\"https://zdoc.app/ko/truffle-ai/dexto\">한국어</a> |\n<a href=\"https://zdoc.app/pt/truffle-ai/dexto\">Português</a> |\n<a href=\"https://zdoc.app/ru/truffle-ai/dexto\">Русский</a> |\n<a href=\"https://zdoc.app/zh/truffle-ai/dexto\">中文</a>\n</p>\n\n<p align=\"center\"><b>An open agent harness for AI applications—ships with a powerful coding agent.</b></p>\n\n<div align=\"center\">\n  <img src=\".github/assets/dexto_title.gif\" alt=\"Dexto Demo\" width=\"600\" />\n</div>\n\n---\n\n## What is Dexto?\n\nDexto is an **agent harness**—the orchestration layer that turns LLMs into reliable, stateful agents that can take actions, remember context, and recover from errors.\n\nThink of it like an operating system for AI agents:\n\n| Component | Analogy | Role |\n|-----------|---------|------|\n| **LLM** | CPU | Raw processing power |\n| **Context Window** | RAM | Working memory |\n| **Dexto** | Operating System | Orchestration, state, tools, recovery |\n| **Your Agent** | Application | Domain-specific logic and clients |\n\n### Why Dexto?\n\n- **Configuration-driven**: Define agents in YAML. Swap models and tools without touching code.\n- **Batteries included**: Session management, tool orchestration, memory, multimodal support, and observability—out of the box.\n- **Run anywhere**: Local, cloud, or hybrid. CLI, Web UI, REST API, Discord, Telegram, or embedded in your app.\n\n### What You Can Build\n\n- **Coding Agents** – Build, debug, and refactor code autonomously\n- **Autonomous Agents** – Plan, execute, and adapt to user goals\n- **Digital Companions** – Assistants that remember context and anticipate needs\n- **MCP Clients & Servers** – Connect tools, files, APIs via Model Context Protocol\n- **Multi-Agent Systems** – Agents that collaborate, delegate, and solve complex tasks together\n\n---\n\n## Coding Agent\n\nDexto ships with a **production-ready coding agent** you can use immediately via the CLI or Web UI.\n\n```bash\n# Launch the coding agent (default)\ndexto\n\n# Or explicitly\ndexto --agent coding-agent\n```\n\n**What it can do:**\n- Build new apps from scratch\n- Read, write, and refactor code across your entire codebase\n- Execute shell commands and run tests\n- Spawn specialized sub-agents for exploration and planning\n- Remember context across sessions with persistent memory\n- Work with any of 50+ LLMs (swap models mid-conversation)\n\n**Ready-to-use interfaces:**\n- **Web UI** – Chat interface with file uploads, syntax highlighting, and MCP tool browser\n- **CLI** – Terminal-native with `/commands`, streaming output, and session management\n\nThe coding agent is just one example of what you can build. Create your own agents by defining a YAML config—same architecture, your domain.\n\n---\n\n## Quick Start\n\n### Install\n\n```bash\n# macOS / Linux / WSL (native installer, recommended)\ncurl -fsSL https://dexto.ai/install | bash\n\n# Windows PowerShell\nirm https://dexto.ai/install.ps1 | iex\n\n# Or build from source\ngit clone https://github.com/truffle-ai/dexto.git\ncd dexto && pnpm install && pnpm install-cli\n```\n\nUpgrade/uninstall and migration troubleshooting live in docs:\n- Installation guide: https://cli.dexto.ai/docs/getting-started/installation\n- CLI command reference: https://cli.dexto.ai/docs/guides/cli/overview\n\n### Run\n\n```bash\n# Start Dexto (launches setup wizard on first run)\ndexto\n```\n\n**More options:**\n\n```bash\ndexto --mode cli                                   # Terminal mode\ndexto -p \"create a landing page for a coffee shop\" # One-shot task\ndexto --auto-approve \"refactor this codebase\"      # Skip confirmations\ndexto -m claude-sonnet-4-5-20250929                # Switch models\ndexto --help                                       # Explore all options\n```\n\n**Inside the interactive CLI**, type `/` to explore commands—switch models, manage sessions, configure tools, and more.\n\n### Manage Settings\n\n```bash\n# Configure defaults like LLM provider/model, API keys, or download local models\ndexto setup\n```\n\nLogs are stored in `~/.dexto/logs/`. Use `DEXTO_LOG_LEVEL=debug` for verbose output.\n\n---\n\n## Core Features\n\n### 50+ LLMs, Instant Switching\n\nSwitch models mid-conversation—no code changes, no restarts.\n\n| Provider | Models |\n|----------|--------|\n| **OpenAI** | gpt-5.2, gpt-5.2-pro, gpt-5.2-codex, o4-mini |\n| **Anthropic** | Claude Sonnet, Opus, Haiku (with extended thinking) |\n| **Google** | Gemini 3 Pro, 2.5 Pro/Flash |\n| **Groq** | Llama 4, Qwen, DeepSeek |\n| **xAI** | Grok 4, Grok 3 |\n| **Local** | Ollama, GGUF via node-llama-cpp (Llama, Qwen, Mistral, etc.) |\n| **+ Gateways** | OpenRouter, AWS Bedrock, Vertex AI, LiteLLM |\n\n**Run locally for privacy**: Local models keep data on your machine with automatic GPU detection (Metal, CUDA, Vulkan).\n\n### MCP Integration (30+ Tools)\n\nConnect to Model Context Protocol servers—Puppeteer, Linear, ElevenLabs, Firecrawl, Sora, and more.\n\n```yaml\n# agents/my-agent.yml\nmcpServers:\n  filesystem:\n    type: stdio\n    command: npx\n    args: ['-y', '@modelcontextprotocol/server-filesystem', '.']\n  browser:\n    type: stdio\n    command: npx\n    args: ['-y', '@anthropics/mcp-server-puppeteer']\n```\n\nBrowse and add servers from the MCP Store in the Web UI or via `/mcp` commands in the CLI.\n\n### Human-in-the-Loop Controls\n\nFine-grained control over what your agent can do:\n\n```yaml\npermissions:\n  mode: manual           # Require approval for each tool\n  # mode: auto-approve   # Trust mode for local development\n  toolPolicies:\n    alwaysAllow:\n      - mcp--filesystem--read_file\n      - mcp--filesystem--list_directory\n```\n\nAgents remember which tools you've approved per session.\n\n### Persistent Sessions & Memory\n\nConversations persist across restarts. Create memories that shape agent behavior.\n\n```bash\n# Continue last conversation\ndexto -c\n\n# Resume specific session\ndexto -r session-abc123\n\n# Search across all conversations\ndexto search \"database schema\"\n```\n\n### Multi-Agent Systems\n\nAgents can spawn specialized sub-agents to handle complex subtasks. The coding agent uses this to delegate exploration:\n\n```yaml\n# In your agent config\ntools:\n  - type: agent-spawner\n    allowedAgents: [\"explore-agent\"]\n    maxConcurrentAgents: 5\n    defaultTimeout: 300000  # 5 minutes\n```\n\n**Built-in sub-agents:**\n- **explore-agent** – Fast, read-only codebase exploration\n\nAny agent in the [Agent Registry](#agent-registry) can be spawned as a sub-agent—including custom agents you create and register.\n\nSub-agents run ephemerally, auto-cleanup after completion, and forward tool approvals to the parent—so users see one unified approval flow.\n\n---\n\n## Run Modes\n\n| Mode | Command | Use Case |\n|------|---------|----------|\n| **Web UI** | `dexto` | Chat interface with file uploads (default) |\n| **CLI** | `dexto --mode cli` | Terminal interaction |\n| **Web Server** | `de",
+      "meta": {
+        "description": "Agent harness and tookit for building AI agents and agentic applications. CLI and SDKs included",
+        "stars": 648,
+        "language": "TypeScript",
+        "pushed_at": "2026-08-18T10:15:27Z",
+        "open_issues": 66
+      }
+    },
+    {
+      "kind": "github_org",
+      "url": "https://github.com/truffle-ai",
+      "fetched_at": "2026-08-23T14:49:15.168613Z",
+      "excerpt": "dexto | stars=648 | lang=TypeScript | pushed=2026-08-18T10:15:27Z\nmcp-servers | stars=6 | lang=JavaScript | pushed=2026-01-15T15:28:34Z\ntruffle-ai.github.io | stars=0 | lang=None | pushed=2025-04-11T01:39:25Z\nmcp-demo | stars=4 | lang=JavaScript | pushed=2025-03-17T21:35:48Z\ntruffle-ai-sdk | stars=60 | lang=TypeScript | pushed=2025-03-11T05:20:03Z",
+      "meta": {
+        "org": "truffle-ai",
+        "public_repos": 6,
+        "created_at": "2024-10-24T05:24:30Z",
+        "description": "Building Dexto - The Intelligence Layer for AI agents"
+      }
+    }
+  ],
+  "missing": []
+}

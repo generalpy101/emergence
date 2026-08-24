@@ -1,0 +1,88 @@
+{
+  "candidate": {
+    "slug": "sprocket-demo-spikonado-com",
+    "name": "Sprocket",
+    "website": "https://sprocket-demo.spikonado.com",
+    "one_liner": "The Best AI Agent for Hardware and Software Development",
+    "source_kind": "hn_query",
+    "hn": {
+      "story_id": 49145934,
+      "story_url": "https://news.ycombinator.com/item?id=49145934",
+      "points": 124,
+      "num_comments": 15,
+      "posted_at": "2026-08-02T16:26:19Z",
+      "author": "amronos"
+    },
+    "founder_hint": "amronos",
+    "discovered_at": "2026-08-23T14:10:09.019688Z"
+  },
+  "items": [
+    {
+      "kind": "hn_story",
+      "url": "https://news.ycombinator.com/item?id=49145934",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "points=124 comments=15 author=amronos\nHey HN, I am 16y/o and have been working on Sprocket for a while. It's an open-source AI agent that beats every other agent out there at both hardware and software.\nAnd here's the best part: Sprocket can (on its own) buy anything from any website when you tell it to do so. From hardware parts to SaaS subscriptions.\nSprocket retrieves best-in-class context from the web for everything it does. It is therefore incredibly reliable. The agent harness's quality, performance, and UI rival that of Codex/Cursor/T3Code, and we are rapidly improving. We will be releasing benchmarks on how Sprocket beats every other agent at both software and hardware soon.\nIn terms of hardware design, Sprocket can make beautiful schematics in react, create your BOM, and create detailed assembly instructions.\nHope you try it out!\nThanks, Aarav\nP.S. if the demo video doesn't load for you, come back after ~1.5hr and it should be there, I kinda had to submit this early. Sorry!",
+      "meta": {
+        "points": 124,
+        "author": "amronos"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=49147234",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "Hey HN, I am 16y/o and have been working on Sprocket for a while. It's an open-source AI agent that beats every other agent out there at both hardware and software.\nAnd here's the best part: Sprocket can (on its own) buy anything from any website when you tell it to do so. From hardware parts to SaaS subscriptions.\nSprocket retrieves best-in-class context from the web for everything it does. It is therefore incredibly reliable. The agent harness's quality, performance, and UI rival that of Codex/Cursor/T3Code, and we are rapidly improving. We will be releasing benchmarks on how Sprocket beats every other agent at both software and hardware soon.\nIn terms of hardware design, Sprocket can make beautiful schematics in react, create your BOM, and create detailed assembly instructions.\nHope you try it out!\nThanks, Aarav",
+      "meta": {
+        "author": "amronos"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=49147337",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "Looks like you used Prava to handle the agentic payments. Really neat!",
+      "meta": {
+        "author": "ilikenix-os"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=49146779",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "The site is down... please check...",
+      "meta": {
+        "author": "astaka"
+      }
+    },
+    {
+      "kind": "hn_comment",
+      "url": "https://news.ycombinator.com/item?id=49146994",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "Guys this is a incredible work done by a 16 year old kid Amronos",
+      "meta": {
+        "author": "bittoogangster"
+      }
+    },
+    {
+      "kind": "hn_user",
+      "url": "https://news.ycombinator.com/user?id=amronos",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "karma=3 account_created=1749464791\n",
+      "meta": {
+        "karma": 3,
+        "created": 1749464791
+      }
+    },
+    {
+      "kind": "web_page",
+      "url": "https://sprocket-demo.spikonado.com",
+      "fetched_at": "2026-08-23T14:19:30.573996Z",
+      "excerpt": "GitHub - spikonado/sprocket: The best and only AI agent for developing both hardware and software · GitHub\nSkip to content\nNavigation Menu\nSign in\nAppearance settings\nPlatform\nAI CODE CREATION\nGitHub Copilot\nWrite better code with AI\nGitHub Copilot app\nDirect agents from issue to merge\nMCP Registry\nIntegrate external tools\nDEVELOPER WORKFLOWS\nActions\nAutomate any workflow\nCodespaces\nInstant dev environments\nIssues\nPlan and track work\nCode Review\nManage code changes\nCode Quality\nEnforce quality at merge\nAPPLICATION SECURITY\nGitHub Advanced Security\nFind and fix vulnerabilities\nCode security\nSecure your code as you build\nSecret protection\nStop leaks before they start\nEXPLORE\nWhy GitHub\nDocumentation\nBlog\nChangelog\nMarketplace\nView all features\nSolutions\nBY COMPANY SIZE\nEnterprises\nSmall and medium teams\nStartups\nNonprofits\nBY USE CASE\nApp Modernization\nDevSecOps\nDevOps\nCI/CD\nView all use cases\nBY INDUSTRY\nHealthcare\nFinancial services\nManufacturing\nGovernment\nView all industries\nView all solutions\nResources\nEXPLORE BY TOPIC\nAI\nSoftware Development\nDevOps\nSecurity\nView all topics\nEXPLORE BY TYPE\nCustomer stories\nEvents & webinars\nEbooks & reports\nBusiness insights\nGitHub Skills\nSUPPORT & SERVICES\nDocumentation\nCustomer support\nCommunity forum\nTrust center\nPartners\nView all resources\nOpen Source\nCOMMUNITY\nGitHub Sponsors\nFund open source developers\nPROGRAMS\nSecurity Lab\nMaintainer Community\nAccelerator\nGitHub Stars\nArchive Program\nREPOSITORIES\nTopics\nTrending\nCollections\nEnterprise\nENTERPRISE SOLUTIONS\nEnterprise platform\nAI-powered developer platform\nAVAILABLE ADD-ONS\nGitHub Advanced Security\nEnterprise-grade security features\nCopilot for Business\nEnterprise-grade AI features\nPremium Support\nEnterprise-grade 24/7 support\nPricing\nSearch\n/\nSign in\nSign up\nAppearance settings\nYou signed in with another tab or window.\nReload\nto refresh your session.\nYou signed out in another tab or window.\nReload\nto refresh your session.\nYou switched accounts on another tab or window.\nReload\nto refresh your session.\nDismiss alert\n{{ message }}\nUh oh!\nThere was an error while loading.\nPlease reload this page\n.\nspikonado\n/\nsprocket\nPublic\nNotifications\nYou must be signed in to change notification settings\nFork\n3\nStar\n18\nCode\nIssues\n1\nPull requests\n7\nActions\nSecurity and quality\n0\nInsights\nAdditional navigation options\nCode\nIssues\nPull requests\nActions\nSecurity and quality\nInsights\nmain\nBranches\nTags\nGo to file\nCode\nOpen more actions menu\nLatest commit\nHistory\n168 Commits\n168 Commits\nFolders and files\nName\nName\nLast commit message\nLast commit date\n.github\n.github\napps\napps\nassets\nassets\ncrates\ncrates\nnpm\nnpm\npackages\npackages\npatches\npatches\nscripts\nscripts\n.env\n.env\n.envrc\n.envrc\n.gitattributes\n.gitattributes\n.gitignore\n.gitignore\n.pre-commit-config.yaml\n.pre-commit-config.yaml\n.prettierignore\n.prettierignore\n.prettierrc\n.prettierrc\nAGENTS.md\nAGENTS.md\nARCHITECTURE.md\nARCHITECTURE.md\nBACKWARDS_COMPATIBILITY.md\nBACKWARDS_COMPATIBILITY.md\nCargo.lock\nCargo.lock\nCargo.toml\nCargo.toml\nLICENSE.md\nLICENSE.md\nREADME.md\nREADME.md\nbun.lock\nbun.lock\ncommitlint.config.mjs\ncommitlint.config.mjs\nflake.lock\nflake.lock\nflake.nix\nflake.nix\npackage.json\npackage.json\nrenovate.json\nrenovate.json\nturbo.json\nturbo.json\nView all files\nRepository files navigation\nREADME\nLicense\nMore\nitems\nSprocket\nGoal\n: To make the world's best platform for developing hardware and software.\nHere's what makes Sprocket special:\nThe only AI agent that can work on both\nhardware\nand\nsoftware\n.\nRetrieves best-in-class\ncontext from the web\nfor everything it does, so it stays\nincredibly reliable\n.\nBuys anything from any website\nwhen you ask, from hardware parts to SaaS subscriptions.\nMakes\nbeautifully detailed schematics\n, creates your\nBOM\n, and writes\nassembly instructions\n.\nSprocket Demo\nUsing Sprocket\nNote\nYou can run Sprocket using any of the ways defined below with no impact on Sprocket's capabilities or performance. The desktop app may take more RAM than using Sprocket through your browser.\nRun without installing\nnpx @spikonado/sprocket\nThe above runs Sprocket through your browser unless you have the desktop app installed.\nDesktop App\nInstall it for your OS from the latest\nGitHub Release Artifacts\nand run it.\nCLI\nnpm i -g @spikonado/sprocket sprocket\nThe above runs Sprocket through your browser unless you have the desktop app installed.\nTo always open a tab in your browser when using Sprocket, use the\n--web\nflag:\nsprocket --web\nWorkspaces\nPass a directory to open or reconnect that workspace in a new thread:\nsprocket\n.\nsprocket --web ../my-robot\nSprocket remembers attached workspaces and local server sessions between launches. Local state lives in\n$HOME/.sprocket\n(or\n%USERPROFILE%\\.sprocket\non Windows when\nHOME\nis unset). Override with\nSPROCKET_DATA_DIR\n.\nAdditional CLI reference\nCommand\nBehavior\nsprocket serve\nRun the local server in the foreground without launching a client.\nsprocket serve --api-only\nServe only\n/api\n; intended for development (see\nDevelopment\n).\nRun\nsprocket --help\nor\nsprocket serve --help\nfor all options.\nCommon Sprocket server overrides are available as environment variables:\nVariable\nPurpose\nSPROCKET_DATA_DIR\nDirectory for pairing, sessions, and workspace state.\nSPROCKET_PORT\nLocal server port; defaults to\n17731\nfor installed use.\nSPROCKET_HOST\nBind host; defaults to\n127.0.0.1\n.\nSPROCKET_DESKTOP_EXECUTABLE\nFull path to the desktop executable to be used by the Sprocket CLI.\nPUBLIC_CONVEX_URL\nConvex deployment used by the agent runtime.\nSPROCKET_STATIC_DIR\nWeb build to serve instead of the bundled build.\nDevelopment\nRequirements\nBun 1.x, version 1.3.9 or newer\nNode.js 24.x, version 24.14 or newer\nA current stable Rust toolchain\nInstall dependencies:\nbun install\nRunning Sprocket\nStart the browser development environment:\nbun dev\nAfter creating a convex deployment and configuring authkit following the instructions, configure the Convex deployment with the API key for each model provider you want to enable.\nThis runs Vite at\nhttp://localhost:5173\nand the Rust API at\nhttp://127.0.0.1:7731\n, with development state kept in\n.sprocket-dev\ninside the repository. To develop against Electron instead, run:\nbun dev:desktop\nBuilding and testing\ncargo\ntest\nbun run\ntest\nbun run build prek run -a\nCreate a local Electron installer package with:\nbun run build:release\nArtifacts are written to\napps/desktop/dist/\nas\nsprocket-desktop-*\n(\n.AppImage\n/\n.dmg\n/\n.exe\ndepending on the host OS). Published installers come from GitHub Releases; the\nsprocket\nCLI is published separately on npm.\nTroubleshooting\nIf\n17731\nis already occupied, set\nSPROCKET_PORT\nbefore launching.\nIf\nsprocket\nopens the browser instead of the desktop app, install\nsprocket-desktop\nfrom\nGitHub Releases\nonto\nPATH\n, or set\nSPROCKET_DESKTOP_EXECUTABLE\n.\nUnsigned macOS and Windows desktop builds may need a Gatekeeper / SmartScreen override the first time you open them.\nContact\naarav@spikonado.com\nfor help.\nAbout\nThe best and only AI agent for developing both hardware and software\nspikonado.com\nResources\nReadme\nLicense\nActivity\nCustom properties\nStars\n18\nstars\nWatchers\n1\nwatching\nForks\n3\nforks\nReport repository\nReleases\nPackages\nUsed by\nContributors\nLanguages\nFooter\n© 2026 GitHub, Inc.\nFooter navigation\nTerms\nPrivacy\nSecurity\nStatus\nCommunity\nDocs\nContact\nManage cookies\nDo not share my personal information\nYou can’t perform that action at this time.",
+      "meta": {}
+    }
+  ],
+  "missing": [
+    "no about/team page linked from homepage",
+    "GitHub org 'solutions' not found via API"
+  ]
+}

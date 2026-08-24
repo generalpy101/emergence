@@ -1,0 +1,91 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer-facing AI agent harness and sandboxing tool, not a workflow automation solution for small and mid-sized business back-operations.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identified by their HN handle and has a verifiable account history, but there is no evidence of prior startups, exits, or a broader technical team, fitting the 'plausible background, limited public track record' anchor.",
+    "claims": [
+      {
+        "text": "The founder's Hacker News account was created in 2015 and has a karma of 42.",
+        "evidence_idx": 7,
+        "quote": "karma=42 account_created=1438190417"
+      },
+      {
+        "text": "The project is described as a solo side project.",
+        "evidence_idx": 1,
+        "quote": "it has largely been a solo side project"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "The product is a working, open-source browser extension that provides AI agent capabilities and sandboxing, but it is a general-purpose developer tool rather than a solution automating a specific, named business workflow.",
+    "claims": [
+      {
+        "text": "The product is a web extension written in vanilla JS with minimal dependencies.",
+        "evidence_idx": 1,
+        "quote": "It’s just a fully contained web extension, written in no build vanilla JS with minimal non-browser dependencies"
+      },
+      {
+        "text": "The product supports various workload types including headless JS, notebooks, and Linux VMs on wasm.",
+        "evidence_idx": 1,
+        "quote": "Those include headless JS computational work, visual JS notebooks, personal client side apps, and real Linux VMs on top of wasm with full http networking."
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The target market is developers and technical users interested in AI agent substrates, which is outside the thesis's focus on SMBs with expensive manual workflows; the 'why now' is a technical capability shift rather than a business process pain point.",
+    "claims": [
+      {
+        "text": "The project positions the browser as the platform for AI agents to operate safely.",
+        "evidence_idx": 1,
+        "quote": "I genuinely believe the browser and the web could be the most natural platform for AI agents to operate safely"
+      },
+      {
+        "text": "The industry discourse is focused on which substrate is best for AI agent sandboxes.",
+        "evidence_idx": 1,
+        "quote": "The industry discourse over the last several months has been dominated by “which substrate is the best for ai agent sandboxes”"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The project launched recently with moderate HN traction (75 points) and has a public GitHub repository with recent activity and hundreds of stars, indicating real but modest engagement.",
+    "claims": [
+      {
+        "text": "The Hacker News launch received 75 points and 23 comments.",
+        "evidence_idx": 1,
+        "quote": "points=75 comments=23"
+      },
+      {
+        "text": "The GitHub repository has 394 stars and was last pushed in August 2026.",
+        "evidence_idx": 8,
+        "quote": "stars=394 language=JavaScript pushed_at=2026-08-22T14:34:08Z"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 1,
+    "rationale": "The product is a developer tool for AI agents, not a B2B software company automating concrete, expensive, manual workflows for SMBs; it does not fit the 'SMB Back-Office Unlock' thesis.",
+    "claims": [
+      {
+        "text": "The product is an AI agent harness that runs in the browser.",
+        "evidence_idx": 1,
+        "quote": "is an AI agent harness that lives entirely in your browser as a web extension"
+      }
+    ]
+  },
+  "risks": [
+    "The product is a general-purpose developer tool, making it difficult to identify a specific, budgeted SMB workflow to automate, which is a core requirement of the thesis.",
+    "The 'browser as sandbox' value proposition is highly technical and may not resonate with non-technical SMB buyers who are the target of the thesis.",
+    "As a solo side project, the team may lack the bandwidth or domain expertise to pivot toward a specific vertical SMB workflow if that is required for investment."
+  ],
+  "change_my_mind": [
+    "Evidence that the founder is pivoting or has a specific vertical use case (e.g., for accountants or logistics) that automates a manual workflow.",
+    "Confirmation that the 'AI agent harness' is being sold as a service to SMBs rather than as a developer tool.",
+    "A named design partner or customer from an SMB vertical who is using the tool to automate a specific back-office task."
+  ]
+}

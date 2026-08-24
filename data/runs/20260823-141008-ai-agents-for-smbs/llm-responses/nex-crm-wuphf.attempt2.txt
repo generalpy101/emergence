@@ -1,0 +1,96 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer tool for local agent workflows, not a service for small and mid-sized businesses (1-500 employees).",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The founder is identifiable with a technical background and current role, but lacks evidence of prior exits or significant public track record beyond this project.",
+    "claims": [
+      {
+        "text": "The founder is identified as the CEO and Founder of Nex.ai.",
+        "evidence_idx": 7,
+        "quote": "CEO & Founder @ Nex.ai"
+      },
+      {
+        "text": "The founder is a full-time contributor to the project.",
+        "evidence_idx": 7,
+        "quote": "Full time WUPHFer"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "The product is a working, technically distinct tool (Markdown/Git-based wiki) that automates knowledge management for agents, but it is a developer utility rather than a vertical SMB workflow automation.",
+    "claims": [
+      {
+        "text": "The product uses Markdown and Git as the source of truth with a BM25 index.",
+        "evidence_idx": 1,
+        "quote": "uses markdown + git as the source of truth, with a bleve (BM25) + SQLite index on top"
+      },
+      {
+        "text": "The product provides a draft-to-wiki promotion flow with a state machine.",
+        "evidence_idx": 1,
+        "quote": "Draft-to-wiki promotion flow. Notebook entries are reviewed (agent or human) and promoted to the canonical wiki"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 2,
+    "rationale": "The market is the emerging space of LLM agent memory, which is crowded and not a traditional SMB budgeted workflow; the 'why now' is a technical capability shift rather than a business process pain.",
+    "claims": [
+      {
+        "text": "The product targets the LLM-native knowledge substrate space.",
+        "evidence_idx": 1,
+        "quote": "an LLM-native knowledge substrate that agents both read from and write into"
+      },
+      {
+        "text": "The space is currently crowded with similar implementations.",
+        "evidence_idx": 4,
+        "quote": "It is a third llm wiki on front page in 24 hours!"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 4,
+    "rationale": "The project has strong recent signal with high engagement on Hacker News and significant GitHub adoption within a short timeframe.",
+    "claims": [
+      {
+        "text": "The launch received high engagement on Hacker News.",
+        "evidence_idx": 1,
+        "quote": "points=260 comments=114"
+      },
+      {
+        "text": "The repository has accumulated over 1,000 stars.",
+        "evidence_idx": 8,
+        "quote": "stars=1247"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 1,
+    "rationale": "The product is a developer tool for local agent configuration, which is outside the thesis of automating concrete, expensive manual workflows for small and mid-sized businesses.",
+    "claims": [
+      {
+        "text": "The product is a local tool that runs on the user's machine.",
+        "evidence_idx": 1,
+        "quote": "It runs locally in ~/.wuphf/wiki/"
+      },
+      {
+        "text": "The product requires a technical setup involving agent CLIs.",
+        "evidence_idx": 8,
+        "quote": "Prerequisites: one agent CLI, signed in"
+      }
+    ]
+  },
+  "risks": [
+    "The market is extremely crowded with similar 'LLM wiki' or agent memory tools launching simultaneously, leading to high churn and low differentiation.",
+    "The product is a developer tool with a high barrier to entry (CLI, local setup), which limits its addressable market to technical users rather than the broader SMB segment.",
+    "Reliance on a specific technical stack (Markdown/Git/BM25) may face obsolescence if vector databases or other agent memory standards become dominant."
+  ],
+  "change_my_mind": [
+    "Evidence that the tool is being adopted by non-technical SMB owners to automate their own back-office workflows, not just by developers.",
+    "A named enterprise or SMB customer paying for a hosted version of the service.",
+    "Proof of retention or recurring usage metrics beyond the initial launch hype."
+  ]
+}

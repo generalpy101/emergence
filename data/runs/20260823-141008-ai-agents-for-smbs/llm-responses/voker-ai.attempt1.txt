@@ -1,0 +1,101 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a developer tool (SDK/analytics) for AI product teams, which is a B2B category but not specifically for small and mid-sized businesses (SMBs) as defined by the thesis.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 3,
+    "rationale": "The team is identifiable with one founder having a strong operational background in data and growth, but there is no evidence of technical co-founding or prior shipping of software products, placing them at the 'plausible background, limited public track record' anchor.",
+    "claims": [
+      {
+        "text": "One co-founder has experience operating a $100MM DTC ecomm company and running revenue growth data science for a $10B public SaaS company.",
+        "evidence_idx": 7,
+        "quote": "I was an operator of a $100MM DTC ecomm company and ran revenue growth data science for a $10B public SaaS company."
+      },
+      {
+        "text": "The team consists of two co-founders, Alex and Tyler.",
+        "evidence_idx": 1,
+        "quote": "we're Alex and Tyler, co-founders of Voker.ai"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "There is a real, working product (SDK) with a clear value proposition (visibility into agent performance), but it faces significant differentiation challenges against established observability tools like Langfuse and Amplitude, and the website's clarity is questioned by users.",
+    "claims": [
+      {
+        "text": "The main product is a lightweight SDK that is LLM stack agnostic and purpose-built for agent products.",
+        "evidence_idx": 1,
+        "quote": "Our main product is a lightweight SDK that is LLM stack agnostic and purpose-built for agent products."
+      },
+      {
+        "text": "Users have questioned how the product differs from existing tools like Langfuse and Amplitude's agent analytics.",
+        "evidence_idx": 3,
+        "quote": "How is it different than Langfuse? sorry if I am off the track but Langfuse also provides some detailed tracing of agentic behavior and decisions."
+      },
+      {
+        "text": "The website's initial messaging and screenshots do not clearly convey the specific value proposition to first-time visitors.",
+        "evidence_idx": 2,
+        "quote": "To me, the line \"Do you really know what your agents are saying to your users?\" doesn't match at all with the screenshot directly above"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 3,
+    "rationale": "The market for AI agent observability is real and growing, but the 'why-now' is somewhat generic ('AI is hot') and the segment is not clearly defined as SMBs; it targets AI product teams broadly, which may include large enterprises.",
+    "claims": [
+      {
+        "text": "Agent Engineers and AI product teams lack visibility into agent performance in production, leading to churn and wasted time on debugging.",
+        "evidence_idx": 1,
+        "quote": "Agent Engineers and AI product teams don’t have the right level of visibility into agent performance in production, which results in bad user experiences, churn, and hundreds of hours wasted with spot checks to find and debug issues with agent configurations."
+      },
+      {
+        "text": "A survey of YC Founders indicated that 90%+ only know if agents are failing by hearing customer complaints.",
+        "evidence_idx": 1,
+        "quote": "We recently conducted a survey of YC Founders and 90%+ of respondents said that the only way they know if their Agents are failing users in production is by hearing complaints from customers."
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The launch is recent (2026-05-12) and has modest but real engagement (59 points, 22 comments), fitting the 'recent launch, modest but real engagement' anchor. There is no evidence of strong third-party signal like front-page traction or named customers.",
+    "claims": [
+      {
+        "text": "The Hacker News launch received 59 points and 22 comments.",
+        "evidence_idx": 1,
+        "quote": "points=59 comments=22"
+      },
+      {
+        "text": "The launch was posted on 2026-05-12.",
+        "evidence_idx": 1,
+        "quote": "posted 2026-05-12"
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 3,
+    "rationale": "The product is B2B and automates a manual workflow (debugging/monitoring agents), but the buyer is 'AI product teams' rather than specifically small and mid-sized businesses, making it adjacent to the thesis rather than squarely in it.",
+    "claims": [
+      {
+        "text": "The product is an agent analytics platform for AI product teams.",
+        "evidence_idx": 1,
+        "quote": "an agent analytics platform for AI product teams"
+      },
+      {
+        "text": "The product helps avoid digging through logs to check if agents are delivering.",
+        "evidence_idx": 1,
+        "quote": "Voker gives full visibility into what users are asking of your agents, and whether your agents are delivering, without having to dig through logs."
+      }
+    ]
+  },
+  "risks": [
+    "Differentiation risk: The product is perceived as similar to existing observability tools like Langfuse and Amplitude, which may limit its ability to capture market share.",
+    "Market fit risk: The target customer is 'AI product teams,' which is not explicitly SMBs; if the primary buyers are large enterprises, it falls outside the thesis's focus on bottom-up SMB pull.",
+    "Clarity risk: The website's messaging and visuals are not immediately clear to users, which could hinder bottom-up adoption and conversion."
+  ],
+  "change_my_mind": [
+    "Evidence of named SMB customers (1-500 employees) actively using the product and paying for it.",
+    "Clear differentiation from Langfuse and Amplitude, such as unique features or a specific wedge in the market.",
+    "Stronger technical background for the co-founders, such as prior shipping of developer tools or AI products."
+  ]
+}

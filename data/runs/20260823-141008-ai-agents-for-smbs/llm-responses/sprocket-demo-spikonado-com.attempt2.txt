@@ -1,0 +1,96 @@
+{
+  "category": "b2b_other",
+  "category_reason": "The product is a development tool for hardware and software engineering, which is a B2B/developer tool but not an SMB back-office workflow automation.",
+  "has_identifiable_product": true,
+  "team_identifiable": true,
+  "team": {
+    "subscore": 1,
+    "rationale": "The founder is a 16-year-old with no prior startup or shipping history mentioned, and the team is effectively a solo non-technical (in the sense of professional experience) founder. While the code exists, the lack of professional track record and the age of the founder place this at the bottom of the team rubric.",
+    "claims": [
+      {
+        "text": "The founder is 16 years old.",
+        "evidence_idx": 1,
+        "quote": "I am 16y/o"
+      },
+      {
+        "text": "The founder has been working on the project for a while.",
+        "evidence_idx": 1,
+        "quote": "have been working on Sprocket for a while"
+      }
+    ]
+  },
+  "product": {
+    "subscore": 3,
+    "rationale": "There is a working open-source product with a demo, but the positioning is extremely crowded ('beats every other agent') and the 'buy anything' feature relies on a third-party payment agent, suggesting it may be a wrapper or thin layer rather than deep workflow automation. It is a real product but with fuzzy differentiation in a saturated market.",
+    "claims": [
+      {
+        "text": "The product is an open-source AI agent.",
+        "evidence_idx": 1,
+        "quote": "It's an open-source AI agent"
+      },
+      {
+        "text": "The product can create schematics, BOMs, and assembly instructions.",
+        "evidence_idx": 1,
+        "quote": "Sprocket can make beautiful schematics in react, create your BOM, and create detailed assembly instructions"
+      },
+      {
+        "text": "The product uses a third-party service for agentic payments.",
+        "evidence_idx": 3,
+        "quote": "Looks like you used Prava to handle the agentic payments"
+      }
+    ]
+  },
+  "market": {
+    "subscore": 1,
+    "rationale": "The target market is developers and hardware engineers, not SMBs with manual back-office workflows. The thesis explicitly funds B2B software for SMB back-office automation; this is a developer tool for engineering workflows, which is outside the thesis scope.",
+    "claims": [
+      {
+        "text": "The product targets hardware and software development.",
+        "evidence_idx": 1,
+        "quote": "AI agent that beats every other agent out there at both hardware and software"
+      }
+    ]
+  },
+  "traction": {
+    "subscore": 3,
+    "rationale": "The launch is recent (2026-08-02) and has strong initial signal with 124 points on HN, but the demo was initially down and the comment count is modest (15). This fits the 'recent launch, modest but real engagement' anchor.",
+    "claims": [
+      {
+        "text": "The HN launch received 124 points.",
+        "evidence_idx": 1,
+        "quote": "points=124"
+      },
+      {
+        "text": "The HN launch had 15 comments.",
+        "evidence_idx": 1,
+        "quote": "comments=15"
+      },
+      {
+        "text": "The site was reported down by a user.",
+        "evidence_idx": 4,
+        "quote": "The site is down... please check..."
+      }
+    ]
+  },
+  "thesis_fit": {
+    "subscore": 1,
+    "rationale": "The thesis funds B2B software that automates concrete, expensive, currently-manual workflows for SMBs (back-office). Sprocket is a development tool for hardware/software engineering, which is a different category (developer tools/engineering) and does not fit the 'SMB Back-Office Unlock' thesis. It is outside the thesis but not gated out by the hard gates (it is not consumer social, crypto, etc., though it is not the target segment).",
+    "claims": [
+      {
+        "text": "The product is for hardware and software development.",
+        "evidence_idx": 7,
+        "quote": "The best and only AI agent for developing both hardware and software"
+      }
+    ]
+  },
+  "risks": [
+    "The founder is a minor (16 years old), which creates legal and contractual risks for investment and employment.",
+    "The product claims to 'beat every other agent' but relies on a third-party payment system (Prava), suggesting it may be a thin wrapper rather than a deep, proprietary workflow engine.",
+    "The target market (hardware/software developers) is not the thesis target (SMB back-office), meaning the company would need to pivot to fit the fund's mandate."
+  ],
+  "change_my_mind": [
+    "Evidence that the product is being adopted by SMBs for back-office tasks, not just engineering.",
+    "Confirmation that the founder has a legal guardian or co-founder who can sign investment documents.",
+    "Proof that the 'buy anything' feature is a core, proprietary capability rather than a thin wrapper around Prava."
+  ]
+}
