@@ -165,12 +165,44 @@ local commit-splitting incidents are logged above.
 
 ### What I actually did vs. what the AI did
 
-TODO(@prakash) — write near submission, in your own words.
+The split was roughly: I decided, it typed. I picked the seed type (topic
+query), set the LLM strategy (a provider-agnostic client so I could run local
+models — first Ollama with gemma3:12b, then oMLX with Qwen3.8-27B), approved
+the thesis direction, and ran the manual test runs against my own endpoints.
+The AI wrote essentially all of the code, tests, prompts, and the factual log
+entries above — my job was reviewing the plan and thesis before implementation,
+making the go/no-go call at each milestone, and judging the outputs. The two
+calls I'm glad I didn't delegate: going deep on one source (HN) instead of
+several shallow ones, and asking a separate agent for an adversarial review
+before submitting. The call I got wrong: being ready to ship the first demo
+run because the memos *looked* polished.
 
 ### Where the AI was wrong or unhelpful
 
-TODO(@prakash) — concrete incidents only; this section is worth more than praise.
+Concrete incidents, all documented above:
+
+- Its first full demo run classified all 12 candidates `b2b_smb` with
+  thesis-fit 5/5 — including a crypto protocol the thesis explicitly gates.
+  It was prepared to commit that as the showcase output; only the adversarial
+  review I called for caught it.
+- It asked the model politely to cite sources instead of enforcing citations
+  in code. A URL in a memo proved a page exists, not that it supports the
+  sentence. It took an outside review to turn that into a hard check.
+- It initially blamed the oMLX server for a "hang" that was actually its own
+  client not suppressing the model's thinking mode — one candidate burned
+  15+ minutes before the config fix made it ~6.
+- Smaller, but on me for not catching sooner: an accidental empty commit, and
+  twice staging half the repo with `git add -A` after we had agreed on small,
+  clean commits.
 
 ### What I'd do differently next time
 
-TODO(@prakash)
+- Write the mechanical audit script on day one. "The model scored it" is not
+  "the thesis was applied" — I want a dumb script checking the smart one
+  before any output gets committed as a demo.
+- Never compare two models on one candidate and generalize. Qwen looking
+  sharper on a single preflight memo told me nothing about the other eleven.
+- Make a human spot-check of the top calls a required gate. Ten minutes of
+  reading evidence would have caught the X402 gate-miss before any reviewer.
+- Keep commit discipline from the first commit instead of recovering it after
+  staging accidents.
