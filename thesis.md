@@ -65,6 +65,9 @@ for every claim. Code maps subscores to weights: `score = Σ weight × (subscore
 
 - **5** Squarely in thesis: B2B, SMB buyer, manual-workflow automation, bottom-up motion.
 - **3** Adjacent: right motion, wrong segment (or vice versa) with a credible path.
+  **Tooling whose buyer is the AI developer — agent frameworks, agent infra,
+  dev tooling — is adjacent, not core: thesis_fit ≤ 3 and category
+  `b2b_other`, unless evidence shows a non-developer SMB buyer.**
 - **1** Outside thesis but not gated out.
 
 ## Call bands

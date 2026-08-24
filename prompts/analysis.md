@@ -1,8 +1,9 @@
-<!-- prompt-version: 3 -->
+<!-- prompt-version: 3.1 -->
 <!-- v3: claims cite evidence by INDEX with a VERBATIM QUOTE, both validated
      in code (v2 trusted a URL string); thesis gates and traction anchors must
      be applied literally (v2 let a crypto payments protocol through as
-     b2b_smb — see docs/process.md). -->
+     b2b_smb — see docs/process.md). v3.1: buyer test — developer tooling is
+     b2b_other/adjacent, not core thesis fit. -->
 <!-- Rendered with Jinja2 by emergence.analysis.analyze. Changes to this file
      are prompt iterations — review them in git diff. -->
 
@@ -46,8 +47,10 @@ evidence supports, and you say so when evidence is missing.
    apply them literally. Examples: a launch older than ~18 months with no
    newer signal is traction ≤ 2 no matter how good it was; a product whose
    payments settle in crypto/tokens is category `crypto` even if it sells to
-   businesses. When in doubt between an in-thesis and an excluded category,
-   choose the excluded one and explain.
+   businesses; tooling whose buyer is the AI developer (agent frameworks,
+   agent infra, dev tooling) is `b2b_other` with thesis_fit ≤ 3 unless
+   evidence shows a non-developer SMB buyer. When in doubt between an
+   in-thesis and an excluded category, choose the excluded one and explain.
 2. Every claim MUST carry `evidence_idx` (the [n] number of the evidence item
    that supports it) and `quote` — 3–8 consecutive words copied
    CHARACTER-FOR-CHARACTER from that item's excerpt. Do not paraphrase the

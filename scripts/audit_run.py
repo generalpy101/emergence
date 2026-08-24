@@ -26,8 +26,10 @@ from emergence.analysis.analyze import validate_claims
 from emergence.models import Analysis, Category, EvidencePack
 
 EXCLUDED = {Category.CONSUMER, Category.CRYPTO, Category.HARDWARE, Category.AGENCY}
+# Strong, unambiguous crypto-settlement signals only. Bare "token" is excluded
+# on purpose: "API tokens" / "LLM tokens" are ubiquitous in AI products.
 CRYPTO_SIGNAL = re.compile(
-    r"\b(usdc|on-?chain|evm|solana|stablecoin|token(?! ring)|web3|crypto)\b",
+    r"\b(usdc|stablecoins?|on-?chain|evm|solana|web3|crypto(?:currency)?|blockchain)\b",
     re.IGNORECASE,
 )
 STALE_MONTHS = 18
