@@ -1,3 +1,0 @@
-{"candidate": "nex-crm-wuphf", "model": "Qwen3.8-27B-4bit", "prompt_sha": "1b33ec024eb6", "input_tokens": 3597, "output_tokens": 1384, "latency_ms": 134445, "repaired": false, "ok": true}
-{"candidate": "lahfir-agent-desktop", "model": "Qwen3.8-27B-4bit", "prompt_sha": "1b33ec024eb6", "input_tokens": 3382, "output_tokens": 1322, "latency_ms": 153470, "repaired": false, "ok": true}
-{"candidate": "sprocket-demo-spikonado-com", "model": "Qwen3.8-27B-4bit", "prompt_sha": "1b33ec024eb6", "input_tokens": 2893, "output_tokens": 1467, "latency_ms": 231848, "repaired": false, "ok": true}
